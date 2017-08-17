@@ -1,0 +1,52 @@
+{
+  "author": "ManuKpL",
+  "dependencies": {
+    "@angular/common": "^4.3.5",
+    "@angular/compiler": "^4.3.5",
+    "@angular/core": "^4.3.5",
+    "@angular/platform-browser": "^4.3.5",
+    "@angular/platform-browser-dynamic": "^4.3.5",
+    "core-js": "^2.5.0",
+    "express": "^4.15.4",
+    "html-webpack-plugin": "^2.30.1",
+    "rxjs": "^5.4.3",
+    "webpack": "^3.5.5",
+    "zone.js": "^0.8.16"
+  },
+  "devDependencies": {
+    "@types/core-js": "^0.9.42",
+    "@types/node": "^8.0.24",
+    "angular2-template-loader": "^0.6.2",
+    "css-loader": "^0.28.5",
+    "eslint": "^4.4.1",
+    "eslint-config-airbnb-base": "^11.3.1",
+    "eslint-plugin-import": "^2.7.0",
+    "node-sass": "^4.5.3",
+    "raw-loader": "^0.5.1",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.18.2",
+    "ts-loader": "^2.3.3",
+    "ts-node": "^3.3.0",
+    "tslint": "^5.6.0",
+    "typescript": "^2.4.2",
+    "webpack-dev-server": "^2.7.1"
+  },
+  "description": "simple landing page",
+  "engines": {
+    "node": "8.1.3"
+  },
+  "keywords": [],
+  "license": "MIT",
+  "main": "src/main.ts",
+  "name": "linteretgeneralfr",
+  "repository": {
+    "type": "git",
+    "url": "soon"
+  },
+  "scripts": {
+    "build": "webpack --config ./config/webpack.js --progress",
+    "start": "node ./config/prodserver.js",
+    "start:dev": "webpack-dev-server --config ./config/webpack.js --progress"
+  },
+  "version": "0.0.1"
+}
