@@ -18,9 +18,11 @@ module.exports = {
   },
   module: {
     loaders: [
-      { loader: 'raw-loader', test: /\.(css|html)$/ },
+      { exclude: /node_modules/, loader: 'raw-loader', test: /\.(css|html)$/ },
+      { exclude: /node_modules/, loader: 'file-loader?name=img/img-[hash:6].[ext]', test: /\.png$/ },
+      { loader: 'file-loader?name=fonts/[name].[ext]', test: /\.(svg|eot|otf|woff|woff2|ttf)$/ },
       { exclude: /node_modules/, loaders: ['ts-loader', 'angular2-template-loader'], test: /\.ts$/ },
-      { exclude: /node_modules/, loaders: ['style-loader', 'css-loader', 'sass-loader'], test: /\.scss$/ },
+      { exclude: /node_modules/, loaders: ['raw-loader', 'sass-loader'], test: /\.scss$/ },
     ],
   },
   output: {
