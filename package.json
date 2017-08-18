@@ -50,5 +50,5 @@
     "start:dev": "webpack-dev-server --config ./config/webpack.js --progress",
     "heroku-postbuild": "webpack --config ./config/webpack.js --progress"
   },
-  "version": "0.1.0"
+  "version": "0.1.1"
 }
