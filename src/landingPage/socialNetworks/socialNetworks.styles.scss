@@ -1,4 +1,4 @@
-.social-networks {
+.ig-social-networks {
   padding: 1.5em 2em;
   display: flex;
   align-items: center;
@@ -15,5 +15,5 @@
 }
 
 @media screen and (max-width: 700px) {
-  .social-networks { flex-direction: column; }
+  .ig-social-networks { flex-direction: column; }
 }

@@ -4,8 +4,8 @@ import { LandingComponent }        from './landing.component';
 import { SocialNetworksComponent } from './socialNetworks/socialNetworks.component';
 
 @NgModule({
-  exports:      [LandingComponent],
+  bootstrap:    [LandingComponent],
   declarations: [LandingComponent, SocialNetworksComponent],
-  bootstrap:    [LandingComponent]
+  exports:      [LandingComponent],
 })
 export class LandingPageModule {}
