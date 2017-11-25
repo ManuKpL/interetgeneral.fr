@@ -1,4 +1,6 @@
-import { NgModule }    from '@angular/core';
+import { NgModule }     from '@angular/core';
+import { CommonModule } from '@angular/common';
+
 
 import NavbarComponent from './navbar/navbar.component';
 
@@ -6,5 +8,6 @@ import NavbarComponent from './navbar/navbar.component';
   bootstrap:    [NavbarComponent],
   declarations: [NavbarComponent],
   exports:      [NavbarComponent],
+  imports:      [CommonModule],
 })
-export default class NavbarModule {};
+export default class NavbarModule {}

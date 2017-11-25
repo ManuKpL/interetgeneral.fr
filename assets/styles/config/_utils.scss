@@ -1,14 +1,27 @@
-*    { box-sizing: border-box; }
-html { font-family: 'sans-serif'; }
+* {
+  box-sizing: border-box;
+  &::after { box-sizing: border-box; }
+  &::before { box-sizing: border-box; }
+}
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.42857;
+  margin: 0;
+}
+
+a { text-decoration: none; color: inherit; cursor: pointer; }
 
 .container { padding: 0 15px; margin: 0 auto; }
-.hidden    { display: none; }
+.hidden    { display: none !important; }
+.faded     { opacity: 0 !important; }
+.closed    { height: 0px !important; }
 
 .full-cover {
   position: absolute;
   top: 0;
   right: 0;
-  bottom: 0;
+  bottom: 1px;
   left: 0;
 }
 

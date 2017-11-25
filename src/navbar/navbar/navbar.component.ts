@@ -9,4 +9,9 @@ const logoIG = require('../../../assets/images/IG-logo.png');
 })
 export default class NavbarComponent {
   public logoIG: string = logoIG;
-};
+  public displayDropdown = false;
+
+  public toggleDropdown(): void {
+    this.displayDropdown = !this.displayDropdown;
+  }
+}

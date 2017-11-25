@@ -1,15 +1,13 @@
 @import '../../../assets/styles/config/_variables.scss';
 
-$base-cover-size: calc(100vw - 30px);
-
 .ig-landing {
-  margin: 2em 0;
+  padding: 2em 0;
 
   &-covers {
     ig-landing-cover {
       padding: 20px;
-      width: $base-cover-size;
-      height: $base-cover-size;
+      width: calc(100vw - 30px);
+      height: calc(100vw - 60px);
     }
     &-group {
       &-one { display: flex; flex-wrap: wrap; }
@@ -26,8 +24,8 @@ $base-cover-size: calc(100vw - 30px);
 }
 
 /******************************************************************************
- * RESPONSIVENESS                                                             *
- ******************************************************************************/
+  * RESPONSIVENESS                                                             *
+  ******************************************************************************/
 
 @mixin resizingCovers($container-width) {
   $container-inner-width: $container-width - 30px;

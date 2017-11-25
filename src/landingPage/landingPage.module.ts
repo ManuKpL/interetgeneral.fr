@@ -9,6 +9,6 @@ import SocialNetworksComponent from './socialNetworks/socialNetworks.component';
   bootstrap:    [LandingComponent],
   declarations: [LandingComponent, SocialNetworksComponent, CoverComponent],
   exports:      [LandingComponent],
-  imports:      [CommonModule]
+  imports:      [CommonModule],
 })
 export default class LandingPageModule {}
