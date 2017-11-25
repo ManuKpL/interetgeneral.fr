@@ -1,16 +1,8 @@
-<div class="ig-landing">
+<main class="ig-landing">
 
   <h1 class="hidden">L'Intérêt Général</h1>
 
-  <main class="ig-landing-covers">
-    <section class="ig-landing-covers-group-one">
-      <ig-landing-cover *ngFor="let cover of coversGroupOne" [cover]="cover"></ig-landing-cover>
-    </section>
-
-    <section class="ig-landing-covers-group-two">
-      <ig-landing-cover *ngFor="let cover of coversGroupTwo" [cover]="cover"></ig-landing-cover>
-    </section>
-  </main>
+    <ig-editions></ig-editions>
 
   <div class="ig-landing-caption text-center">
     L’Intérêt général est la revue du Parti de Gauche. Lieu de réflexion, support de formation et outil d'agitation, il paraît tous les trois mois.
@@ -18,4 +10,4 @@
 
   <ig-landing-social-networks></ig-landing-social-networks>
 
-</div>
+</main>

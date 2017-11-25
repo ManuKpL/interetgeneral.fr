@@ -1,14 +1,15 @@
 import { NgModule }     from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import CoverComponent          from './cover/cover.component';
+import EditionsModule   from '../editions/editions.module';
+
 import LandingComponent        from './landing.parent/landing.component';
 import SocialNetworksComponent from './socialNetworks/socialNetworks.component';
 
 @NgModule({
   bootstrap:    [LandingComponent],
-  declarations: [LandingComponent, SocialNetworksComponent, CoverComponent],
+  declarations: [LandingComponent, SocialNetworksComponent],
   exports:      [LandingComponent],
-  imports:      [CommonModule],
+  imports:      [CommonModule, EditionsModule],
 })
 export default class LandingPageModule {}

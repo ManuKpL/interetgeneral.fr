@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'ig-landing-cover',
+  selector: 'ig-editions-cover',
   templateUrl: './cover.template.html',
   styleUrls: ['./cover.styles.scss'],
 })
