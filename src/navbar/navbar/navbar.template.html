@@ -12,17 +12,23 @@
 
   <section class="ig-navbar-burger">
     <i class="fa fa-bars ig-navbar-burger-trigger" aria-hidden="true" (click)="toggleDropdown()"></i>
-    <ul class="ig-navbar-burger-dropdown" [ngClass]="{ 'hidden': !displayDropdown }">
-      <li class="ig-navbar-burger-dropdown-item">
-        <a>Numéros</a>
-      </li>
-      <li class="ig-navbar-burger-dropdown-item">
-        <a>À propos</a>
-      </li>
+    <ul class="ig-navbar-burger-dropdown" [ngClass]="{ 'hidden': !displayDropdown }" (click)="toggleDropdown()">
+      <a>
+        <li class="ig-navbar-burger-dropdown-item">
+          Numéros
+        </li>
+      </a>
+      <a>
+        <li class="ig-navbar-burger-dropdown-item">
+          À propos
+        </li>
+      </a>
       <hr>
-      <li class="ig-navbar-burger-dropdown-item">
-        <a href="https://croquant.atheles.org/linteretgeneral/index_parution.html" target="_blank">Commander</a>
-      </li>
+      <a href="https://croquant.atheles.org/linteretgeneral/index_parution.html" target="_blank">
+        <li class="ig-navbar-burger-dropdown-item">
+          Commander
+        </li>
+      </a>
     </ul>
     <div class="ig-navbar-burger-overlay" [ngClass]="{ 'faded closed': !displayDropdown }" (click)="toggleDropdown()"></div>
   </section>
