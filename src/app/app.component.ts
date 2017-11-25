@@ -8,7 +8,7 @@ const bannerSrc = require('../../assets/images/banner.png');
   styleUrls: [ './app.styles.scss' ],
   encapsulation: ViewEncapsulation.None,
 })
-export class AppComponent {
+export default class AppComponent {
   public name = 'world';
   public bannerSrc = bannerSrc;
 }

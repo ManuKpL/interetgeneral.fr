@@ -7,6 +7,6 @@ const logoInstagramSrc = require('../../../assets/images/instagram-logo.png')
   templateUrl: './socialNetworks.template.html',
   styleUrls: [ './socialNetworks.styles.scss' ]
 })
-export class SocialNetworksComponent {
+export default class SocialNetworksComponent {
   public logoInstagramSrc = logoInstagramSrc;
 }

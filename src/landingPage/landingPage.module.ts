@@ -1,11 +1,14 @@
-import { NgModule }      from '@angular/core';
+import { NgModule }     from '@angular/core';
+import { CommonModule } from '@angular/common';
 
-import { LandingComponent }        from './landing.component';
-import { SocialNetworksComponent } from './socialNetworks/socialNetworks.component';
+import CoverComponent          from './cover/cover.component';
+import LandingComponent        from './landing.component';
+import SocialNetworksComponent from './socialNetworks/socialNetworks.component';
 
 @NgModule({
   bootstrap:    [LandingComponent],
-  declarations: [LandingComponent, SocialNetworksComponent],
+  declarations: [LandingComponent, SocialNetworksComponent, CoverComponent],
   exports:      [LandingComponent],
+  imports:      [CommonModule]
 })
-export class LandingPageModule {}
+export default class LandingPageModule {}

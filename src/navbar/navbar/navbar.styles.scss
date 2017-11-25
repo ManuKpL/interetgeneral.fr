@@ -20,12 +20,10 @@
       padding: 10px;
       border: 1px solid transparent;
       position: relative;
-      &:hover {
-        border-bottom-color: #F92929;
-        border-top-color: #F92929;
-      }
+      &:hover { border-color: #F92929; }
       &:active {
         padding: 11px 9px 9px 11px;
+        box-shadow: inset 1px 2px 5px 1px rgba(150, 150, 150, 0.2);
       }
       &:not(:last-of-type):not(:first-of-type)::after {
         content: '';

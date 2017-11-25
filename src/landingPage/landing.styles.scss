@@ -1,14 +1,42 @@
+$base-cover-size: 1140px / 3;
+
 .ig-landing {
   margin: 2em 0;
-  // box-shadow: 2px 2px 5px 1px rgba(120, 120, 120, .7);
-  // background-color: white;
 
   &-banner {
-    &-container { overflow: hidden; border-radius: 2px; }
+    &-container {
+      overflow: hidden;
+      border-radius: 2px;
+      margin: 20px;
+    }
     &-img {
       width: 100%;
       transition: transform ease .5s;
       &:hover { transform: scale(1.05); }
+    }
+  }
+
+  &-covers {
+    ig-landing-cover {
+      padding: 20px;
+      width: $base-cover-size;
+      height: $base-cover-size;
+    }
+    &-group {
+      &-one {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        height: $base-cover-size * 2;
+        ig-landing-cover:first-child {
+          width: $base-cover-size * 2;
+          height: $base-cover-size * 2;
+        }
+      }
+      &-two {
+        display: flex;
+        flex-wrap: wrap;
+      }
     }
   }
 
