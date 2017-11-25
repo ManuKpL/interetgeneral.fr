@@ -1,7 +1,7 @@
 <div class="ig-landing">
 
+  <h1 class="hidden">L'Intérêt Général</h1>
   <!-- <header class="ig-landing-banner-container">
-    <h1 class="hidden">L'Intérêt Général</h1>
     <a href="https://croquant.atheles.org/linteretgeneral/index_parution.html" target="_blank">
       <img class="ig-landing-banner-img" [src]="bannerSrc" alt="Commandez l'intérêt général">
     </a>
@@ -9,11 +9,11 @@
 
   <main class="ig-landing-covers">
     <section class="ig-landing-covers-group-one">
-      <ig-landing-cover *ngFor="let cover of coversGroupOne" [imgSrc]="cover.path"></ig-landing-cover>
+      <ig-landing-cover *ngFor="let cover of coversGroupOne" [cover]="cover"></ig-landing-cover>
     </section>
 
     <section class="ig-landing-covers-group-two">
-      <ig-landing-cover *ngFor="let cover of coversGroupTwo" [imgSrc]="cover.path"></ig-landing-cover>
+      <ig-landing-cover *ngFor="let cover of coversGroupTwo" [cover]="cover"></ig-landing-cover>
     </section>
   </main>
 

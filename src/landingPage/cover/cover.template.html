@@ -1,5 +1,13 @@
 <section class="ig-cover-container">
   <a>
-    <img class="ig-cover-img" [src]="imgSrc" alt="Commandez l'intérêt général">
+    <img class="ig-cover-img"
+         [ngClass]="{ 'ig-cover-img-important': cover.latest }"
+         [src]="cover.imgSrc"
+         [alt]="cover.title"
+         >
+    <dl class="ig-cover-text">
+      <dt>{{ cover.title }}</dt>
+      <dd>{{ cover.shortDesc }}</dd>
+    </dl>
   </a>
 </section>

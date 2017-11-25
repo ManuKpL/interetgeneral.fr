@@ -7,7 +7,6 @@ import { Component, Input } from '@angular/core';
 })
 export default class CoverComponent {
 
-  @Input() imgSrc: string;
-  @Input() imgWidth = '50%';
+  @Input() cover: ICoverDef;
 
-};
+}
