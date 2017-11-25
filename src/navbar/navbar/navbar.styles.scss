@@ -1,6 +1,8 @@
+@import '../../../assets/styles/config/_variables.scss';
+
 .ig-navbar {
   background-color: white;
-  border-bottom: 2px solid #F92929;
+  border-bottom: 2px solid $ig-red;
 
   display: flex;
   align-items: center;
@@ -15,12 +17,12 @@
       font-family: Lato, sans-serif;
       font-weight: 100;
       font-size: 24px;
-      color: #F92929;
+      color: $ig-red;
       margin-left: 10px;
       padding: 10px;
       border: 1px solid transparent;
       position: relative;
-      &:hover { border-color: #F92929; }
+      &:hover { border-color: $ig-red; }
       &:active {
         padding: 11px 9px 9px 11px;
         box-shadow: inset 1px 2px 5px 1px rgba(150, 150, 150, 0.2);
@@ -30,18 +32,18 @@
         position: absolute;
         left: -8px;
         top: 50%;
-        border: 1px solid #F92929;
+        border: 1px solid $ig-red;
         height: 4px;
         width: 4px;
         border-radius: 50%;
-        background-color: #F92929;
+        background-color: $ig-red;
       }
     }
     &-important {
-      border-color: #F92929;
+      border-color: $ig-red;
       &:hover {
         color: white;
-        background-color: #F92929;
+        background-color: $ig-red;
       }
       &:active {
         box-shadow: inset 1px 2px 5px 1px rgba(80, 80, 80, 0.2);

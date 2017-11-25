@@ -2,7 +2,7 @@ import { NgModule }     from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import CoverComponent          from './cover/cover.component';
-import LandingComponent        from './landing.component';
+import LandingComponent        from './landing.parent/landing.component';
 import SocialNetworksComponent from './socialNetworks/socialNetworks.component';
 
 @NgModule({

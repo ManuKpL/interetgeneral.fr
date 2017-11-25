@@ -1,0 +1,53 @@
+@import '../../../assets/styles/config/_variables.scss';
+
+$base-cover-size: calc(100vw - 30px);
+
+.ig-landing {
+  margin: 2em 0;
+
+  &-covers {
+    ig-landing-cover {
+      padding: 20px;
+      width: $base-cover-size;
+      height: $base-cover-size;
+    }
+    &-group {
+      &-one { display: flex; flex-wrap: wrap; }
+      &-two { display: flex; flex-wrap: wrap; }
+    }
+  }
+
+  &-caption {
+    max-width: 300px;
+    margin: auto;
+    font-style: italic;
+    padding-top: 70px;
+  }
+}
+
+/******************************************************************************
+ * RESPONSIVENESS                                                             *
+ ******************************************************************************/
+
+@mixin resizingCovers($container-width) {
+  $container-inner-width: $container-width - 30px;
+  $base-cover-size: $container-inner-width / 3;
+  .ig-landing .ig-landing-covers {
+    ig-landing-cover {
+      width: $base-cover-size;
+      height: $base-cover-size;
+    }
+    &-group-one {
+      flex-direction: column;
+      height: $base-cover-size * 2;
+      ig-landing-cover:first-child {
+        width: $base-cover-size * 2;
+        height: $base-cover-size * 2;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $screen-sm) { @include resizingCovers($container-sm); }
+@media screen and (min-width: $screen-md) { @include resizingCovers($container-md); }
+@media screen and (min-width: $screen-lg) { @include resizingCovers($container-lg); }
