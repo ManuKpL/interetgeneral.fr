@@ -52,6 +52,7 @@ h2 {
     right: -40px;
   }
 }
+@media screen and (max-width: $screen-xs) { h2::after, h2::before { display: none; } }
 
 /******************************************************************************
  * STATUS                                                                     *
