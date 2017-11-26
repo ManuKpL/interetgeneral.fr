@@ -1,20 +1,14 @@
-<main class="ig-landing">
+<main class="ig-landing padded-bottom">
 
   <h1 class="hidden">L'Intérêt Général</h1>
 
-  <div class="text-center">
-    <h2>Derniers numéros</h2>
-  </div>
-
-  <ig-editions [reducedList]="true"></ig-editions>
+  <ig-editions [reducedList]="true" [pageTitle]="'Derniers Numéros'"></ig-editions>
 
   <div class="ig-landing-caption text-center">
     L’Intérêt général est la revue du Parti de Gauche. Lieu de réflexion, support de formation et outil d'agitation, il paraît tous les trois mois.
   </div>
 
-  <div class="text-center">
-    <h2>Nous suivre</h2>
-  </div>
+  <ig-infographies [pageTitle]="'Dernières Infographies'"></ig-infographies>
 
   <ig-landing-social-networks></ig-landing-social-networks>
 

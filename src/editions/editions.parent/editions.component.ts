@@ -34,6 +34,7 @@ export default class EditionsComponent implements OnInit {
   coversGroupTwo: ICoverDef[] = [];
 
   @Input() reducedList = false;
+  @Input() pageTitle = 'Numéros Parus';
 
   ngOnInit() {
     coversList[0].latest = true;

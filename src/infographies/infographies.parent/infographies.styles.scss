@@ -1,0 +1,20 @@
+
+.ig-infographies {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  &-item {
+    height: 300px;
+    width: 300px;
+    margin: 20px;
+    box-shadow: 2px 2px 5px 1px rgba(80, 80, 80, .2);
+    background-size: cover;
+    background-position: center;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    &:hover {
+      cursor: pointer;
+      box-shadow: 2px 2px 5px 2px rgba(80, 80, 80, .4);
+    }
+  }
+}

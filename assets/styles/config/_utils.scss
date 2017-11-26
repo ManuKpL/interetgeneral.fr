@@ -70,7 +70,11 @@ h2 {
 @media screen and (min-width: $screen-md) { .container { width: $container-md; } }
 @media screen and (min-width: $screen-lg) { .container { width: $container-lg; } }
 
-.padded { padding: 2em 0; }
+.padded {
+  padding: 2em 0;
+  &-top { padding-top: 2em; }
+  &-bottom { padding-bottom: 2em; }
+}
 .full-cover {
   position: absolute;
   top: 0;
