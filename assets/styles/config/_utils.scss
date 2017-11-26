@@ -1,1 +1,85 @@
-//
+/******************************************************************************
+ * GLOBAL                                                                     *
+ ******************************************************************************/
+
+* {
+  box-sizing: border-box;
+  &::after { box-sizing: border-box; }
+  &::before { box-sizing: border-box; }
+}
+
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.42857;
+  margin: 0;
+}
+
+/******************************************************************************
+ * ELEMENTS                                                                   *
+ ******************************************************************************/
+
+a { text-decoration: none; color: inherit; cursor: pointer; }
+
+h2 {
+  color: $ig-red;
+  font-family: Lato, sans-serif;
+  font-weight: 100;
+  text-transform: uppercase;
+  font-size: 42px;
+  position: relative;
+  display: inline-block;
+  border-top: 2px solid $ig-red;
+  border-bottom: 2px solid $ig-red;
+  &::before {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: $ig-red;
+    transform: rotate(45deg);
+    top: 25px;
+    left: -40px;
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: $ig-red;
+    transform: rotate(45deg);
+    top: 25px;
+    right: -40px;
+  }
+}
+
+/******************************************************************************
+ * STATUS                                                                     *
+ ******************************************************************************/
+
+.hidden    { display: none !important; }
+.faded     { opacity: 0 !important; }
+.closed    { height: 0px !important; }
+
+/******************************************************************************
+ * DISPLAY                                                                    *
+ ******************************************************************************/
+
+.container { padding: 0 15px; margin: 0 auto; }
+@media screen and (min-width: $screen-sm) { .container { width: $container-sm; } }
+@media screen and (min-width: $screen-md) { .container { width: $container-md; } }
+@media screen and (min-width: $screen-lg) { .container { width: $container-lg; } }
+
+.padded {
+  padding: 2em 0;
+  &-top { padding-top: 2em; }
+  &-bottom { padding-bottom: 2em; }
+}
+.full-cover {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 1px;
+  left: 0;
+}
+.text-center { text-align: center; }

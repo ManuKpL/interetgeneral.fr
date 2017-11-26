@@ -2,3 +2,4 @@ extends: airbnb-base
 rules:
   no-multi-spaces: 0
   no-console: [1, { allow: [info, warn, error] }]
+  import/no-extraneous-dependencies: 0

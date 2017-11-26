@@ -1,0 +1,8 @@
+<div class="ig-infographies-modal" (click)="close()" *ngIf="isOpen">
+  <div class="ig-infographies-modal-overlay">
+    <div class="ig-infographies-modal-content">
+      <span><i class="fa fa-times"></i></span>
+      <img [src]="infography.imgSrc" [alt]="infography.title">
+    </div>
+  </div>
+</div>

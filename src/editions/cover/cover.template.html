@@ -1,0 +1,15 @@
+<section class="ig-cover-container">
+  <a class="full-cover">
+    <img class="ig-cover-img"
+         [ngClass]="{ 'ig-cover-img-important': cover.latest }"
+         [src]="cover.imgSrc"
+         [alt]="cover.title"
+         >
+    <dl class="ig-cover-text">
+      <dt>{{ cover.title }}</dt>
+      <dd>{{ cover.shortDesc }}</dd>
+    </dl>
+    <i class="ig-cover-badge">#{{ cover.number }}</i>
+    <i class="ig-cover-important" *ngIf="cover.latest">Dernière parution</i>
+  </a>
+</section>

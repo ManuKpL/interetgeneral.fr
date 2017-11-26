@@ -1,0 +1,36 @@
+<nav class="ig-navbar container">
+
+  <a routerLink="/" routerLinkActive="active">
+    <img class="ig-navbar-logo" [src]="logoIG" alt="L'Intérêt Général">
+  </a>
+
+  <section class="ig-navbar-menu">
+    <a class="ig-navbar-menu-item" routerLink="/editions">Numéros</a>
+    <a class="ig-navbar-menu-item" routerLink="/infographies">Infographies</a>
+    <a class="ig-navbar-menu-item ig-navbar-menu-important" href="https://croquant.atheles.org/linteretgeneral/index_parution.html" target="_blank">Commander</a>
+  </section>
+
+  <section class="ig-navbar-burger">
+    <i class="fa fa-bars ig-navbar-burger-trigger" aria-hidden="true" (click)="toggleDropdown()"></i>
+    <ul class="ig-navbar-burger-dropdown" [ngClass]="{ 'hidden': !displayDropdown }" (click)="toggleDropdown()">
+      <a routerLink="/editions">
+        <li class="ig-navbar-burger-dropdown-item">
+          Numéros
+        </li>
+      </a>
+      <a routerLink="/infographies">
+        <li class="ig-navbar-burger-dropdown-item">
+          Infographies
+        </li>
+      </a>
+      <hr>
+      <a href="https://croquant.atheles.org/linteretgeneral/index_parution.html" target="_blank">
+        <li class="ig-navbar-burger-dropdown-item">
+          Commander
+        </li>
+      </a>
+    </ul>
+    <div class="ig-navbar-burger-overlay" [ngClass]="{ 'faded closed': !displayDropdown }" (click)="toggleDropdown()"></div>
+  </section>
+
+</nav>

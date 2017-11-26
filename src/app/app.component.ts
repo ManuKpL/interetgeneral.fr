@@ -1,4 +1,5 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'ig-app',
@@ -6,4 +7,15 @@ import { Component, ViewEncapsulation } from '@angular/core';
   styleUrls: [ './app.styles.scss' ],
   encapsulation: ViewEncapsulation.None,
 })
-export class AppComponent {}
+export default class AppComponent implements OnInit {
+  constructor(private router: Router) { }
+
+  ngOnInit() {
+    this.router.events.subscribe((evt) => {
+      if (!(evt instanceof NavigationEnd)) {
+        return;
+      }
+      window.scrollTo(0, 0)
+    });
+  }
+}
