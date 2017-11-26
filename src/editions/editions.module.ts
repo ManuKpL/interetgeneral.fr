@@ -1,5 +1,7 @@
-import { NgModule }     from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule }      from '@angular/core';
+import { CommonModule }  from '@angular/common';
+
+import RoutingModule     from '../router/router.module';
 
 import CoverComponent    from './cover/cover.component';
 import EditionsComponent from './editions.parent/editions.component';
@@ -8,6 +10,6 @@ import EditionsComponent from './editions.parent/editions.component';
   bootstrap: [EditionsComponent],
   declarations: [CoverComponent, EditionsComponent],
   exports: [EditionsComponent],
-  imports: [CommonModule],
+  imports: [CommonModule, RoutingModule],
 })
 export default class EditionsModule { }

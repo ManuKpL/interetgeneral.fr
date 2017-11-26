@@ -17,6 +17,8 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
 .faded     { opacity: 0 !important; }
 .closed    { height: 0px !important; }
 
+.padded { padding: 2em 0; }
+
 .full-cover {
   position: absolute;
   top: 0;

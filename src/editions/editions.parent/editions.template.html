@@ -4,7 +4,7 @@
       <ig-editions-cover *ngFor="let cover of coversGroupOne" [cover]="cover"></ig-editions-cover>
     </section>
 
-    <section class="ig-editions-covers-group-two">
+    <section class="ig-editions-covers-group-two" *ngIf="!reducedList">
       <ig-editions-cover *ngFor="let cover of coversGroupTwo" [cover]="cover"></ig-editions-cover>
     </section>
   </div>

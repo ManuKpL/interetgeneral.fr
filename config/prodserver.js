@@ -7,5 +7,7 @@ const port    = process.env.PORT || 3000;
 
 const app = express();
 app.use(express.static(`${rootDir}/www`));
-app.use((req, res) => { res.redirect('/'); });
+app.get('*', (req, res) => {
+  res.sendfile('www/index.html');
+});
 app.listen(port, host, () => { console.info('Server started, see:', `http://${host}:${port}/`); });

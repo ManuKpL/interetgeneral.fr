@@ -1,4 +1,5 @@
-const HtmlWebpack = require('html-webpack-plugin');
+const HtmlWebpack        = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const resolve     = require('path').resolve;
 const webpack     = require('webpack');
 
@@ -10,6 +11,9 @@ module.exports = {
   devServer: {
     contentBase: resolve(rootDir, 'www'),
     port: 3000,
+    historyApiFallback: {
+      index: 'index.html',
+    },
   },
   devtool: 'source-map',
   entry: {
@@ -35,6 +39,7 @@ module.exports = {
       resolve(rootDir, 'src'),
       { },
     ),
+    new CleanWebpackPlugin(resolve(rootDir, 'www', '.')),
     new ChunkWebpack({
       filename: 'vendor.bundle.js',
       minChunks: Infinity,

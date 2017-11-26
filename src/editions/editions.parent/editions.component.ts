@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 const coversList = [
   {
@@ -21,7 +21,7 @@ const coversList = [
     shortDesc: 'Ce numéro est consacré à un sujet important',
     number: 1,
     latest: false,
-  }
+  },
 ] as ICoverDef[];
 
 @Component({
@@ -33,10 +33,14 @@ export default class EditionsComponent implements OnInit {
   coversGroupOne: ICoverDef[] = [];
   coversGroupTwo: ICoverDef[] = [];
 
+  @Input() reducedList = false;
+
   ngOnInit() {
     coversList[0].latest = true;
 
     this.coversGroupOne = coversList.slice(0, 3);
-    this.coversGroupTwo = coversList.slice(3, coversList.length);
+    if (!this.reducedList) {
+      this.coversGroupTwo = coversList.slice(3, coversList.length);
+    }
   }
 }
