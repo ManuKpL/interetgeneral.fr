@@ -1,0 +1,7 @@
+@import 'config/index';
+@import 'vendor/index';
+
+.ig-page {
+  margin-top: 67px;
+  @media screen and (min-width: $screen-md) { margin-top: 157px; }
+}

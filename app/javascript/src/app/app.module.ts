@@ -1,16 +1,24 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule }       from '@angular/core';
+import { BrowserModule }  from '@angular/platform-browser';
 
-import { AppComponent } from './app.component';
+import EditionsModule     from '../editions/editions.module';
+import LandingPageModule  from '../landingPage/landingPage.module';
+import InfographiesModule from '../infographies/infographies.module';
+import NavbarModule       from '../navbar/navbar.module';
+import RoutingModule      from '../router/router.module';
+
+import AppComponent       from './app.component';
 
 @NgModule({
-  declarations: [
-    AppComponent
+  bootstrap:    [AppComponent],
+  declarations: [AppComponent],
+  imports:      [
+    BrowserModule,
+    EditionsModule,
+    LandingPageModule,
+    InfographiesModule,
+    NavbarModule,
+    RoutingModule,
   ],
-  imports: [
-    BrowserModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
 })
-export class AppModule { }
+export default class AppModule {}

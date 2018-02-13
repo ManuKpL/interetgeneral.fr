@@ -1,0 +1,93 @@
+@import 'app/assets/stylesheets/config/variables';
+
+.ig-navbar {
+  background-color: white;
+  border-bottom: 2px solid $ig-red;
+  user-select: none;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  max-width: 100vw;
+
+  &-logo { height: 80px; }
+
+  &-menu {
+    display: none;
+    &-item {
+      margin-left: 10px;
+      position: relative;
+      &:not(:last-of-type):not(:first-of-type)::after {
+        content: '';
+        position: absolute;
+        left: -8px;
+        top: 50%;
+        border: 1px solid $ig-red;
+        height: 4px;
+        width: 4px;
+        border-radius: 50%;
+        background-color: $ig-red;
+      }
+    }
+  }
+
+  &-burger {
+    &-trigger {
+      margin-right: 15px;
+      font-size: 42px;
+      color: $ig-red;
+      &:hover { cursor: pointer; }
+    }
+    &-dropdown {
+      z-index: 2;
+      position: absolute;
+      top: 86px;
+      right: 0;
+      border: 1px solid $ig-red;
+      background-color: white;
+      padding: 0;
+      margin: 0;
+      min-width: 50vw;
+      hr {
+        border-top: 1px solid #F92929;
+        border-bottom: none;
+        margin: 0;
+      }
+      &-item {
+        display: block;
+        padding: 20px;
+        font-size: 18px;
+        color: $ig-red;
+        &:hover {
+          cursor: pointer;
+          background-color: $ig-red;
+          color: white;
+        }
+      }
+    }
+    &-overlay {
+      z-index: 1;
+      background-color: rgb(250, 250, 250);
+      right: 0;
+      top: 87px;
+      left: 0;
+      bottom: 0;
+      position: fixed;
+      opacity: .5;
+      height: initial;
+      transition: opacity .5s ease 0s;
+    }
+  }
+}
+@media screen and (min-width: $screen-md) {
+  .ig-navbar .ig-navbar-menu { display: flex; }
+  .ig-navbar .ig-navbar-burger { display: none; }
+  .ig-navbar-logo { height: 150px; }
+}

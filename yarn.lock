@@ -32,6 +32,12 @@
   dependencies:
     tslib "^1.7.1"
 
+"@angular/router@^5.2.4":
+  version "5.2.4"
+  resolved "https://registry.yarnpkg.com/@angular/router/-/router-5.2.4.tgz#21b81958aaf8335454a55ba28ea37166edbcb042"
+  dependencies:
+    tslib "^1.7.1"
+
 "@rails/webpacker@^3.2.1":
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/@rails/webpacker/-/webpacker-3.2.1.tgz#da7331106b93b2818c3595627c88c5c037fff3c8"
@@ -60,6 +66,14 @@
     uglifyjs-webpack-plugin "^1.1.6"
     webpack "^3.10.0"
     webpack-manifest-plugin "^1.3.2"
+
+"@types/core-js@^0.9.46":
+  version "0.9.46"
+  resolved "https://registry.yarnpkg.com/@types/core-js/-/core-js-0.9.46.tgz#ea701ee34cbb6dfe6d100f1530319547c93c8d79"
+
+"@types/node@^9.4.5":
+  version "9.4.5"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-9.4.5.tgz#d2a90c634208173d1b1a0a6ba9f1df3de62edcf5"
 
 abbrev@1:
   version "1.1.1"
@@ -2463,6 +2477,10 @@ flush-write-stream@^1.0.0:
   dependencies:
     inherits "^2.0.1"
     readable-stream "^2.0.4"
+
+font-awesome@^4.7.0:
+  version "4.7.0"
+  resolved "https://registry.yarnpkg.com/font-awesome/-/font-awesome-4.7.0.tgz#8fa8cf0411a1a31afd07b06d2902bb9fc815a133"
 
 for-in@^0.1.3:
   version "0.1.8"

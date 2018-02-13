@@ -1,0 +1,43 @@
+@import 'app/assets/stylesheets/config/_variables.scss';
+
+.ig-editions {
+  &-covers {
+    ig-editions-cover {
+      padding: 20px;
+      width: calc(100vw - 30px);
+      height: calc(100vw - 30px);
+    }
+    &-group {
+      &-one { display: flex; flex-wrap: wrap; }
+      &-two { display: flex; flex-wrap: wrap; }
+    }
+  }
+}
+
+/******************************************************************************
+  * RESPONSIVENESS                                                             *
+  ******************************************************************************/
+
+@mixin resizingCovers($container-width) {
+  $container-inner-width: $container-width - 30px;
+  $base-cover-size: $container-inner-width / 3;
+  .ig-editions .ig-editions-covers {
+    ig-editions-cover {
+      width: $base-cover-size;
+      height: $base-cover-size;
+    }
+    &-group-one {
+      flex-direction: column;
+      height: $base-cover-size * 2;
+      ig-editions-cover:first-child {
+        width: $base-cover-size * 2;
+        height: $base-cover-size * 2;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $screen-sm) { @include resizingCovers($container-sm); }
+@media screen and (min-width: $screen-md) { @include resizingCovers($container-md); }
+@media screen and (min-width: $screen-lg) { @include resizingCovers($container-lg); }
+

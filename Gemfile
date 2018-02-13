@@ -5,6 +5,10 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# devise for user login
+gem 'devise', '~> 4.3.0'
+# protect infos with figaro
+gem 'figaro', '~> 1.1.1'
 # foreman for concurrent server start
 gem 'foreman', '~> 0.64.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -26,6 +30,10 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
+# active admin
+gem 'activeadmin', github: 'activeadmin/activeadmin'
+gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

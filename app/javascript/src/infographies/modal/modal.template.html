@@ -1,0 +1,23 @@
+<div class="ig-infographies-modal"
+     [ngClass]="{ 'disable-body-scroll': isOpen }"
+     *ngIf="isOpen"
+     (click)="close()"
+     >
+  <div class="ig-infographies-modal-overlay">
+    <div class="ig-infographies-modal-content" (click)="$event.stopPropagation()">
+      <div class="ig-infographies-modal-content-head">
+        <span><i class="fa fa-times" (click)="close()"></i></span>
+      </div>
+      <div class="ig-infographies-modal-content-body">
+        <span class="ig-infographies-modal-content-body-prev" (click)="goPrev()">
+          <i class="fa fa-angle-left" aria-hidden="true"></i>
+        </span>
+        <span class="ig-infographies-modal-content-body-next" (click)="goNext()">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+        </span>
+        <img [src]="infography.imgSrc" [alt]="infography.title">
+      </div>
+      <div class="ig-infographies-modal-content-footer"></div>
+    </div>
+  </div>
+</div>

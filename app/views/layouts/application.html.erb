@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>IgFr</title>
+    <base href="/">
+    <title>L'Intérêt Général - La revue du Parti de Gauche</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
   </head>
 
   <body>
-    <%= yield %>
-    <%= javascript_pack_tag 'hello_angular' %>
+
+    <div class="container ig-app">
+      <%= render 'shared/flashes' %>
+      <%= yield %>
+    </div>
+
   </body>
 </html>
