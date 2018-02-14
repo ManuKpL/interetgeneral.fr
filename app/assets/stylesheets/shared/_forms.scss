@@ -1,0 +1,66 @@
+form {
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 30px;
+  border: 1px solid #ccc;
+
+  #error_explanation {
+    text-align: left;
+    h2 {
+      font-weight: 200;
+      font-size: 16px;
+      border: none;
+      text-transform: none;
+      margin: 0;
+      &::after, &::before { display: none; }
+    }
+    ul {
+      font-family: Lato, sans-serif;
+      font-weight: 100;
+      color: $ig-red;
+      margin-top: 0;
+      padding-bottom: 30px;
+    }
+  }
+
+  .field {
+    text-align: left;
+    margin-bottom: 20px;
+    font-family: Lato, sans-serif;
+    font-weight: 100;
+
+    input {
+      width: 100%;
+      border: none;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 5px;
+      transition: all ease-in-out .3s;
+      &:focus, &:active {
+        outline: none;
+        border-bottom-color: $ig-red;
+      }
+      &[type='checkbox'] {
+        width: auto;
+      }
+    }
+  }
+
+  .actions {
+    input {
+      cursor: pointer;
+      background-color: white;
+      font-family: Lato, sans-serif;
+      font-weight: 100;
+      font-size: 20px;
+      color: $ig-red;
+      padding: 10px;
+      border: 1px solid transparent;
+      &:hover, &:active { border-color: $ig-red; outline: none; }
+      &:focus { outline: none; }
+      &:active {
+        padding: 11px 9px 9px 11px;
+        box-shadow: inset 1px 2px 5px 1px rgba(150, 150, 150, 0.2);
+      }
+    }
+  }
+}

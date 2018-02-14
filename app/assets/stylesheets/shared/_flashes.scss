@@ -1,0 +1,17 @@
+.flash {
+  position: fixed;
+  top: 160px;
+  right: 30px;
+  border: 1px solid $ig-red;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 5;
+  &-alert {
+    color: white;
+    background-color: $ig-red;
+  }
+  &-notice {
+    color: $ig-red;
+    background-color: white;
+  }
+}

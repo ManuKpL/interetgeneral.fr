@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   devise_for :users
   root 'pages#home'
 
-  get '*', to: redirect('/')
+  match '*any', to: redirect('/'), via: :all
 end
