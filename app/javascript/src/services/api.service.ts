@@ -7,7 +7,7 @@ export class ApiService {
   constructor(private http: Http) { }
 
   getEditions(): Promise<ICoverDef[] | void> {
-    const uriPath = '/list-editions';
+    const uriPath = '/api/editions';
 
     const handleReturn = (models: IEditionApiData[]): ICoverDef[] => {
      return models.map((model) => ({

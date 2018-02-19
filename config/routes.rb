@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  get '/list-editions', to: 'editions#index', as: 'editions'
+  scope '/api' do
+    get '/editions', to: 'editions#index', as: 'api_editions'
+  end
 
   ActiveAdmin.routes(self)
   devise_for :users
