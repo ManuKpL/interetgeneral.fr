@@ -1,28 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-
-const coversList = [
-  {
-    imgSrc: require('../../../../assets/images/covers/3-placeholder.png'),
-    title: 'Les campagnes',
-    shortDesc: 'Ce numéro est consacré à un sujet important',
-    number: 3,
-    latest: false,
-  },
-  {
-    imgSrc: require('../../../../assets/images/covers/2-travail.png'),
-    title: 'Le travail',
-    shortDesc: 'Ce numéro est consacré à un sujet important',
-    number: 2,
-    latest: false,
-  },
-  {
-    imgSrc: require('../../../../assets/images/covers/1-medias.png'),
-    title: 'Les médias',
-    shortDesc: 'Ce numéro est consacré à un sujet important',
-    number: 1,
-    latest: false,
-  },
-] as ICoverDef[];
+import { ApiService }               from '../../services/api.service';
 
 @Component({
   selector: 'ig-editions',
@@ -36,12 +13,14 @@ export default class EditionsComponent implements OnInit {
   @Input() reducedList = false;
   @Input() pageTitle = 'Numéros Parus';
 
-  ngOnInit() {
-    coversList[0].latest = true;
+  constructor(private api: ApiService) {}
 
-    this.coversGroupOne = coversList.slice(0, 3);
-    if (!this.reducedList) {
-      this.coversGroupTwo = coversList.slice(3, coversList.length);
-    }
+  ngOnInit() {
+    this.api.getEditions().then((coversList: ICoverDef[]) => {
+      this.coversGroupOne = coversList.slice(0, 3);
+      if (!this.reducedList) {
+        this.coversGroupTwo = coversList.slice(3, coversList.length);
+      }
+    });
   }
 }
