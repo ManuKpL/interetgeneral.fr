@@ -11,7 +11,7 @@ export default class EditionsComponent implements OnInit {
   coversGroupTwo: ICoverDef[] = [];
 
   @Input() reducedList = false;
-  @Input() pageTitle = 'Numéros Parus';
+  @Input() pageTitle   = 'Numéros Parus';
 
   constructor(private api: ApiService) {}
 
