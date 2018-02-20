@@ -14,9 +14,12 @@ ActiveAdmin.register Infographic do
   show do
     attributes_table do
       row :title
-      row :image_url
       row :edition
       row :created_at
+      row :image_url
+      row :image_url do |infographic|
+        image_tag infographic.image_url
+      end
     end
     active_admin_comments
   end

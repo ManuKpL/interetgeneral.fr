@@ -21,6 +21,12 @@ ActiveAdmin.register Edition do
       row :latest_issue
       row :image_url
       row :created_at
+      panel 'Infographics' do
+        table_for edition.infographics do
+          column :title
+          column :image_url
+        end
+      end
     end
     active_admin_comments
   end

@@ -1,3 +1,3 @@
 class Edition < ApplicationRecord
-  has_many :infogrpahics
+  has_many :infographics
 end
