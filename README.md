@@ -1,24 +1,17 @@
-# README
+## IGfr
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Projet de site RoR / Angular pour la revue l'Intérêt Général du Parti de Gauche
 
-Things you may want to cover:
+## usage
 
-* Ruby version
+### prod
 
-* System dependencies
+```bash
+bundle install
+rails s
+```
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### dev
+```
+./bin/server
+```
