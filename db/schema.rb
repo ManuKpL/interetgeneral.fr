@@ -12,7 +12,10 @@
 
 ActiveRecord::Schema.define(version: 20180219235143) do
 
-  create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
     t.string "resource_type"
@@ -26,7 +29,7 @@ ActiveRecord::Schema.define(version: 20180219235143) do
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
   end
 
-  create_table "editions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "editions", force: :cascade do |t|
     t.string "image_url"
     t.string "title"
     t.string "short_desc"
@@ -36,7 +39,7 @@ ActiveRecord::Schema.define(version: 20180219235143) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "infographics", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "infographics", force: :cascade do |t|
     t.string "image_url"
     t.string "title"
     t.bigint "edition_id"
@@ -45,7 +48,7 @@ ActiveRecord::Schema.define(version: 20180219235143) do
     t.index ["edition_id"], name: "index_infographics_on_edition_id"
   end
 
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
