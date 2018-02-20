@@ -8,7 +8,6 @@ export class ApiService {
 
   getEditions(): Promise<ICoverDef[] | void> {
     const uriPath = '/api/editions';
-
     const handleReturn = (models: IEditionApiData[]): ICoverDef[] => {
      return models.map((model) => ({
         imgSrc:    model.image_url,
@@ -18,8 +17,24 @@ export class ApiService {
         latest:    model.latest_issue,
      })) as ICoverDef[];
     };
+
     return this.http.get(uriPath).toPromise()
-      .then((res: Response): ICoverDef[] => handleReturn(res.json() as IEditionApiData[]))
+      .then((res: Response): ICoverDef[] => handleReturn(res.json()))
       .catch((e: Error) => console.error(e));
   }
+
+  getInfographics(): Promise<IInfoDef[] | void> {
+    const uriPath = '/api/infographics';
+    const handleReturn = (models: IInfographicApiData[]): IInfoDef[] => {
+      return models.map((model) => ({
+        imgSrc: model.image_url,
+        title: model.title,
+      }));
+    };
+
+    return this.http.get(uriPath).toPromise()
+      .then((res: Response): IInfoDef[] => handleReturn(res.json()))
+      .catch((e: Error) => console.error(e));
+  }
+
 }
