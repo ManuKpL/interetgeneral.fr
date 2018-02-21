@@ -11,9 +11,9 @@
       target="_blank">Commander</a>
   </section>
 
-  <section class="ig-navbar-burger">
-    <i class="fa fa-bars ig-navbar-burger-trigger" aria-hidden="true" (click)="toggleDropdown()"></i>
-    <ul class="ig-navbar-burger-dropdown" [ngClass]="{ 'hidden': !displayDropdown }" (click)="toggleDropdown()">
+  <section class="ig-navbar-burger" (click)="toggleDropdown()">
+    <i class="fas fa-bars ig-navbar-burger-trigger" aria-hidden="true"></i>
+    <ul class="ig-navbar-burger-dropdown" [ngClass]="{ 'hidden': !displayDropdown }">
       <a routerLink="/editions">
         <li class="ig-navbar-burger-dropdown-item">
           Numéros
@@ -31,7 +31,7 @@
         </li>
       </a>
     </ul>
-    <div class="ig-navbar-burger-overlay" [ngClass]="{ 'faded closed': !displayDropdown }" (click)="toggleDropdown()"></div>
+    <div class="ig-navbar-burger-overlay" [ngClass]="{ 'faded closed': !displayDropdown }"></div>
   </section>
 
 </nav>
