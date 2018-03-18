@@ -16,11 +16,16 @@ export default class EditionsComponent implements OnInit {
   constructor(private api: ApiService) {}
 
   ngOnInit() {
-    this.api.getEditions().then((coversList: ICoverDef[]) => {
-      this.coversGroupOne = coversList.slice(0, 3);
-      if (!this.reducedList) {
-        this.coversGroupTwo = coversList.slice(3, coversList.length);
-      }
-    });
+    if (this.reducedList) {
+      this.api.getEditionsSample(3).then((coversList: ICoverDef[]) => {
+        this.coversGroupOne = coversList;
+      });
+    }
+    else {
+      this.api.getEditions().then((coversList: ICoverDef[]) => {
+        this.coversGroupOne = coversList.splice(0, 3);
+        this.coversGroupTwo = coversList;
+      });
+    }
   }
 }

@@ -6,10 +6,27 @@ export class ApiService {
 
   constructor(private http: Http) { }
 
-  getEditions(): Promise<ICoverDef[] | void> {
-    const uriPath = '/api/editions';
+  public getEditions(): Promise<ICoverDef[] | void> {
+    return this.getEditionsFromPath('/api/editions');
+  }
+
+  public getEditionsSample(sampleSize: number): Promise<ICoverDef[] | void> {
+    return this.getEditionsFromPath(`/api/editions-sample?limit=${sampleSize}`);
+  }
+
+  public getInfographics(): Promise<IInfoDef[] | void> {
+    return this.getInfographicsFromPath('/api/infographics');
+  }
+
+  public getInfographicsSample(sampleSize: number): Promise<IInfoDef[] | void> {
+    return this.getInfographicsFromPath(`/api/infographics-sample?limit=${sampleSize}`);
+  }
+
+  // ******************************** PRIVATE ******************************* //
+
+  private getEditionsFromPath(uriPath: string): Promise<ICoverDef[] | void>  {
     const handleReturn = (models: IEditionApiData[]): ICoverDef[] => {
-     return models.map((model) => ({
+      return models.map((model) => ({
         imgSrc:    model.image_url,
         title:     model.title,
         shortDesc: model.short_desc,
@@ -25,8 +42,7 @@ export class ApiService {
       .catch((e: Error) => console.error(e));
   }
 
-  getInfographics(): Promise<IInfoDef[] | void> {
-    const uriPath = '/api/infographics';
+  private getInfographicsFromPath(uriPath: string): Promise<IInfoDef[] | void> {
     const handleReturn = (models: IInfographicApiData[]): IInfoDef[] => {
       return models.map((model) => ({
         imgSrc: model.image_url,
@@ -38,5 +54,4 @@ export class ApiService {
       .then((res: Response): IInfoDef[] => handleReturn(res.json()))
       .catch((e: Error) => console.error(e));
   }
-
 }
