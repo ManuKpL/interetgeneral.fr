@@ -15,7 +15,8 @@ export class ApiService {
         shortDesc: model.short_desc,
         number:    model.issue_number,
         latest:    model.latest_issue,
-        shopPath:  model.shop_path
+        shopPath:  model.shop_path,
+        date:      new Date(model.date),
      })) as ICoverDef[];
     };
 
