@@ -4,6 +4,7 @@ declare interface ICoverDef {
   shortDesc: string;
   number: number;
   latest: boolean;
+  shopPath: string;
 }
 
 declare interface IEditionApiData {
@@ -12,4 +13,5 @@ declare interface IEditionApiData {
   short_desc: string;
   issue_number: number;
   latest_issue: boolean;
+  shop_path: string;
 }

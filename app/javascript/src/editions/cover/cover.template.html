@@ -1,5 +1,5 @@
 <section class="ig-cover-container">
-  <a class="full-cover">
+  <a [href]="cover.shopPath" target="_blank" class="full-cover">
     <img class="ig-cover-img"
          [ngClass]="{ 'ig-cover-img-important': cover.latest }"
          [src]="cover.imgSrc"
