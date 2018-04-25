@@ -34,6 +34,9 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# fix version for dependency requirement without vulnerability
+gem 'loofah', '~> 2.2.1'
+
 # active admin
 gem 'activeadmin', github: 'activeadmin/activeadmin'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
