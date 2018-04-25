@@ -1,6 +1,6 @@
 ActiveAdmin.register Infographic do
 
-  permit_params :image_url, :title, :edition
+  permit_params :image_url, :title, :edition_id
 
   index do
     selectable_column
@@ -32,6 +32,5 @@ ActiveAdmin.register Infographic do
     end
     actions
   end
-
 
 end
