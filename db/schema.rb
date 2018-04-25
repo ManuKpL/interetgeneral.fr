@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180219235143) do
+ActiveRecord::Schema.define(version: 20180425225957) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,27 @@ ActiveRecord::Schema.define(version: 20180219235143) do
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
   end
 
+  create_table "articles", force: :cascade do |t|
+    t.string "title"
+    t.bigint "author_id"
+    t.text "lead"
+    t.text "content"
+    t.bigint "edition_id"
+    t.string "media"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_articles_on_author_id"
+    t.index ["edition_id"], name: "index_articles_on_edition_id"
+  end
+
+  create_table "authors", force: :cascade do |t|
+    t.string "name"
+    t.string "first_name"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "editions", force: :cascade do |t|
     t.string "image_url"
     t.string "title"
@@ -37,6 +58,8 @@ ActiveRecord::Schema.define(version: 20180219235143) do
     t.boolean "latest_issue"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "date"
+    t.string "shop_path"
   end
 
   create_table "infographics", force: :cascade do |t|
@@ -66,5 +89,7 @@ ActiveRecord::Schema.define(version: 20180219235143) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "articles", "authors"
+  add_foreign_key "articles", "editions"
   add_foreign_key "infographics", "editions"
 end
