@@ -14,10 +14,10 @@ class InfographicsController < ApplicationController
   private
 
   def get_infographics
-    @infographics = Infographic.all
+    @infographics = Infographic.order(created_at: :desc)
   end
 
   def get_infographics_sample
-    @infographics_sample = Infographic.limit(params[:limit])
+    @infographics_sample = Infographic.order(created_at: :desc).limit(params[:limit])
   end
 end
