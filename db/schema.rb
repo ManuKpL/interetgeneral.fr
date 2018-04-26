@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20180425225957) do
-=======
-ActiveRecord::Schema.define(version: 20180318160422) do
->>>>>>> [articles] create model for author and articles + relation to editions
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"

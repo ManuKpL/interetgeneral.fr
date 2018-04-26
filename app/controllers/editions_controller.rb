@@ -18,6 +18,11 @@ class EditionsController < ApplicationController
   end
 
   def get_editions_sample
-    @editions_sample = Edition.order(issue_number: :desc).limit(params[:limit])
+    @editions_sample = Edition.order(issue_number: :desc).limit(edition_params[:limit])
   end
+
+  def edition_params
+    params.permit(:limit)
+  end
+
 end
