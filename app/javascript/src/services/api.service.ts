@@ -6,20 +6,23 @@ export class ApiService {
 
   constructor(private http: Http) { }
 
+  private EDITION_BASE_PATH = '/api/edition';
+  private INFOGRAPHIC_BASE_PATH = '/api/infographic';
+
   public getEditions(): Promise<ICoverDef[] | void> {
-    return this.getEditionsFromPath('/api/editions');
+    return this.getEditionsFromPath(this.EDITION_BASE_PATH);
   }
 
-  public getEditionsSample(sampleSize: number): Promise<ICoverDef[] | void> {
-    return this.getEditionsFromPath(`/api/editions-sample?limit=${sampleSize}`);
+  public getEditionsSample(sampleSize = 3): Promise<ICoverDef[] | void> {
+    return this.getEditionsFromPath(`${this.EDITION_BASE_PATH}?limit=${sampleSize}`);
   }
 
   public getInfographics(): Promise<IInfoDef[] | void> {
-    return this.getInfographicsFromPath('/api/infographics');
+    return this.getInfographicsFromPath(this.INFOGRAPHIC_BASE_PATH);
   }
 
-  public getInfographicsSample(sampleSize: number): Promise<IInfoDef[] | void> {
-    return this.getInfographicsFromPath(`/api/infographics-sample?limit=${sampleSize}`);
+  public getInfographicsSample(sampleSize = 3): Promise<IInfoDef[] | void> {
+    return this.getInfographicsFromPath(`${this.INFOGRAPHIC_BASE_PATH}?limit=${sampleSize}`);
   }
 
   // ******************************** PRIVATE ******************************* //

@@ -42,7 +42,7 @@ export default class InfographiesComponent implements OnInit {
 
   ngOnInit() {
     if (this.reducedList) {
-      this.api.getInfographicsSample(3).then((infographies: IInfoDef[]) => {
+      this.api.getInfographicsSample().then((infographies: IInfoDef[]) => {
         this.infographies = infographies;
       });
     }

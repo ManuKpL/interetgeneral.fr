@@ -17,7 +17,7 @@ export default class EditionsComponent implements OnInit {
 
   ngOnInit() {
     if (this.reducedList) {
-      this.api.getEditionsSample(3).then((coversList: ICoverDef[]) => {
+      this.api.getEditionsSample().then((coversList: ICoverDef[]) => {
         this.coversGroupOne = coversList;
       });
     }
