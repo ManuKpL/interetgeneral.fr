@@ -10,10 +10,10 @@ class ArticlesController < ApplicationController
   private
 
   def get_articles
-    @articles = Edition.find(edition_params[:edition_id]).articles.order(created_at: :desc)
+    @articles = Edition.find(editions_params[:edition_id]).articles.order(created_at: :desc)
   end
 
-  def edition_params
+  def editions_params
     params.permit(:edition_id)
   end
 

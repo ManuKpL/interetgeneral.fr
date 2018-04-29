@@ -10,10 +10,10 @@ class AuthorsController < ApplicationController
   private
 
   def get_authors
-    @authors = Edition.find(edition_params[:edition_id]).authors.order(name: :asc)
+    @authors = Edition.find(editions_params[:edition_id]).authors.order(name: :asc)
   end
 
-  def edition_params
+  def editions_params
     params.permit(:edition_id)
   end
 

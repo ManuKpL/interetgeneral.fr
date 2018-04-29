@@ -9,14 +9,14 @@ class EditionsController < ApplicationController
   private
 
   def get_editions
-    if edition_params.has_key?(:limit)
-      @editions = Edition.order(issue_number: :desc).limit(edition_params[:limit])
+    if editions_params.has_key?(:limit)
+      @editions = Edition.order(issue_number: :desc).limit(editions_params[:limit])
     else
       @editions = Edition.order(issue_number: :desc)
     end
   end
 
-  def edition_params
+  def editions_params
     params.permit(:limit)
   end
 
