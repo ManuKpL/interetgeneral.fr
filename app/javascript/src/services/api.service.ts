@@ -6,8 +6,8 @@ export class ApiService {
 
   constructor(private http: Http) { }
 
-  private EDITION_BASE_PATH = '/api/edition';
-  private INFOGRAPHIC_BASE_PATH = '/api/infographic';
+  private EDITION_BASE_PATH = '/api/editions';
+  private INFOGRAPHIC_BASE_PATH = '/api/infographics';
 
   public getEditions(): Promise<ICoverDef[] | void> {
     return this.getEditionsFromPath(this.EDITION_BASE_PATH);
