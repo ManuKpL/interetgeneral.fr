@@ -9,6 +9,14 @@ class InfographicsController < ApplicationController
   private
 
   def get_infographics
-    @infographics = Infographic.all
+    if (infographics_params.has_key?(:limit))
+      @infographics = Infographic.order(created_at: :desc).limit(infographics_params[:limit])
+    else
+      @infographics = Infographic.order(created_at: :desc)
+    end
+  end
+
+  def infographics_params
+    params.permit(:limit)
   end
 end

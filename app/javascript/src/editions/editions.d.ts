@@ -5,6 +5,7 @@ declare interface ICoverDef {
   number: number;
   latest: boolean;
   shopPath: string;
+  date: Date;
 }
 
 declare interface IEditionApiData {
@@ -14,4 +15,5 @@ declare interface IEditionApiData {
   issue_number: number;
   latest_issue: boolean;
   shop_path: string;
+  date: Date;
 }
