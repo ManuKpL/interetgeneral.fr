@@ -41,13 +41,15 @@ export default class InfographiesComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.api.getInfographics().then((infographies: IInfoDef[]) => {
-      if (this.reducedList) {
-        this.infographies = infographies.slice(0, 3);
-      }
-      else {
+    if (this.reducedList) {
+      this.api.getInfographicsSample().then((infographies: IInfoDef[]) => {
         this.infographies = infographies;
-      }
-    });
+      });
+    }
+    else {
+      this.api.getInfographics().then((infographies: IInfoDef[]) => {
+        this.infographies = infographies;
+      });
+    }
   }
 }
