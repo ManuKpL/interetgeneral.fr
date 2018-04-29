@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ApiService }               from '../../services/api.service';
+
+import EditionsResource from '../editions.resource';
 
 @Component({
   selector: 'ig-editions',
@@ -13,16 +14,16 @@ export default class EditionsComponent implements OnInit {
   @Input() reducedList = false;
   @Input() pageTitle   = 'Numéros Parus';
 
-  constructor(private api: ApiService) {}
+  constructor(private resource: EditionsResource) {}
 
   ngOnInit() {
     if (this.reducedList) {
-      this.api.getEditionsSample().then((coversList: ICoverDef[]) => {
+      this.resource.getEditionsSample().then((coversList: ICoverDef[]) => {
         this.coversGroupOne = coversList;
       });
     }
     else {
-      this.api.getEditions().then((coversList: ICoverDef[]) => {
+      this.resource.getEditions().then((coversList: ICoverDef[]) => {
         this.coversGroupOne = coversList.splice(0, 3);
         this.coversGroupTwo = coversList;
       });
