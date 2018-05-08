@@ -1,11 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
 editions = [
   {
     image_url: '/packs/_/assets/images/covers/1-medias-bde5f4ac038a93ee42923ff5774fbf48.png',
@@ -51,3 +43,17 @@ infographics = [
 ]
 
 Infographic.create(infographics)
+
+annoucenments = [
+  {
+    title: "Soirée de lancement de L'Intérêt général #3",
+    date: DateTime.new(2018,5,31,19,0,0,'+1'),
+    location: 'Le Lieu Dit',
+    address: '6 rue Sorbier, 75020 PARIS',
+    event_link: 'https://www.facebook.com/events/1663258210425411/',
+    map_link: 'http://www.openstreetmap.org/node/1930249941',
+    current: true
+  }
+]
+
+Announcement.create(annoucenments)

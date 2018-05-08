@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   root 'pages#home'
 
   scope '/' do
@@ -8,6 +9,7 @@ Rails.application.routes.draw do
   end
 
   scope '/api' do
+    get '/announcement', to: 'announcements#current', as: 'api_announcement'
     get '/infographics', to: 'infographics#index', as: 'api_infographics'
     scope '/editions' do
       get '/',                    to: 'editions#index', as: 'api_editions'
