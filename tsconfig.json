@@ -20,6 +20,7 @@
   ],
   "types": [
     "node",
-    "core-js"
+    "core-js",
+    "moment-timezone"
   ],
 }

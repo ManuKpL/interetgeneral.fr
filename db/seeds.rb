@@ -47,7 +47,7 @@ Infographic.create(infographics)
 annoucenments = [
   {
     title: "Soirée de lancement de L'Intérêt général #3",
-    date: DateTime.new(2018,5,31,19,0,0,'+1'),
+    date: DateTime.new(2018,5,31,19,0,0,'+2'),
     location: 'Le Lieu Dit',
     address: '6 rue Sorbier, 75020 PARIS',
     event_link: 'https://www.facebook.com/events/1663258210425411/',

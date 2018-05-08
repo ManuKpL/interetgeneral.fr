@@ -2,6 +2,10 @@
 
   <h1 class="hidden">L'Intérêt Général</h1>
 
+  <div class="padded-top">
+    <ig-landing-announcement *ngIf="announcement" [announcement]="announcement"></ig-landing-announcement>
+  </div>
+
   <ig-editions [reducedList]="true" [pageTitle]="'Derniers Numéros'"></ig-editions>
   <div class="padded text-center">
     <a class="ig-button" routerLink="/editions">Voir plus</a>
