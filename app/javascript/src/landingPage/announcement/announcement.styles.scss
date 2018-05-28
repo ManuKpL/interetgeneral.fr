@@ -4,7 +4,6 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2px;
   border: 1px solid $ig-red;
 
   height: 90px;
@@ -14,37 +13,64 @@ header {
     &:nth-child(2) { flex: 1; }
   }
 
-  h3 {
-    padding: 1rem;
-    margin: 0;
-  }
+  aside, address, h3 { display: flex; flex-direction: column; }
 
   h3, address {
-    margin-left: 2px;
-    height: 100%;
+    margin: 5px;
+    height: 80px;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     &:hover {
       background-color: rgba(50, 50, 50, .1)
     }
   }
 
-  aside, address { display: flex; flex-direction: column; }
 
   aside {
-    text-align: center;
+    @media screen and (max-width: $screen-xs) {
+      flex-direction: row;
+      justify-content: space-around;
+      > * { line-height: 100%; }
+    }
     padding: 10px;
+    text-align: center;
     text-transform: uppercase;
-    color: $ig-red;
+    background-color: $ig-red;
+    color: white;
     font-family: Lato, sans-serif;
     font-weight: 100;
-    border-right: 1px solid $ig-red;
     > span:nth-child(2) { font-weight: 700; font-size: 1.1rem; }
   }
 
+  h3 {
+    padding: 1rem;
+    margin-right: 0px;
+    border-right: 1px solid $ig-red;
+    color: $ig-red;
+    font-family: Lato, sans-serif;
+    font-weight: 100;
+    font-size: 2em;
+
+    @media screen and (max-width: $screen-sm) { padding: .5rem; font-size: 1.3em; }
+    @media screen and (max-width: $screen-xs) { border: none; font-size: 1.7em; }
+  }
+
   address {
+    margin-left: 0px;
     padding: 10px;
     > span:first-child { font-size: 1.1rem; }
+    @media screen and (max-width: $screen-sm) { font-size: .8em; }
+    @media screen and (max-width: $screen-xs) { padding-top: 0px; font-size: 1em; }
+  }
+
+  @media screen and (max-width: $screen-xs) {
+    flex-direction: column;
+    height: 100%;
+    > * {
+      width: 100%;
+      margin: none;
+      text-align: center;
+      > * { height: 100%; margin: none; }
+    }
   }
 }

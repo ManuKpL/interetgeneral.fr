@@ -70,24 +70,27 @@ h2 {
  * DISPLAY                                                                    *
  ******************************************************************************/
 
- .container { padding: 0 15px; margin: 0 auto; }
- @media screen and (min-width: $screen-sm) { .container { width: $container-sm; } }
- @media screen and (min-width: $screen-md) { .container { width: $container-md; } }
- @media screen and (min-width: $screen-lg) { .container { width: $container-lg; } }
+.ig-page { margin-top: 87px; }
+@media screen and (min-width: $screen-md) { .ig-page { margin-top: 157px; } }
 
- .padded {
-   padding: 2em 0;
-   &-top { padding-top: 2em; }
-   &-bottom { padding-bottom: 2em; }
-  }
-  .full-cover {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 1px;
-    left: 0;
-  }
-  .text-center { text-align: center; }
+.container { padding: 0 15px; margin: 0 auto; }
+@media screen and (min-width: $screen-sm) { .container { width: $container-sm; } }
+@media screen and (min-width: $screen-md) { .container { width: $container-md; } }
+@media screen and (min-width: $screen-lg) { .container { width: $container-lg; } }
+
+.padded {
+  padding: 2em 0;
+  &-top { padding-top: 2em; }
+  &-bottom { padding-bottom: 2em; }
+}
+.full-cover {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 1px;
+  left: 0;
+}
+.text-center { text-align: center; }
 
 /******************************************************************************
  * BUTTONS                                                                    *
