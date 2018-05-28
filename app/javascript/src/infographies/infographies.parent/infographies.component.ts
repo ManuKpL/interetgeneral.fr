@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ApiService }               from '../../services/api.service';
+
+import InfographiesResource from '../infographies.resource';
 
 @Component({
   selector: 'ig-infographies',
@@ -14,7 +15,7 @@ export default class InfographiesComponent implements OnInit {
   @Input() public pageTitle = 'Infographies';
   @Input() public reducedList = false;
 
-  constructor(private api: ApiService) {}
+  constructor(private resource: InfographiesResource) {}
 
   public openModal(infography: IInfoDef): void {
     this.selectedInfography = infography;
@@ -42,12 +43,12 @@ export default class InfographiesComponent implements OnInit {
 
   ngOnInit() {
     if (this.reducedList) {
-      this.api.getInfographicsSample().then((infographies: IInfoDef[]) => {
+      this.resource.getInfographicsSample().then((infographies: IInfoDef[]) => {
         this.infographies = infographies;
       });
     }
     else {
-      this.api.getInfographics().then((infographies: IInfoDef[]) => {
+      this.resource.getInfographics().then((infographies: IInfoDef[]) => {
         this.infographies = infographies;
       });
     }

@@ -1,4 +1,4 @@
-declare interface ICoverDef {
+declare interface IEditionIssue {
   imgSrc: string;
   title: string;
   shortDesc: string;
@@ -6,10 +6,10 @@ declare interface ICoverDef {
   latest: boolean;
   shopPath: string;
   date: Date;
-  editionId: string;
+  articles: IArticle[];
 }
 
-declare interface IEditionApiData {
+declare interface IEditionIssueApiData {
   image_url: string;
   title: string;
   short_desc: string;
@@ -17,5 +17,13 @@ declare interface IEditionApiData {
   latest_issue: boolean;
   shop_path: string;
   date: Date;
-  edition_id: string;
+  articles: IArticleApiData[];
+}
+
+declare interface IArticle {
+
+}
+
+declare interface IArticleApiData {
+
 }
