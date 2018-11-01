@@ -1,5 +1,4 @@
 {
-  "compileOnSave": false,
   "compilerOptions": {
     "declaration": false,
     "emitDecoratorMetadata": true,
@@ -7,8 +6,6 @@
     "lib": ["es6", "dom"],
     "module": "es6",
     "moduleResolution": "node",
-    "noImplicitAny": true,
-    "suppressImplicitAnyIndexErrors": true,
     "sourceMap": true,
     "target": "es5"
   },
@@ -18,9 +15,5 @@
     "vendor",
     "public"
   ],
-  "types": [
-    "node",
-    "core-js",
-    "moment-timezone"
-  ],
+  "compileOnSave": false
 }

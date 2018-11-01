@@ -6,7 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 # ruby version
-ruby '2.3.2'
+ruby '2.5.3'
 
 # devise for user login
 gem 'devise', '~> 4.3.0'

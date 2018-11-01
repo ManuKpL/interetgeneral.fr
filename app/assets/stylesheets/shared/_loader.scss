@@ -1,0 +1,63 @@
+@import '../config/variables';
+
+$base-size: 15px;
+$max-distance: $base-size * 3;
+
+.ig-loader {
+    position: relative;
+    span {
+        position: absolute;
+        height: $base-size;
+        width: $base-size;
+        transform: rotate(45deg);
+        border-radius: 1px;
+        background-color: $ig-red;
+        left: -$max-distance;
+        &#ig-loader-1 { animation: ig-loading-1 2s ease-in-out 0s infinite; }
+        &#ig-loader-2 { animation: ig-loading-2 2s ease-in-out 0s infinite; }
+        &#ig-loader-3 { animation: ig-loading-3 2s ease-in-out 0s infinite; }
+        &#ig-loader-4 { animation: ig-loading-4 2s ease-in-out 0s infinite; }
+        &#ig-loader-5 { animation: ig-loading-5 2s ease-in-out 0s infinite; }
+        @keyframes ig-loading-1 {
+            0% { opacity: 1; left: -$max-distance; }
+            50% { opacity: 1; left: $max-distance; }
+            100% { opacity: 0; left: $max-distance; }
+        }
+        @keyframes ig-loading-2 {
+            0% { opacity: 0; left: -$max-distance; }
+            10% { opacity: 1; left: -$max-distance; }
+            60% { opacity: 1; left: $max-distance; }
+            100% { opacity: 0; left: $max-distance; }
+        }
+        @keyframes ig-loading-3 {
+            0% { opacity: 0; left: -$max-distance; }
+            20% { opacity: 1; left: -$max-distance; }
+            70% { opacity: 1; left: $max-distance; }
+            100% { opacity: 0; left: $max-distance; }
+        }
+        @keyframes ig-loading-4 {
+            0% { opacity: 0; left: -$max-distance; }
+            30% { opacity: 1; left: -$max-distance; }
+            80% { opacity: 1; left: $max-distance; }
+            100% { opacity: 0; left: $max-distance; }
+        }
+        @keyframes ig-loading-5 {
+            0% { opacity: 0; left: -$max-distance; }
+            40% { opacity: 1; left: -$max-distance; }
+            90% { opacity: 1; left: $max-distance; }
+            100% { opacity: 0; left: $max-distance; }
+        }
+    }
+    &-wrapper {
+        z-index: 20;
+        position: fixed;
+        height: 100vh;
+        width: 100vw;
+        left: 0;
+        top: 0;
+        background-color: rgba(250, 250, 250, .8);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

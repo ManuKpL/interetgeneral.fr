@@ -4,21 +4,24 @@ editions = [
     title: 'Les médias',
     short_desc: 'Ce numéro est consacré à un sujet important',
     issue_number: 1,
-    latest_issue: false
+    latest_issue: false,
+    shop_path: 'https://croquant.atheles.org/linteretgeneral/linteretgeneral'
   },
   {
     image_url: '/packs/_/assets/images/covers/2-travail-be91992de9656cd9910a4f2cb2daf2cb.png',
     title: 'Le travail',
     short_desc: 'Ce numéro est consacré à un sujet important',
     issue_number: 2,
-    latest_issue: false
+    latest_issue: false,
+    shop_path: 'http://www.editions-croquant.org/component/mijoshop/product/407-l-interet-general-n-2'
   },
   {
     image_url: '/packs/_/assets/images/covers/3-placeholder-3b9b89c73f97be9ac0596ee1e660d51d.png',
     title: 'Les campagnes',
     short_desc: 'Ce numéro est consacré à un sujet important',
     issue_number: 3,
-    latest_issue: true
+    latest_issue: true,
+    shop_path: 'http://www.editions-croquant.org/component/mijoshop/product/462-revue-l-interet-general-n-3'
   },
 ]
 
@@ -52,6 +55,15 @@ annoucenments = [
     address: '6 rue Sorbier, 75020 PARIS',
     event_link: 'https://www.facebook.com/events/1663258210425411/',
     map_link: 'http://www.openstreetmap.org/node/1930249941',
+    current: true
+  },
+  {
+    title: "Soirée de lancement de L'Intérêt général #3 dans la Creuse!",
+    date: DateTime.new(2018,6, 16,18,0,0,'+2'),
+    location: 'Salle des fêtes',
+    address: 'Faux-la-Montagne',
+    event_link: 'https://www.facebook.com/events/2125444431054215/',
+    map_link: 'https://goo.gl/maps/64Z9BrtSJjt',
     current: true
   }
 ]

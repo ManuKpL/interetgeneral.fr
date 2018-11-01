@@ -12,7 +12,6 @@ export default class NavbarComponent {
   public displayDropdown = false;
 
   public toggleDropdown(): void {
-    console.log('***')
     this.displayDropdown = !this.displayDropdown;
   }
 }
