@@ -9,7 +9,7 @@ end
 ruby '2.5.3'
 
 # devise for user login
-gem 'devise', '~> 4.3.0'
+gem 'devise', '~> 4.4.0'
 # protect infos with figaro
 gem 'figaro', '~> 1.1.1'
 # foreman for concurrent server start
