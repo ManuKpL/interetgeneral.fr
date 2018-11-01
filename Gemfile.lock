@@ -17,7 +17,7 @@ GIT
 
 GIT
   remote: https://github.com/activeadmin/inherited_resources.git
-  revision: 3cb837d22fcc7a657281096a436e0363d03a42a3
+  revision: bf4a5bac90ea0bfb00b236ea9cb625fc9c19e250
   specs:
     inherited_resources (1.9.0)
       actionpack (>= 5.0, < 5.3)
@@ -126,7 +126,7 @@ GEM
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
       ruby_dep (~> 1.2)
-    loofah (2.2.2)
+    loofah (2.2.3)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.7.1)
