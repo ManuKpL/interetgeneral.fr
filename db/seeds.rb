@@ -4,21 +4,24 @@ editions = [
     title: 'Les médias',
     short_desc: 'Ce numéro est consacré à un sujet important',
     issue_number: 1,
-    latest_issue: false
+    latest_issue: false,
+    shop_path: 'https://croquant.atheles.org/linteretgeneral/linteretgeneral'
   },
   {
     image_url: '/packs/_/assets/images/covers/2-travail-be91992de9656cd9910a4f2cb2daf2cb.png',
     title: 'Le travail',
     short_desc: 'Ce numéro est consacré à un sujet important',
     issue_number: 2,
-    latest_issue: false
+    latest_issue: false,
+    shop_path: 'http://www.editions-croquant.org/component/mijoshop/product/407-l-interet-general-n-2'
   },
   {
     image_url: '/packs/_/assets/images/covers/3-placeholder-3b9b89c73f97be9ac0596ee1e660d51d.png',
     title: 'Les campagnes',
     short_desc: 'Ce numéro est consacré à un sujet important',
     issue_number: 3,
-    latest_issue: true
+    latest_issue: true,
+    shop_path: 'http://www.editions-croquant.org/component/mijoshop/product/462-revue-l-interet-general-n-3'
   },
 ]
 
