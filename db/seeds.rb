@@ -18,8 +18,8 @@ editions = [
     shop_path: 'http://www.editions-croquant.org/component/mijoshop/product/407-l-interet-general-n-2'
   },
   {
-    image_url: '/packs/_/assets/images/covers/3-placeholder-3b9b89c73f97be9ac0596ee1e660d51d.png',
-    preview_url: '/packs/_/assets/images/covers/preview/3-placeholder-fb0d28e47bcee0b8f3bdbfc7a47addea.png',
+    image_url: '/packs/_/assets/images/covers/3-campagnes-7d928ea0795c7fed3b53c70f885c05a6.png',
+    preview_url: '/packs/_/assets/images/covers/preview/3-campagnes-0dd10b8db201a383bf1a357646844849.png',
     title: 'Les campagnes',
     short_desc: 'Ce numéro est consacré à un sujet important',
     issue_number: 3,
