@@ -1,6 +1,6 @@
 ActiveAdmin.register Edition do
 
-  permit_params :image_url, :title, :short_desc, :issue_number, :latest_issue, :shop_path, :date
+  permit_params :image_url, :preview_url, :title, :short_desc, :issue_number, :latest_issue, :shop_path, :date
 
   index do
     selectable_column
@@ -10,6 +10,7 @@ ActiveAdmin.register Edition do
     column :latest_issue
     column :date
     column :image_url
+    column :preview_url
     column :shop_path
     column :created_at
     actions
@@ -23,6 +24,7 @@ ActiveAdmin.register Edition do
       row :latest_issue
       row :date
       row :image_url
+      row :preview_url
       row :shop_path
       row :created_at
       panel 'Infographics' do
@@ -43,6 +45,7 @@ ActiveAdmin.register Edition do
       input :latest_issue, label: 'Latest issue'
       input :date, label: 'Date de parution'
       input :image_url, label: 'Image url'
+      input :preview_url, label: 'Preview (low quality) url'
       input :shop_path, label: 'Shop path'
     end
     actions

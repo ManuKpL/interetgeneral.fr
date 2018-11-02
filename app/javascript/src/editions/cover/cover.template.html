@@ -4,6 +4,13 @@
          [ngClass]="{ 'ig-cover-img-important': cover.latest }"
          [src]="cover.imgSrc"
          [alt]="cover.title"
+         (load)="onImageLoad()"
+         >
+    <img class="ig-cover-img ig-cover-img-preview"
+         *ngIf="cover.previewSrc"
+         [ngClass]="{ 'ig-cover-img-important': cover.latest, 'ig-cover-img-hide': displayFull }"
+         [src]="cover.previewSrc"
+         [alt]="cover.title"
          >
     <dl class="ig-cover-text">
       <dt>{{ cover.title }}</dt>

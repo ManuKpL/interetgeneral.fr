@@ -9,4 +9,9 @@ export default class CoverComponent {
 
   @Input() cover: ICoverDef;
 
+  public displayFull = false;
+
+  public onImageLoad(): void {
+    this.displayFull = true;
+  }
 }

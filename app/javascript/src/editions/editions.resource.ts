@@ -58,6 +58,7 @@ export default class EditionsResource {
       latest: model.latest_issue,
       shopPath: model.shop_path,
       date: new Date(model.date),
+      previewSrc: model.preview_url,
     })) as ICoverDef[];
   }
 
