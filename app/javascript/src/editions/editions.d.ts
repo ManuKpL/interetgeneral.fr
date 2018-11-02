@@ -7,6 +7,7 @@ declare interface ICoverDef {
   shopPath: string;
   date: Date;
   editionId: string;
+  previewSrc: string;
 }
 
 declare interface IEditionApiData {
@@ -18,4 +19,5 @@ declare interface IEditionApiData {
   shop_path: string;
   date: Date;
   edition_id: string;
+  preview_url: string;
 }
