@@ -17,7 +17,9 @@ export default class LandingComponent implements OnInit {
   }
 
   private getCurrentAnnouncement() {
-    this.announcementsResource.current()
-      .then((model: IAnnouncement) => { this.announcement = model; });
+    this.announcementsResource
+      .current((model: IAnnouncement) => {
+        this.announcement = model;
+      });
   }
 }

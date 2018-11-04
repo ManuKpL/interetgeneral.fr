@@ -3,6 +3,9 @@ import { Http, Response } from '@angular/http';
 
 import * as moment from 'moment';
 import 'moment/locale/fr';
+import 'rxjs/add/operator/map';
+import { Subscription } from 'rxjs/Subscription';
+import { Observer, PartialObserver } from 'rxjs/Observer';
 
 @Injectable()
 export default class AnnouncementsResource {
@@ -11,16 +14,18 @@ export default class AnnouncementsResource {
 
   private ANNOUNCEMENT_BASE_PATH = 'api/announcement';
 
-  public current() {
-    return this.getCurrentAnnouncement();
+  public current(next: (model: IAnnouncement) => void) {
+    return this.getCurrentAnnouncement(next);
   }
 
   // ******************************** PRIVATE ******************************* //
 
-  private getCurrentAnnouncement(): Promise<IAnnouncement | void> {
+  private getCurrentAnnouncement(next: (model: IAnnouncement) => void): Subscription {
 
     const handleReturn = (model: IAnnouncementApiData): IAnnouncement => {
       const dateToMoment: moment.Moment = moment(model.date).locale('fr');
+
+      if (!model) { return; }
 
       return {
         title: model.title,
@@ -34,8 +39,14 @@ export default class AnnouncementsResource {
       };
     };
 
-    return this.http.get(this.ANNOUNCEMENT_BASE_PATH).toPromise()
-      .then((res: Response): IAnnouncement => handleReturn(res.json()))
-      .catch((e: Error) => console.error(e));
+    const observer: PartialObserver<IAnnouncement> = {
+      next,
+      error: (e: Error) => console.error(e),
+      complete: () => console.info('%c> Got the current announcement', 'color:forestgreen'),
+    };
+
+    return this.http.get(this.ANNOUNCEMENT_BASE_PATH)
+      .map((res: Response): IAnnouncement => handleReturn(res.json()))
+      .subscribe(observer);
   }
 }
