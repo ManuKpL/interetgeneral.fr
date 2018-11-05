@@ -1,19 +1,11 @@
 declare interface IAnnouncement {
+  id: number,
   title: string;
-  day: string;
-  date: string;
-  hour: string;
+  weekDay: string;
+  dayOfMonth: string;
+  time: string;
   location: string;
   address: string;
   eventLink: string;
   mapLink: string;
-}
-
-declare interface IAnnouncementApiData {
-  title: string;
-  date: Date;
-  location :string;
-  address: string;
-  event_link: string;
-  map_link: string;
 }

@@ -3,7 +3,7 @@ class AnnouncementsController < ApplicationController
   before_action :get_announcement, only: :current
 
   def current
-    render json: @announcement
+    render json: @announcement.json_format
   end
 
   private

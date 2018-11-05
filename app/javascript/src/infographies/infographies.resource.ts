@@ -22,16 +22,9 @@ export default class InfographiesResource {
   // ******************************** PRIVATE ******************************* //
 
   private getInfographicsFromPath(uriPath: string): Observable<IInfoDef[] | {}> {
-    const handleReturn = (models: IInfographicApiData[]): IInfoDef[] => {
-      return models.map((model) => ({
-        imgSrc: model.image_url,
-        title: model.title,
-      }));
-    };
-
     return this.http.get(uriPath)
       .pipe(
-        map((res: Response): IInfoDef[] => handleReturn(res.json())),
+        map((res: Response): IInfoDef[] => res.json() as IInfoDef[]),
         catchError((e: Error) => { console.error(e); return of(e); })
       );
   }

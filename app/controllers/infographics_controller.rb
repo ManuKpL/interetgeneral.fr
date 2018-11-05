@@ -3,7 +3,7 @@ class InfographicsController < ApplicationController
   before_action :get_infographics, only: :index
 
   def index
-    render json: @infographics
+    render json: @infographics.map(&:json_format)
   end
 
   private
