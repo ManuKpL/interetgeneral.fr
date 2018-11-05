@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 import InfographiesResource from '../infographies.resource';
+import { PartialObserver } from 'rxjs/Observer';
 
 @Component({
   selector: 'ig-infographies',
@@ -42,15 +43,20 @@ export default class InfographiesComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (this.reducedList) {
-      this.resource.getInfographicsSample().then((infographies: IInfoDef[]) => {
+    const observer: PartialObserver<IInfoDef[]> = {
+      next: (infographies: IInfoDef[]) => {
         this.infographies = infographies;
-      });
+      },
+    };
+    if (this.reducedList) {
+      this.resource
+        .getInfographicsSample()
+        .subscribe(observer);
     }
     else {
-      this.resource.getInfographics().then((infographies: IInfoDef[]) => {
-        this.infographies = infographies;
-      });
+      this.resource
+        .getInfographics()
+        .subscribe(observer);
     }
   }
 }

@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 import EditionsResource from '../editions.resource';
+import { PartialObserver } from 'rxjs/Observer';
 
 @Component({
   selector: 'ig-editions',
@@ -18,15 +19,25 @@ export default class EditionsComponent implements OnInit {
 
   ngOnInit() {
     if (this.reducedList) {
-      this.resource.getEditionsSample().then((coversList: ICoverDef[]) => {
-        this.coversGroupOne = coversList;
-      });
+      const observer: PartialObserver<ICoverDef[]> = {
+        next: (coversList: ICoverDef[]) => {
+          this.coversGroupOne = coversList;
+        },
+      };
+      this.resource
+        .getEditionsSample()
+        .subscribe(observer);
     }
     else {
-      this.resource.getEditions().then((coversList: ICoverDef[]) => {
-        this.coversGroupOne = coversList.splice(0, 3);
-        this.coversGroupTwo = coversList;
-      });
+      const observer: PartialObserver<ICoverDef[]> = {
+        next: (coversList: ICoverDef[]) => {
+          this.coversGroupOne = coversList.splice(0, 3);
+          this.coversGroupTwo = coversList;
+        },
+      };
+      this.resource
+        .getEditions()
+        .subscribe(observer);
     }
   }
 }

@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router }   from '@angular/router';
 import EditionsResource from '../editions.resource';
+import { PartialObserver } from 'rxjs/Observer';
 
 @Component({
   selector: 'ig-edition-issue',
@@ -25,9 +26,14 @@ export default class EditionComponent implements OnInit {
   }
 
   private getEditionIssue(id: string) {
+    const observer: PartialObserver<IEditionIssue> = {
+      next: (issue: IEditionIssue) => {
+        this.edition = issue;
+      },
+    };
     this.resource
       .getEditionIssue(id.split('-')[0])
-      .then((issue: IEditionIssue) => { this.edition = issue; });
+      .subscribe(observer);
   }
 
 }
