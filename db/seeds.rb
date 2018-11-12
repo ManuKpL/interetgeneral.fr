@@ -4,3 +4,4 @@ Edition.create(EditionsSeed.values)
 Infographic.create(InfographicsSeed.values)
 Announcement.create(AnnouncementSeed.values)
 Author.create(AuthorSeed.values);
+Article.create(ArticleSeed.values);

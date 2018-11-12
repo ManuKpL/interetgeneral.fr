@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181102003750) do
+ActiveRecord::Schema.define(version: 20181112223938) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,9 +47,9 @@ ActiveRecord::Schema.define(version: 20181102003750) do
     t.text "lead"
     t.text "content"
     t.bigint "edition_id"
-    t.string "media"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "article_type"
     t.index ["author_id"], name: "index_articles_on_author_id"
     t.index ["edition_id"], name: "index_articles_on_edition_id"
   end
