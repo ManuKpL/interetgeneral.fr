@@ -15,8 +15,7 @@ export default class EditionsResource {
 
   public getEditionIssue(edition_id: string): Observable<IEditionIssue | {}> {
     const uriPath = `${this.EDITION_BASE_PATH}/${edition_id}`;
-
-    return this.getEditionsFromPath(uriPath, this.buildEditionForIssue);
+    return this.getEditionsFromPath(uriPath);
   }
 
   public getEditions(): Observable<ICoverDef[] | {}> {
@@ -31,29 +30,12 @@ export default class EditionsResource {
 
   /*---------------------------- PRIVATE METHODS -----------------------------*/
 
-  private getEditionsFromPath(
-    uriPath: string,
-    mappingFunction: (json: any) => ICoverDef[] | IEditionIssue = e => e,
-  ): Observable<ICoverDef[] | IEditionIssue | {}> {
+  private getEditionsFromPath(uriPath: string): Observable<ICoverDef[] | IEditionIssue | {}> {
     return this.http
       .get(uriPath)
       .pipe(
-        map((res: Response): ICoverDef[] | IEditionIssue => mappingFunction(res.json())),
+        map((res: Response): ICoverDef[] | IEditionIssue => res.json()),
         catchError((e: Error): any => { console.error(e); return of(e); }),
       );
-  }
-
-  private buildEditionForIssue(editionIssue: IEditionIssueApiData): IEditionIssue {
-    return {
-      imgSrc   : editionIssue.image_url,
-      title    : editionIssue.title,
-      shortDesc: editionIssue.short_desc,
-      number   : editionIssue.issue_number,
-      latest   : editionIssue.latest_issue,
-      shopPath : editionIssue.shop_path,
-      date     : new Date(editionIssue.date),
-      articles : editionIssue.articles.map((article: IArticleApiData) => ({
-      } as IArticle)),
-    } as IEditionIssue;
   }
 }

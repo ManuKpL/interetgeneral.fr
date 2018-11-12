@@ -1,29 +1,32 @@
 declare interface IEditionIssue {
-  imgSrc: string;
-  title: string;
-  shortDesc: string;
-  number: number;
-  latest: boolean;
-  shopPath: string;
-  date: Date;
-  articles: IArticle[];
-}
-
-declare interface IEditionIssueApiData {
-  image_url: string;
-  title: string;
-  short_desc: string;
-  issue_number: number;
-  latest_issue: boolean;
-  shop_path: string;
-  date: Date;
-  articles: IArticleApiData[];
+  id: number,
+  editionId: string,
+  number: number,
+  date: Date,
+  title: string,
+  shortDesc: string,
+  shopPath: string,
+  articles: IArticle[],
 }
 
 declare interface IArticle {
-
+  id: number,
+  title: string,
+  author: IAuthor,
+  lead: string,
+  content: string,
+  type: ArticleType,
 }
 
-declare interface IArticleApiData {
+declare interface IAuthor {
+  id: number,
+  firstName: string,
+  lastName: string,
+  description: string,
+}
 
+declare enum ArticleType {
+  ARTICLE,
+  INFOGRAPHIC,
+  INTERVIEW,
 }
