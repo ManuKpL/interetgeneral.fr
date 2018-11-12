@@ -3,7 +3,7 @@ class Edition < ApplicationRecord
   has_many :articles
   has_many :authors, through: :articles
 
-  def json_format
+  def json_cover_format
     {
       id: id,
       editionId: build_edition_id,
@@ -15,6 +15,20 @@ class Edition < ApplicationRecord
       previewSrc: preview_url,
       shopPath: shop_path,
       latest: latest_issue,
+      articlesCount: articles.count
+    }
+  end
+
+  def json_issue_format
+    {
+      id: id,
+      editionId: build_edition_id,
+      number: issue_number,
+      date: date,
+      title: title,
+      shortDesc: short_desc,
+      shopPath: shop_path,
+      articles: articles.map(&:json_issue_format),
     }
   end
 

@@ -4,11 +4,11 @@ class EditionsController < ApplicationController
   before_action :get_edition, only: :get
 
   def index
-    render json: @editions.map { |edition| edition.json_format }
+    render json: @editions.map(&:json_cover_format)
   end
 
   def get
-    render json: @edition, include: { articles: { include: :author } }
+    render json: @edition.json_issue_format
   end
 
   private
