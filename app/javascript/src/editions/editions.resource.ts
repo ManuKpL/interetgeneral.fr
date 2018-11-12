@@ -20,20 +20,20 @@ export default class EditionsResource {
   }
 
   public getEditions(): Observable<ICoverDef[] | {}> {
-    return this.getEditionsFromPath(this.EDITION_BASE_PATH, this.buildEditionsForCovers );
+    return this.getEditionsFromPath(this.EDITION_BASE_PATH);
   }
 
   public getEditionsSample(sampleSize = 3): Observable<ICoverDef[] | {}> {
     const uriPath = `${this.EDITION_BASE_PATH}?limit=${sampleSize}`;
 
-    return this.getEditionsFromPath(uriPath, this.buildEditionsForCovers);
+    return this.getEditionsFromPath(uriPath);
   }
 
   /*---------------------------- PRIVATE METHODS -----------------------------*/
 
   private getEditionsFromPath(
     uriPath: string,
-    mappingFunction: (json: any) => ICoverDef[] | IEditionIssue,
+    mappingFunction: (json: any) => ICoverDef[] | IEditionIssue = e => e,
   ): Observable<ICoverDef[] | IEditionIssue | {}> {
     return this.http
       .get(uriPath)
@@ -55,19 +55,5 @@ export default class EditionsResource {
       articles : editionIssue.articles.map((article: IArticleApiData) => ({
       } as IArticle)),
     } as IEditionIssue;
-  }
-
-  private buildEditionsForCovers(models: IEditionApiData[]): ICoverDef[] {
-    return models.map((model) => ({
-      editionId : model.edition_id,
-      imgSrc    : model.image_url,
-      title     : model.title,
-      shortDesc : model.short_desc,
-      number    : model.issue_number,
-      latest    : model.latest_issue,
-      shopPath  : model.shop_path,
-      date      : new Date(model.date),
-      previewSrc: model.preview_url,
-    })) as ICoverDef[];
   }
 }

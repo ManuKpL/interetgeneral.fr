@@ -4,7 +4,7 @@ class EditionsController < ApplicationController
   before_action :get_edition, only: :get
 
   def index
-    render json: @editions
+    render json: @editions.map { |edition| edition.json_format }
   end
 
   def get
@@ -15,11 +15,10 @@ class EditionsController < ApplicationController
 
   def get_editions
     if editions_params.has_key?(:limit)
-      editions = Edition.order(issue_number: :desc).limit(editions_params[:limit])
+      @editions = Edition.order(issue_number: :desc).limit(editions_params[:limit])
     else
-      editions = Edition.order(issue_number: :desc)
+      @editions = Edition.order(issue_number: :desc)
     end
-    @editions = editions.map {|edition| edition.attributes.merge(edition_id: build_edition_id(edition)) }
   end
 
   def get_edition
@@ -32,11 +31,6 @@ class EditionsController < ApplicationController
 
   def edition_params
     params.permit(:edition_id)
-  end
-
-  def build_edition_id edition
-    hyphenized_title = edition.title.unicode_normalize(:nfd).gsub(/[\s\u0300-\u036f]/){ |m| m == ' ' ? "-" : "" }.downcase
-    "#{edition.id}-#{hyphenized_title}"
   end
 
 end
