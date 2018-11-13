@@ -6,27 +6,21 @@ declare interface IEditionIssue {
   title: string,
   shortDesc: string,
   shopPath: string,
-  articles: IArticle[],
+  articles: IIssueArticle[],
 }
 
-declare interface IArticle {
+declare interface IIssueArticle {
   id: number,
   title: string,
-  author: IAuthor,
+  author: IIssueAuthor,
   lead: string,
   content: string,
   type: ArticleType,
 }
 
-declare interface IAuthor {
+declare interface IIssueAuthor {
   id: number,
   firstName: string,
   lastName: string,
   description: string,
-}
-
-declare enum ArticleType {
-  ARTICLE,
-  INFOGRAPHIC,
-  INTERVIEW,
 }
