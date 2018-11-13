@@ -27,6 +27,8 @@ class Edition < ApplicationRecord
       date: date,
       title: title,
       shortDesc: short_desc,
+      imgSrc: image_url,
+      previewSrc: preview_url,
       shopPath: shop_path,
       articles: articles.map(&:json_issue_format),
     }

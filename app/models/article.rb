@@ -10,7 +10,7 @@ class Article < ApplicationRecord
       title: title,
       author: author.json_issue_format,
       lead: lead,
-      content: content,
+      # content: content,
       type: article_type,
     }
   end
