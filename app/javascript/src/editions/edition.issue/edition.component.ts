@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router }   from '@angular/router';
 import EditionsResource from '../editions.resource';
 import { PartialObserver } from 'rxjs/Observer';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'ig-edition-issue',
@@ -12,7 +13,12 @@ export default class EditionComponent implements OnInit {
 
   public edition: IEditionIssue;
 
-  constructor(private route: ActivatedRoute, private router: Router, private resource: EditionsResource) {}
+  constructor(
+    private location: Location,
+    private resource: EditionsResource,
+    private route: ActivatedRoute,
+    private router: Router,
+  ) {}
 
   private static ID_FORMAT: RegExp = /^\d+(-[a-z]+)+/i;
 
@@ -29,6 +35,10 @@ export default class EditionComponent implements OnInit {
     const observer: PartialObserver<IEditionIssue> = {
       next: (issue: IEditionIssue) => {
         this.edition = issue;
+        const routeId = this.route.snapshot.paramMap.get('id');
+        if (issue.editionId !== id) {
+          this.location.go(`/editions/${issue.editionId}`);
+        }
       },
     };
     this.resource
