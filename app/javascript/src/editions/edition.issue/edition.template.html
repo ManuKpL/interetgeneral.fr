@@ -1,1 +1,29 @@
-{{ edition | json }}
+<main *ngIf="edition">
+
+  <h2><em>#{{ edition.number }}</em> {{ edition.title }}</h2>
+
+  <div>
+    <img class=""
+    [src]="edition.imgSrc"
+    [alt]="edition.title"
+    width="20%"
+    >
+  </div>
+
+  <p>
+    {{ edition.shortDesc }}
+  </p>
+
+  <ul>
+    <li *ngFor="let article of edition.articles">
+      {{ article.title }}
+      {{ article.fullName }}
+      {{ article.description }}
+    </li>
+  </ul>
+
+  <p>
+    {{ edition | json }}
+  </p>
+
+</main>

@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'ig-editions-cover',
@@ -14,7 +13,7 @@ export default class CoverComponent implements OnInit {
   public redirectLink: string;
   public redirectTarget: string;
 
-  constructor(private router: Router) {}
+  constructor() {}
 
   public onImageLoad(): void {
     this.displayFull = true;

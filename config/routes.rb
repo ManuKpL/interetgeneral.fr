@@ -2,10 +2,10 @@ Rails.application.routes.draw do
 
   root 'pages#home'
 
-  scope '/' do
-    get 'editions',     to: 'pages#home'
-    get 'editions/:id', to: 'pages#home'
-    get 'infographies', to: 'pages#home'
+  scope '' do
+    get '/editions',     to: 'pages#home'
+    get '/editions/:id', to: 'pages#home'
+    get '/infographies', to: 'pages#home'
   end
 
   scope '/api' do

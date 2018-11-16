@@ -7,11 +7,11 @@ class Article < ApplicationRecord
   def json_issue_format
     {
       id: id,
-      title: title,
-      author: author.json_issue_format,
-      lead: lead,
-      # content: content,
       type: article_type,
+      title: title,
+      # content: content,
+      lead: lead,
+      author: author.json_issue_format,
     }
   end
 end
