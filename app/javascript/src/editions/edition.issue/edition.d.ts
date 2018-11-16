@@ -5,6 +5,8 @@ declare interface IEditionIssue {
   date: Date,
   title: string,
   shortDesc: string,
+  imgSrc: string,
+  previewSrc: string,
   shopPath: string,
   articles: IIssueArticle[],
 }
@@ -12,15 +14,15 @@ declare interface IEditionIssue {
 declare interface IIssueArticle {
   id: number,
   title: string,
-  author: IIssueAuthor,
+  type: string,
   lead: string,
-  content: string,
-  type: ArticleType,
+  author: IIssueAuthor,
 }
 
 declare interface IIssueAuthor {
   id: number,
   firstName: string,
   lastName: string,
+  fullName: string,
   description: string,
 }

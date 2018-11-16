@@ -9,7 +9,7 @@ export default class InfographiesResource {
 
   constructor(private http: Http) { }
 
-  private INFOGRAPHIC_BASE_PATH = '/api/infographics';
+  private INFOGRAPHIC_BASE_PATH = 'api/infographics';
 
   public getInfographics(): Observable<IInfoDef[] | {}> {
     return this.getInfographicsFromPath(this.INFOGRAPHIC_BASE_PATH);

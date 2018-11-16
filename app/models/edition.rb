@@ -6,7 +6,7 @@ class Edition < ApplicationRecord
   def json_cover_format
     {
       id: id,
-      editionId: build_edition_id,
+      editionId: build_edition_id(id),
       number: issue_number,
       date: date,
       title: title,
@@ -22,7 +22,7 @@ class Edition < ApplicationRecord
   def json_issue_format
     {
       id: id,
-      editionId: build_edition_id,
+      editionId: build_edition_id(issue_number),
       number: issue_number,
       date: date,
       title: title,
@@ -36,11 +36,11 @@ class Edition < ApplicationRecord
 
   private
 
-  def build_edition_id
+  def build_edition_id key
     hyphenized_title = title
       .unicode_normalize(:nfd)
       .gsub(/[\s\u0300-\u036f]/){ |m| m == ' ' ? "-" : "" }
       .downcase
-    "#{id}-#{hyphenized_title}"
+    "#{key}-#{hyphenized_title}"
   end
 end

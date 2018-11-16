@@ -9,7 +9,7 @@ export default class EditionsResource {
 
   constructor(private http: Http) { }
 
-  private EDITION_BASE_PATH = '/api/editions';
+  private EDITION_BASE_PATH = 'api/editions';
 
   /*----------------------------- PUBLIC METHODS -----------------------------*/
 
@@ -34,7 +34,7 @@ export default class EditionsResource {
     return this.http
       .get(uriPath)
       .pipe(
-        map((res: Response): ICoverDef[] | IEditionIssue => res.json()),
+        map((res: Response): ICoverDef[] | IEditionIssue => res.status === 200 && res.json()),
         catchError((e: Error): any => { console.error(e); return of(e); }),
       );
   }
