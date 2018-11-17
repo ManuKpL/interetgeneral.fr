@@ -8,6 +8,7 @@ declare interface IEditionIssue {
   imgSrc: string,
   previewSrc: string,
   shopPath: string,
+  color: string,
   articles: IIssueArticle[],
 }
 

@@ -91,31 +91,3 @@ h2 {
   left: 0;
 }
 .text-center { text-align: center; }
-
-/******************************************************************************
- * BUTTONS                                                                    *
- ******************************************************************************/
-
-.ig-button {
-  font-family: Lato, sans-serif;
-  font-weight: 100;
-  font-size: 24px;
-  color: $ig-red;
-  padding: 10px;
-  border: 1px solid transparent;
-  &:hover, &:active { border-color: $ig-red; }
-  &:active {
-    padding: 11px 9px 9px 11px;
-    box-shadow: inset 1px 2px 5px 1px rgba(150, 150, 150, 0.2);
-  }
-  &-important {
-    border-color: $ig-red;
-    &:hover, &:active {
-      color: white;
-      background-color: $ig-red;
-    }
-    &:active {
-      box-shadow: inset 1px 2px 5px 1px rgba(80, 80, 80, 0.2);
-    }
-  }
-}

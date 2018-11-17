@@ -7,7 +7,8 @@ module EditionsSeed
       short_desc: 'Ce numéro est consacré à un sujet important',
       issue_number: 1,
       latest_issue: false,
-      shop_path: 'https://croquant.atheles.org/linteretgeneral/linteretgeneral'
+      shop_path: 'https://croquant.atheles.org/linteretgeneral/linteretgeneral',
+      color: '#FA002E',
     },
     {
       image_url: '/packs/_/assets/images/covers/2-travail-be91992de9656cd9910a4f2cb2daf2cb.png',
@@ -16,7 +17,8 @@ module EditionsSeed
       short_desc: 'Ce numéro est consacré à un sujet important',
       issue_number: 2,
       latest_issue: false,
-      shop_path: 'http://www.editions-croquant.org/component/mijoshop/product/407-l-interet-general-n-2'
+      shop_path: 'http://www.editions-croquant.org/component/mijoshop/product/407-l-interet-general-n-2',
+      color: '#3C1DA2',
     },
     {
       image_url: '/packs/_/assets/images/covers/3-campagnes-7d928ea0795c7fed3b53c70f885c05a6.png',
@@ -25,7 +27,8 @@ module EditionsSeed
       short_desc: 'Ce numéro est consacré à un sujet important',
       issue_number: 3,
       latest_issue: true,
-      shop_path: 'http://www.editions-croquant.org/component/mijoshop/product/462-revue-l-interet-general-n-3'
+      shop_path: 'http://www.editions-croquant.org/component/mijoshop/product/462-revue-l-interet-general-n-3',
+      color: '#EBA93F',
     },
   ]
 
