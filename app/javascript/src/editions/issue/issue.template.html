@@ -1,24 +1,24 @@
 <main
-  *ngIf="edition"
+  *ngIf="editionIssue"
   class="ig-issue"
   [ngStyle]="{ color: mainColor }"
 >
 
   <header class="ig-issue-header">
-    <img class="ig-issue-cover" [src]="edition.imgSrc" [alt]="edition.title">
+    <img class="ig-issue-cover" [src]="editionIssue.imgSrc" [alt]="editionIssue.title">
     <div class="ig-issue-header-main">
-      <h2 class="ig-issue-title">{{ edition.number }}. {{ edition.title }}</h2>
-      <p class="ig-issue-description">{{ edition.shortDesc }}</p>
+      <h2 class="ig-issue-title">{{ editionIssue.number }}. {{ editionIssue.title }}</h2>
+      <p class="ig-issue-description">{{ editionIssue.shortDesc }}</p>
       <a
         class="ig-button-current-color ig-button-current-color-highlight ig-issue-shop"
-        [href]="edition.shopPath"
+        [href]="editionIssue.shopPath"
         target="_blank"
       ><span>Commander</span></a>
     </div>
   </header>
 
   <ul>
-    <li *ngFor="let article of edition.articles">
+    <li *ngFor="let article of editionIssue.articles">
       {{ article.title }}
       {{ article.fullName }}
       {{ article.description }}
@@ -26,7 +26,7 @@
   </ul>
 
   <p>
-    {{ edition | json }}
+    {{ editionIssue | json }}
   </p>
 
 </main>
