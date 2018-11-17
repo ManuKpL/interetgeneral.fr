@@ -12,6 +12,7 @@ import { Location } from '@angular/common';
 export default class EditionComponent implements OnInit {
 
   public edition: IEditionIssue;
+  public mainColor: string;
 
   constructor(
     private location: Location,
@@ -20,6 +21,7 @@ export default class EditionComponent implements OnInit {
     private router: Router,
   ) {}
 
+  private static IG_RED = '#FA002E';
   private static ID_FORMAT: RegExp = /^\d+(-[a-z]+)+/i;
 
   public ngOnInit(): void {
@@ -35,6 +37,7 @@ export default class EditionComponent implements OnInit {
     const observer: PartialObserver<IEditionIssue> = {
       next: (issue: IEditionIssue) => {
         this.edition = issue;
+        this.mainColor = issue.color || EditionComponent.IG_RED;
         const routeId = this.route.snapshot.paramMap.get('id');
         if (issue.editionId !== id) {
           this.location.go(`/editions/${issue.editionId}`);

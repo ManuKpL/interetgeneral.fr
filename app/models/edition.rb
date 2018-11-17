@@ -30,6 +30,7 @@ class Edition < ApplicationRecord
       imgSrc: image_url,
       previewSrc: preview_url,
       shopPath: shop_path,
+      color: color,
       articles: articles.map(&:json_issue_format),
     }
   end

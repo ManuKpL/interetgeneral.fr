@@ -1,0 +1,42 @@
+/******************************************************************************
+ * BUTTONS                                                                    *
+ ******************************************************************************/
+
+@mixin ig-button-mixin($color) {
+  font-family: Lato, sans-serif;
+  font-weight: 100;
+  font-size: 24px;
+  color: $color;
+  padding: 10px;
+  border: 1px solid transparent;
+  &:hover, &:active { border-color: $color; }
+  &:active {
+    padding: 11px 9px 9px 11px;
+    box-shadow: inset 1px 2px 5px 1px rgba(150, 150, 150, 0.2);
+  }
+  &-ghost {
+    border-color: $color;
+    &:hover, &:active {
+      span { color: white; };
+      background-color: $color;
+    }
+    &:active {
+      box-shadow: inset 1px 2px 5px 1px rgba(80, 80, 80, 0.2);
+    }
+  }
+  &-highlight {
+    border-color: $color;
+    span { color: white; };
+    background-color: $color;
+    &:hover, &:active {
+      span { color: $color; };
+      background-color: white;
+    }
+    &:active {
+      box-shadow: inset 1px 2px 5px 1px rgba(80, 80, 80, 0.2);
+    }
+  }
+}
+
+.ig-button { @include ig-button-mixin($ig-red); }
+.ig-button-current-color { @include ig-button-mixin(currentColor); }
