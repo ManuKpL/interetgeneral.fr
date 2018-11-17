@@ -6,12 +6,12 @@ import { Location } from '@angular/common';
 
 @Component({
   selector: 'ig-edition-issue',
-  templateUrl: './edition.template.html',
-  styleUrls: ['./edition.styles.scss'],
+  templateUrl: './issue.template.html',
+  styleUrls: ['./issue.styles.scss'],
 })
-export default class EditionComponent implements OnInit {
+export default class EditionIssueComponent implements OnInit {
 
-  public edition: IEditionIssue;
+  public editionIssue: IEditionIssue;
   public mainColor: string;
 
   constructor(
@@ -26,7 +26,7 @@ export default class EditionComponent implements OnInit {
 
   public ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    if (EditionComponent.ID_FORMAT.test(id)) {
+    if (EditionIssueComponent.ID_FORMAT.test(id)) {
       this.getEditionIssue(id);
     } else {
       this.router.navigate(['/']);
@@ -36,8 +36,8 @@ export default class EditionComponent implements OnInit {
   private getEditionIssue(id: string) {
     const observer: PartialObserver<IEditionIssue> = {
       next: (issue: IEditionIssue) => {
-        this.edition = issue;
-        this.mainColor = issue.color || EditionComponent.IG_RED;
+        this.editionIssue = issue;
+        this.mainColor = issue.color || EditionIssueComponent.IG_RED;
         const routeId = this.route.snapshot.paramMap.get('id');
         if (issue.editionId !== id) {
           this.location.go(`/editions/${issue.editionId}`);
