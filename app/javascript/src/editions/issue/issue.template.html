@@ -18,11 +18,7 @@
   </header>
 
   <ul>
-    <li *ngFor="let article of editionIssue.articles">
-      {{ article.title }}
-      {{ article.fullName }}
-      {{ article.description }}
-    </li>
+    <ig-issue-article *ngFor="let article of editionIssue.articles" [article]="article"></ig-issue-article>
   </ul>
 
   <p>
