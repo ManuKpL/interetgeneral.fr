@@ -2,7 +2,7 @@ import { NgModule }       from '@angular/core';
 import { BrowserModule }  from '@angular/platform-browser';
 
 import EditionsModule     from '../editions/editions.module';
-import LandingPageModule  from '../landingPage/landingPage.module';
+import HomeModule         from '../home/home.module';
 import InfographiesModule from '../infographies/infographies.module';
 import NavbarModule       from '../navbar/navbar.module';
 import RoutingModule      from '../router/router.module';
@@ -15,7 +15,7 @@ import AppComponent       from './app.component';
   imports:      [
     BrowserModule,
     EditionsModule,
-    LandingPageModule,
+    HomeModule,
     InfographiesModule,
     NavbarModule,
     RoutingModule,

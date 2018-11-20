@@ -1,8 +1,8 @@
 import { NgModule }     from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import InfographiesComponent      from './infographies.parent/infographies.component';
-import InfographiesModalComponent from './modal/modal.component';
+import InfographiesComponent      from './pages/infographies/infographies.component';
+import InfographiesModalComponent from './components/modal/modal.component';
 import InfographiesResource       from './infographies.resource';
 
 @NgModule({

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import AnnouncementsResource from '../announcements.resource';
+import AnnouncementsResource from '../../announcements.resource';
 import { PartialObserver } from 'rxjs/Observer';
 
 @Component({

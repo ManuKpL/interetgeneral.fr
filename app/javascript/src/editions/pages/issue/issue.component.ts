@@ -1,17 +1,18 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute, Router }   from '@angular/router';
-import EditionsResource from '../editions.resource';
-import { PartialObserver } from 'rxjs/Observer';
-import { Location } from '@angular/common';
+import { Component, OnInit }      from '@angular/core';
+import { Location }               from '@angular/common';
+import { ActivatedRoute, Router } from '@angular/router';
+import { PartialObserver }        from 'rxjs/Observer';
+
+import EditionsResource           from '../../editions.resource';
 
 @Component({
-  selector: 'ig-edition-issue',
+  selector: 'ig-editions-issue',
   templateUrl: './issue.template.html',
   styleUrls: ['./issue.styles.scss'],
 })
-export default class EditionIssueComponent implements OnInit {
+export default class IssueComponent implements OnInit {
 
-  public editionIssue: IEditionIssue;
+  public issue: IEditionIssue;
   public mainColor: string;
 
   constructor(
@@ -26,7 +27,7 @@ export default class EditionIssueComponent implements OnInit {
 
   public ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    if (EditionIssueComponent.ID_FORMAT.test(id)) {
+    if (IssueComponent.ID_FORMAT.test(id)) {
       this.getEditionIssue(id);
     } else {
       this.router.navigate(['/']);
@@ -36,14 +37,15 @@ export default class EditionIssueComponent implements OnInit {
   private getEditionIssue(id: string) {
     const observer: PartialObserver<IEditionIssue> = {
       next: (issue: IEditionIssue) => {
-        this.editionIssue = issue;
-        this.mainColor = issue.color || EditionIssueComponent.IG_RED;
-        const routeId = this.route.snapshot.paramMap.get('id');
+        this.issue = issue;
+        this.mainColor = issue.color || IssueComponent.IG_RED;
+
         if (issue.editionId !== id) {
           this.location.go(`/editions/${issue.editionId}`);
         }
       },
     };
+
     this.resource
       .getEditionIssue(id.split('-')[0])
       .subscribe(observer);

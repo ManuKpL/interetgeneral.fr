@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-import EditionsResource from '../editions.resource';
+import EditionsResource from '../../editions.resource';
 import { PartialObserver } from 'rxjs/Observer';
 
 @Component({

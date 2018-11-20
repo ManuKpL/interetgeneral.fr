@@ -2,15 +2,15 @@ import { NgModule }     from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpModule }   from '@angular/http';
 
-import CoverComponent        from './cover/cover.component';
-import EditionsComponent     from './editions.parent/editions.component';
+import CoverComponent        from './components/cover/cover.component';
+import EditionsComponent     from './pages/editions/editions.component';
 import EditionsResource      from './editions.resource';
-import EditionIssueComponent from './issue/issue.component';
-import IssueArticleComponent from './article/article.component';
+import IssueComponent        from './pages/issue/issue.component';
+import IssueArticleComponent from './components/article/article.component';
 
 @NgModule({
   bootstrap   : [EditionsComponent],
-  declarations: [CoverComponent, EditionIssueComponent, EditionsComponent, IssueArticleComponent],
+  declarations: [CoverComponent, IssueComponent, EditionsComponent, IssueArticleComponent],
   exports     : [EditionsComponent],
   imports     : [CommonModule, HttpModule],
   providers   : [EditionsResource]

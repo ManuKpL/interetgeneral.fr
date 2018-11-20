@@ -7,5 +7,4 @@ import { Component, Input } from '@angular/core';
 })
 export default class IssueArticleComponent {
   @Input() article: IIssueArticle;
-  constructor() {}
 }
