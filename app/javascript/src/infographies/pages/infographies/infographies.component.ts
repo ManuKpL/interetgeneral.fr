@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-import InfographiesResource from '../infographies.resource';
+import InfographiesResource from '../../infographies.resource';
 import { PartialObserver } from 'rxjs/Observer';
 
 @Component({

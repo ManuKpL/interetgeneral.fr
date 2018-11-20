@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-const logoInstagramSrc = require('../../../../assets/images/instagram-logo.png');
+const logoInstagramSrc = require('../../../../../assets/images/instagram-logo.png');
 
 @Component({
   selector: 'ig-landing-social-networks',

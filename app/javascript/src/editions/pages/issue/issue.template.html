@@ -1,0 +1,24 @@
+<main
+  *ngIf="issue"
+  class="ig-issue"
+  [ngStyle]="{ color: mainColor }"
+>
+
+  <header class="ig-issue-header">
+    <img class="ig-issue-cover" [src]="issue.imgSrc" [alt]="issue.title">
+    <div class="ig-issue-header-main">
+      <h2 class="ig-issue-title">{{ issue.number }}. {{ issue.title }}</h2>
+      <p class="ig-issue-description">{{ issue.shortDesc }}</p>
+      <a
+        class="ig-button-current-color ig-button-current-color-highlight ig-issue-shop"
+        [href]="issue.shopPath"
+        target="_blank"
+      ><span>Commander</span></a>
+    </div>
+  </header>
+
+  <ul>
+    <ig-issue-article *ngFor="let article of issue.articles" [article]="article"></ig-issue-article>
+  </ul>
+
+</main>

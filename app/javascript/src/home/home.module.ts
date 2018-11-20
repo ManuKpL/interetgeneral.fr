@@ -5,9 +5,9 @@ import EditionsModule     from '../editions/editions.module';
 import InfographiesModule from '../infographies/infographies.module';
 import RouterModule       from '../router/router.module';
 
-import AnnouncementComponent   from './announcement/announcement.component';
-import LandingComponent        from './landing.parent/landing.component';
-import SocialNetworksComponent from './socialNetworks/socialNetworks.component';
+import AnnouncementComponent   from './components/announcement/announcement.component';
+import LandingComponent        from './pages/landing/landing.component';
+import SocialNetworksComponent from './components/socialNetworks/socialNetworks.component';
 
 import AnnouncementsResource from './announcements.resource';
 
@@ -18,4 +18,4 @@ import AnnouncementsResource from './announcements.resource';
   imports:      [CommonModule, EditionsModule, InfographiesModule, RouterModule],
   providers:    [AnnouncementsResource]
 })
-export default class LandingPageModule {}
+export default class HomeModule {}
