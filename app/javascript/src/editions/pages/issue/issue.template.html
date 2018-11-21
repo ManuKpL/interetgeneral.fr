@@ -7,7 +7,7 @@
   <header class="ig-issue-header">
     <img class="ig-issue-cover" [src]="issue.imgSrc" [alt]="issue.title">
     <div class="ig-issue-header-main">
-      <h2 class="ig-issue-title">{{ issue.number }}. {{ issue.title }}</h2>
+      <h1 class="ig-issue-title">{{ issue.number }}. {{ issue.title }}</h1>
       <p class="ig-issue-description">{{ issue.shortDesc }}</p>
       <a
         class="ig-button-current-color ig-button-current-color-highlight ig-issue-shop"
@@ -17,8 +17,9 @@
     </div>
   </header>
 
-  <ul>
+  <section class="ig-issue-summary">
+    <h2>Sommaire</h2>
     <ig-issue-article *ngFor="let article of issue.articles" [article]="article"></ig-issue-article>
-  </ul>
+  </section>
 
 </main>
