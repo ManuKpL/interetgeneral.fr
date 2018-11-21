@@ -70,9 +70,6 @@ h2 {
  * DISPLAY                                                                    *
  ******************************************************************************/
 
-.ig-page { margin-top: 87px; }
-@media screen and (min-width: $screen-md) { .ig-page { margin-top: 157px; } }
-
 .container { padding: 0 15px; margin: 0 auto; }
 @media screen and (min-width: $screen-sm) { .container { width: $container-sm; } }
 @media screen and (min-width: $screen-md) { .container { width: $container-md; } }
