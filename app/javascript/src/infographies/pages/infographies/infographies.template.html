@@ -1,13 +1,15 @@
-<div class="text-center padded-top">
-  <h2>{{ pageTitle }}</h2>
-</div>
+<div class="container">
 
-<div class="ig-infographies">
-  <div *ngFor="let infography of infographies"
-        [ngStyle]="{ 'background-image': 'url(' + infography.imgSrc + ')' }"
-        (click)="openModal(infography)"
-        class="ig-infographies-item"
-        >
+  <div class="text-center padded-top">
+    <h2>{{ pageTitle }}</h2>
+  </div>
+
+  <main class="ig-infographies">
+    <div *ngFor="let infography of infographies"
+    [ngStyle]="{ 'background-image': 'url(' + infography.imgSrc + ')' }"
+    (click)="openModal(infography)"
+    class="ig-infographies-item"
+    >
   </div>
   <ig-infographies-modal
     [infography]="selectedInfography"
@@ -17,4 +19,6 @@
     (setPrevInfography)="setPrevInfography()"
     >
   </ig-infographies-modal>
+  </main>
+
 </div>

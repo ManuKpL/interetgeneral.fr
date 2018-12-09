@@ -1,15 +1,19 @@
-<div class="text-center  padded-top">
-  <h2>{{ pageTitle }}</h2>
-</div>
+<div class="container">
 
-<main class="ig-editions">
-  <div class="ig-editions-covers">
-    <section class="ig-editions-covers-group-one">
-      <ig-editions-cover *ngFor="let cover of coversGroupOne" [cover]="cover"></ig-editions-cover>
-    </section>
-
-    <section class="ig-editions-covers-group-two" *ngIf="!reducedList">
-      <ig-editions-cover *ngFor="let cover of coversGroupTwo" [cover]="cover"></ig-editions-cover>
-    </section>
+  <div class="text-center  padded-top">
+    <h2>{{ pageTitle }}</h2>
   </div>
-</main>
+
+  <main class="ig-editions">
+    <div class="ig-editions-covers">
+      <section class="ig-editions-covers-group-one">
+        <ig-editions-cover *ngFor="let cover of coversGroupOne" [cover]="cover"></ig-editions-cover>
+      </section>
+
+      <section class="ig-editions-covers-group-two" *ngIf="!reducedList">
+        <ig-editions-cover *ngFor="let cover of coversGroupTwo" [cover]="cover"></ig-editions-cover>
+      </section>
+    </div>
+  </main>
+
+</div>
