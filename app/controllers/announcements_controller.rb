@@ -1,9 +1,13 @@
 class AnnouncementsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:current]
-  before_action :get_announcement, only: :current
+  before_action      :get_announcement,   only: :current
 
   def current
-    render json: @announcement.json_format
+    if @announcement
+      render status: :ok, json: @announcement
+    else
+      render status: :no_content
+    end
   end
 
   private

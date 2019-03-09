@@ -4,28 +4,40 @@ class EditionsController < ApplicationController
   before_action :get_edition, only: :get
 
   def index
-    render json: @editions.map(&:json_cover_format)
+    if @editions.empty?
+      render status: :no_content
+    else
+      render status: :ok, json: @editions.map(&:to_json_cover_format)
+    end
   end
 
   def get
-    render json: @edition.json_issue_format
+    if @edition
+      render status: :ok, json: @edition.to_json_issue_format
+    else
+      render status: :no_content
+    end
   end
 
   private
 
   def get_editions
-    if editions_params.has_key?(:limit)
-      @editions = Edition.order(issue_number: :desc).limit(editions_params[:limit])
+    if editions_list_params.has_key?(:limit)
+      @editions = Edition
+        .order(issue_number: :desc)
+        .limit(editions_list_params[:limit])
     else
-      @editions = Edition.order(issue_number: :desc)
+      @editions = Edition
+        .order(issue_number: :desc)
     end
   end
 
   def get_edition
-    @edition = Edition.find(edition_params[:edition_id])
+    @edition = Edition
+      .find(edition_params[:edition_id])
   end
 
-  def editions_params
+  def editions_list_params
     params.permit(:limit)
   end
 
