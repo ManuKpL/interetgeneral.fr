@@ -1,29 +1,29 @@
 declare interface IEditionIssue {
-  id: number,
-  editionId: string,
-  number: number,
-  date: Date,
-  title: string,
-  shortDesc: string,
-  imgSrc: string,
+  id:         number,
+  editionId:  string,
+  number:     number,
+  date:       Date,
+  title:      string,
+  shortDesc:  string,
+  imgSrc:     string,
   previewSrc: string,
-  shopPath: string,
-  color: string,
-  articles: IIssueArticle[],
+  shopPath:   string,
+  color:      string,
+  articles:   IIssueArticle[],
 }
 
 declare interface IIssueArticle {
-  id: number,
-  title: string,
-  type: string,
-  lead: string,
+  id:     number,
+  title:  string,
+  type:   string,
+  lead:   string,
   author: IIssueAuthor,
 }
 
 declare interface IIssueAuthor {
-  id: number,
-  firstName: string,
-  lastName: string,
-  fullName: string,
+  id:          number,
+  firstName:   string,
+  lastName:    string,
+  fullName:    string,
   description: string,
 }

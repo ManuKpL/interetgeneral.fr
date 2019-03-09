@@ -3,9 +3,9 @@ import AnnouncementsResource from '../../announcements.resource';
 import { PartialObserver } from 'rxjs/Observer';
 
 @Component({
-  selector: 'ig-landing-page',
+  selector   : 'ig-landing-page',
+  styleUrls  : ['./landing.styles.scss'],
   templateUrl: './landing.template.html',
-  styleUrls: ['./landing.styles.scss']
 })
 export default class LandingComponent implements OnInit {
 
