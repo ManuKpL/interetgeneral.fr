@@ -4,14 +4,13 @@ class Article < ApplicationRecord
 
   enum article_type: [:ARTICLE, :INFOGRAPHIC, :INTERVIEW]
 
-  def json_issue_format
+  def to_json_issue_format
     {
-      id: id,
-      type: article_type,
-      title: title,
-      # content: content,
-      lead: lead,
-      author: author.json_issue_format,
+      :id     => id,
+      :type   => article_type,
+      :title  => title,
+      :lead   => lead,
+      :author => author.to_json_issue_format,
     }
   end
 end

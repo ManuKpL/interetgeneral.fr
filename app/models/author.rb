@@ -1,13 +1,13 @@
 class Author < ApplicationRecord
   has_many :articles
 
-  def json_issue_format
+  def to_json_issue_format
     {
-      id: id,
-      firstName: first_name,
-      lastName: name,
-      fullName: full_name,
-      description: description,
+      :id          => id,
+      :firstName   => first_name,
+      :lastName    => name,
+      :fullName    => full_name,
+      :description => description,
     }
   end
 
