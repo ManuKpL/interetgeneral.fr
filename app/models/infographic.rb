@@ -1,11 +1,11 @@
 class Infographic < ApplicationRecord
   belongs_to :edition
 
-  def json_format
+  def to_home_json_format
     {
-      id:     id,
-      imgSrc: image_url,
-      title:  title,
+      :id     => id,
+      :imgSrc => image_url,
+      :title  => title,
     }
   end
 end
