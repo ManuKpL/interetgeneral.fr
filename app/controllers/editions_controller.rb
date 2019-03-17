@@ -1,11 +1,11 @@
 class EditionsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :get]
-  before_action :get_editions, only: :index
-  before_action :get_edition, only: :get
+  before_action      :get_editions,       only: [:index]
+  before_action      :get_edition,        only: [:get]
 
   def index
     if @editions.empty?
-      render status: :no_content, json: nil
+      render_no_content
     else
       render status: :ok, json: @editions.map(&:to_json_cover_format)
     end
