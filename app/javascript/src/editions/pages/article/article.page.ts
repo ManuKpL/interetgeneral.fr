@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import { Observable } from 'rxjs/Observable';
+import { switchMap } from 'rxjs/operators';
+import { of } from 'rxjs/observable/of';
 
 @Component({
   selector   : 'ig-editions-article',
@@ -8,14 +11,22 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ArticlePage implements OnInit {
 
-  public articleId: string;
-  public editionId: string;
+  public ids$: Observable<{ article: string, edition: string }>;
 
-  public constructor(private route: ActivatedRoute) {}
+  public constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+  ) {}
 
   public ngOnInit(): void {
-    const params = this.route.snapshot.paramMap;
-    this.articleId = params.get('articleId');
-    this.editionId = params.get('editionId');
+    this.ids$ = this.route.paramMap
+      .pipe(
+        switchMap((params: ParamMap) => {
+          return of({
+            article: params.get('articleId'),
+            edition: params.get('editionId'),
+          });
+        })
+      );
   }
 }

@@ -1,3 +1,3 @@
-<h1>
-  ARTICLE #{{ articleId }}, EDITION #{{ editionId }}
+<h1 *ngIf="ids$ | async as ids">
+  ARTICLE #{{ ids.article }}, EDITION #{{ ids.edition }}
 </h1>
