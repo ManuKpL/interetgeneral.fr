@@ -1,1 +1,42 @@
-//
+:host {
+  background-color: #fff;
+
+  margin-bottom: 1em ;
+  padding: 1em ;
+  display: grid;
+
+  grid-template-areas  : 'type title' 'type details';
+  grid-template-columns: 4em auto                   ;
+  grid-template-rows   : repeat(2, minmax(2em, max-content));
+  grid-column-gap      : 1em                        ;
+}
+
+:host(:hover), :host(:active) {
+  outline: .3em solid #fff;
+}
+
+span {
+  outline: 1px solid currentColor;
+  font-size  : 2em   ;
+  grid-area  : type  ;
+  display    : grid  ;
+  align-items: center;
+  font-family: 'Lato', 'sans-serif';
+  font-weight: 900;
+  height: 2em;
+}
+
+h3, p {
+  margin    : 0     ;
+  text-align: left  ;
+  align-self: baseline;
+}
+
+h3 {
+  grid-area     : title    ;
+  text-transform: uppercase;
+}
+
+p {
+  grid-area: details;
+}
