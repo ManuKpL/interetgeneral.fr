@@ -1,13 +1,16 @@
 import { Injectable }      from '@angular/core';
 import { Http, Response }  from '@angular/http';
 import { Observable }      from 'rxjs/Observable';
-import { of }              from 'rxjs/observable/of';
 import { catchError, map } from 'rxjs/operators';
+import { ArticlesResource } from './articles.resource';
 
 @Injectable()
 export class EditionsResource {
 
-  constructor(private http: Http) { }
+  constructor(
+    private articles: ArticlesResource,
+    private http:     Http,
+  ) { }
 
   private EDITION_BASE_PATH = 'api/editions';
 
@@ -28,6 +31,11 @@ export class EditionsResource {
     return this.getEditionsFromPath(uriPath);
   }
 
+  public getEditionArticle(editionId: string, articleId: string): Observable<IArticle | {}> {
+    const uriPath = `${this.EDITION_BASE_PATH}/${editionId}`;
+    return this.articles.getIssueArticle(uriPath, articleId);
+  }
+
   /*---------------------------- PRIVATE METHODS -----------------------------*/
 
   private getEditionsFromPath(uriPath: string): Observable<ICoverDef[] | IEditionIssue | {}> {
@@ -35,7 +43,7 @@ export class EditionsResource {
       .get(uriPath)
       .pipe(
         map((res: Response): ICoverDef[] | IEditionIssue => res.status === 200 && res.json()),
-        catchError((e: Error): any => { console.error(e); return of(e); }),
+        catchError((e: Error): any => { console.error(e); return Observable.throw(e); }),
       );
   }
 }
