@@ -1,4 +1,4 @@
-:host {
+.wrapper {
   background-color: #fff;
 
   margin-bottom: 1em ;
@@ -9,11 +9,10 @@
   grid-template-columns: 4em auto                   ;
   grid-template-rows   : repeat(2, minmax(2em, max-content));
   grid-column-gap      : 1em                        ;
+
+  &:hover, &:active { outline: .3em solid #fff; }
 }
 
-:host(:hover), :host(:active) {
-  outline: .3em solid #fff;
-}
 
 span {
   outline: 1px solid currentColor;
