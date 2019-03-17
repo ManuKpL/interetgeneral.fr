@@ -6,7 +6,7 @@ class AnnouncementsController < ApplicationController
     if @announcement
       render status: :ok, json: @announcement
     else
-      render status: :no_content
+      render status: :no_content, json: nil
     end
   end
 

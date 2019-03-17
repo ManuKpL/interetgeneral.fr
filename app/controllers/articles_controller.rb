@@ -5,7 +5,7 @@ class ArticlesController < ApplicationController
 
   def index
     if @articles.empty?
-      render status: :no_content
+      render status: :no_content, json: nil
     else
       render status: :ok, json: @articles
     end

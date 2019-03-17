@@ -4,7 +4,7 @@ class InfographicsController < ApplicationController
 
   def index
     if @infographics.empty?
-      render status: :no_content
+      render status: :no_content, json: nil
     else
       render status: :ok, json: @infographics.map(&:to_home_json_format)
     end
