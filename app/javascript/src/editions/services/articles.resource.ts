@@ -20,7 +20,7 @@ export class ArticlesResource {
     return this.http.get(uriPath)
       .pipe(
         map((res: Response): IArticle => res.status === 200 && res.json()),
-        catchError((e: Error): any => { console.error(e); return Observable.throw(e); }),
+        catchError((e: Error): any => { console.error(e); return of(e); }),
       );
   }
 }
