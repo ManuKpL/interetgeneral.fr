@@ -4,7 +4,7 @@ import { ArticleType } from './article-type.enum';
 @Component({
   selector   : 'ig-issue-article',
   styleUrls  : ['./article.styles.scss'],
-  templateUrl: './article.tempalte.html',
+  templateUrl: './article.template.html',
 })
 export default class IssueArticleComponent implements OnInit {
 
