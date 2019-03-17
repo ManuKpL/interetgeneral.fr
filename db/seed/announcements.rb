@@ -7,7 +7,7 @@ module AnnouncementSeed
       address: '6 rue Sorbier, 75020 PARIS',
       event_link: 'https://www.facebook.com/events/1663258210425411/',
       map_link: 'http://www.openstreetmap.org/node/1930249941',
-      current: true
+      current: false
     },
     {
       title: "Soirée de lancement de L'Intérêt général #3 dans la Creuse!",
