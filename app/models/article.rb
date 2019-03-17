@@ -9,7 +9,6 @@ class Article < ApplicationRecord
       :id     => id,
       :type   => article_type,
       :title  => title,
-      :lead   => lead,
       :author => author.to_json_issue_format,
     }
   end

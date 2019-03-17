@@ -16,14 +16,11 @@ declare interface IIssueArticle {
   id:     number,
   title:  string,
   type:   string,
-  lead:   string,
   author: IIssueAuthor,
 }
 
 declare interface IIssueAuthor {
   id:          number,
-  firstName:   string,
-  lastName:    string,
   fullName:    string,
   description: string,
 }
