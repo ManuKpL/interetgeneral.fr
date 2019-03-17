@@ -1,13 +1,20 @@
 class ArticlesController < ApplicationController
   skip_before_action :authenticate_user!,  only: [:index, :sample]
   before_action      :get_articles,        only: :index
-  before_action      :get_articles_sample, only: :sample
 
   def index
     if @articles.empty?
-      render status: :no_content, json: nil
+      render_no_content
     else
       render status: :ok, json: @articles
+    end
+  end
+
+  def show
+    if @article
+      render status: :ok, json: @article
+    else
+      render_no_content
     end
   end
 
