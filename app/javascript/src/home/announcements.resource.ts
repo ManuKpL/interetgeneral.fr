@@ -1,7 +1,6 @@
 import { Injectable }      from '@angular/core';
 import { Http, Response }  from '@angular/http';
-import { Observable }      from 'rxjs/Observable';
-import { of }              from 'rxjs/observable/of';
+import { Observable, throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 
 @Injectable()
@@ -21,7 +20,7 @@ export default class AnnouncementsResource {
     return this.http.get(this.ANNOUNCEMENT_BASE_PATH)
       .pipe(
         map((res: Response): IAnnouncement => res.json() as IAnnouncement),
-        catchError((e: Error) => { console.error(e); return of(e); }),
+        catchError((e: Error) => { console.error(e); return throwError(e); }),
       );
   }
 }

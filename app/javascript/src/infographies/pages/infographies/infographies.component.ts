@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 import InfographiesResource from '../../infographies.resource';
-import { PartialObserver } from 'rxjs/Observer';
+import { PartialObserver } from 'rxjs';
 
 @Component({
   selector: 'ig-infographies',
