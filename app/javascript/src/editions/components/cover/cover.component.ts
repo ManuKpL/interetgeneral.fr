@@ -1,11 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'ig-editions-cover',
-  templateUrl: './cover.template.html',
-  styleUrls: ['./cover.styles.scss'],
+  selector   : 'ig-editions-cover',
+  styleUrls  : ['./cover.component.scss'],
+  templateUrl: './cover.component.html',
 })
-export default class CoverComponent implements OnInit {
+export class CoverComponent implements OnInit {
 
   @Input() cover: ICoverDef;
 

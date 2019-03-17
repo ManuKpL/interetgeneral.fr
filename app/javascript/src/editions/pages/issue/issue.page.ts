@@ -3,14 +3,14 @@ import { Location }               from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PartialObserver }        from 'rxjs/Observer';
 
-import EditionsResource           from '../../editions.resource';
+import { EditionsResource }       from '../../services';
 
 @Component({
-  selector: 'ig-editions-issue',
-  templateUrl: './issue.template.html',
-  styleUrls: ['./issue.styles.scss'],
+  selector   : 'ig-editions-issue',
+  styleUrls  : ['./issue.page.scss'],
+  templateUrl: './issue.page.html',
 })
-export default class IssueComponent implements OnInit {
+export class IssuePage implements OnInit {
 
   public issue: IEditionIssue;
   public mainColor: string;
@@ -27,18 +27,20 @@ export default class IssueComponent implements OnInit {
 
   public ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    if (IssueComponent.ID_FORMAT.test(id)) {
-      this.getEditionIssue(id);
+    if (IssuePage.ID_FORMAT.test(id)) {
+      this._getEditionIssue(id);
     } else {
       this.router.navigate(['/']);
     }
   }
 
-  private getEditionIssue(id: string) {
+  // PRIVATE METHODS -----------------------------------------------------------
+
+  private _getEditionIssue(id: string) {
     const observer: PartialObserver<IEditionIssue> = {
       next: (issue: IEditionIssue) => {
         this.issue = issue;
-        this.mainColor = issue.color || IssueComponent.IG_RED;
+        this.mainColor = issue.color || IssuePage.IG_RED;
 
         if (issue.editionId !== id) {
           this.location.go(`/editions/${issue.editionId}`);

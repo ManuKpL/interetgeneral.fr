@@ -5,7 +5,7 @@ import { of }              from 'rxjs/observable/of';
 import { catchError, map } from 'rxjs/operators';
 
 @Injectable()
-export default class EditionsResource {
+export class EditionsResource {
 
   constructor(private http: Http) { }
 

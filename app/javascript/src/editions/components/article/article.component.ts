@@ -1,12 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ArticleType } from './article-type.enum';
+import { ArticleType } from '../../enums';
 
 @Component({
   selector   : 'ig-issue-article',
-  styleUrls  : ['./article.styles.scss'],
-  templateUrl: './article.template.html',
+  styleUrls  : ['./article.component.scss'],
+  templateUrl: './article.component.html',
 })
-export default class IssueArticleComponent implements OnInit {
+export class IssueArticleComponent implements OnInit {
 
   @Input() public article: IIssueArticle;
   public articleType: ArticleType;

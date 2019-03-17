@@ -1,0 +1,22 @@
+<div class="container">
+
+  <div class="text-center  padded-top">
+    <h2>{{ pageTitle }}</h2>
+  </div>
+
+  <main class="ig-editions">
+
+    <div *ngIf="covers$ | async as covers; else loading" class="ig-editions-covers">
+      <section class="ig-editions-covers-group-one">
+        <ig-editions-cover *ngFor="let cover of covers.coversGroupOne" [cover]="cover"></ig-editions-cover>
+      </section>
+
+      <section class="ig-editions-covers-group-two" *ngIf="!reducedList">
+        <ig-editions-cover *ngFor="let cover of covers.coversGroupTwo" [cover]="cover"></ig-editions-cover>
+      </section>
+    </div>
+
+    <ng-template #loading>loading...</ng-template>
+  </main>
+
+</div>
