@@ -2,17 +2,18 @@ import { NgModule }     from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpModule }   from '@angular/http';
 
-import CoverComponent        from './components/cover/cover.component';
-import EditionsComponent     from './pages/editions/editions.component';
-import EditionsResource      from './editions.resource';
-import IssueComponent        from './pages/issue/issue.component';
-import IssueArticleComponent from './components/article/article.component';
+import * as components from './components';
+import * as pages      from './pages';
+import * as services   from './services';
+
+const componentsList = Object.values(components);
+const pagesList      = Object.values(pages);
+const servicesList   = Object.values(services);
 
 @NgModule({
-  bootstrap   : [EditionsComponent],
-  declarations: [CoverComponent, IssueComponent, EditionsComponent, IssueArticleComponent],
-  exports     : [EditionsComponent],
+  declarations: [...pagesList, ...componentsList],
+  exports     : [...pagesList],
   imports     : [CommonModule, HttpModule],
-  providers   : [EditionsResource]
+  providers   : [...servicesList]
 })
 export default class EditionsModule { }
