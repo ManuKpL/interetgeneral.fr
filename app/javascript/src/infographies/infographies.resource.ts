@@ -1,7 +1,6 @@
 import { Injectable }      from '@angular/core';
 import { Http, Response }  from '@angular/http';
-import { Observable }      from 'rxjs/Observable';
-import { of }              from 'rxjs/observable/of';
+import { Observable, throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 
 @Injectable()
@@ -25,7 +24,7 @@ export default class InfographiesResource {
     return this.http.get(uriPath)
       .pipe(
         map((res: Response): IInfoDef[] => res.json() as IInfoDef[]),
-        catchError((e: Error) => { console.error(e); return of(e); })
+        catchError((e: Error) => { console.error(e); return throwError(e); })
       );
   }
 }

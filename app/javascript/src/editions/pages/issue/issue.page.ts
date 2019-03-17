@@ -1,7 +1,7 @@
 import { Component, OnInit }      from '@angular/core';
 import { Location }               from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
-import { PartialObserver }        from 'rxjs/Observer';
+import { PartialObserver }        from 'rxjs';
 
 import { EditionsResource }       from '../../services';
 

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import AnnouncementsResource from '../../announcements.resource';
-import { PartialObserver } from 'rxjs/Observer';
+import { PartialObserver } from 'rxjs';
 
 @Component({
   selector   : 'ig-landing-page',

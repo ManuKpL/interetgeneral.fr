@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
+import { Observable, throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
-import { of } from 'rxjs/observable/of';
 
 @Injectable()
 export class ArticlesResource {
@@ -20,7 +19,7 @@ export class ArticlesResource {
     return this.http.get(uriPath)
       .pipe(
         map((res: Response): IArticle => res.status === 200 && res.json()),
-        catchError((e: Error): any => { console.error(e); return of(e); }),
+        catchError((e: Error): any => { console.error(e); return throwError(e); }),
       );
   }
 }

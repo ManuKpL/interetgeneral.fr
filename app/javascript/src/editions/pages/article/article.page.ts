@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
-import { Observable } from 'rxjs/Observable';
+import { Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
-import { of } from 'rxjs/observable/of';
 
 @Component({
   selector   : 'ig-editions-article',

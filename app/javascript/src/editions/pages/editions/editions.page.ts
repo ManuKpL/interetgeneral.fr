@@ -1,9 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { PartialObserver }          from 'rxjs/Observer';
+
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 import { EditionsResource } from '../../services';
-import { Observable } from 'rxjs/Observable';
-import { map } from 'rxjs/operators';
 
 @Component({
   selector   : 'ig-editions',
