@@ -5,7 +5,7 @@ class EditionsController < ApplicationController
 
   def index
     if @editions.empty?
-      render status: :no_content
+      render status: :no_content, json: nil
     else
       render status: :ok, json: @editions.map(&:to_json_cover_format)
     end
@@ -15,7 +15,7 @@ class EditionsController < ApplicationController
     if @edition
       render status: :ok, json: @edition.to_json_issue_format
     else
-      render status: :no_content
+      render status: :no_content, json: nil
     end
   end
 

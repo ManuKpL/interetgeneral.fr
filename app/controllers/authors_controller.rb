@@ -5,7 +5,7 @@ class AuthorsController < ApplicationController
 
   def index
     if @authors.empty?
-      render status: :no_content
+      render status: :no_content, json: nil
     else
       render status: :ok, json: @authors
     end
