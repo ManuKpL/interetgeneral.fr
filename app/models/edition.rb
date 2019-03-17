@@ -1,4 +1,6 @@
 class Edition < ApplicationRecord
+  include IdHelper
+
   has_many :infographics
   has_many :articles
   has_many :authors, through: :articles
@@ -6,7 +8,7 @@ class Edition < ApplicationRecord
   def to_json_cover_format
     {
       :id            => id,
-      :editionId     => build_edition_id(id),
+      :editionId     => build_id(id, title),
       :number        => issue_number,
       :date          => date,
       :title         => title,
@@ -22,7 +24,7 @@ class Edition < ApplicationRecord
   def to_json_issue_format
     {
       :id         => id,
-      :editionId  => build_edition_id(issue_number),
+      :editionId  => build_id(issue_number, title),
       :number     => issue_number,
       :date       => date,
       :title      => title,
@@ -33,17 +35,5 @@ class Edition < ApplicationRecord
       :color      => color,
       :articles   => articles.map(&:to_json_issue_format),
     }
-  end
-
-  private
-
-  def build_edition_id key
-
-    hyphenized_title = title
-      .unicode_normalize(:nfd)
-      .gsub(/[\s\u0300-\u036f]/){ |m| m == ' ' ? "-" : "" }
-      .downcase
-
-    "#{key}-#{hyphenized_title}"
   end
 end

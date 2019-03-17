@@ -16,6 +16,6 @@ export class IssueArticleComponent implements OnInit {
 
   public ngOnInit() {
     this.articleType = ArticleType[this.article.type];
-    this.targetPath  = `/editions/${this.editionId}/articles/${this.article.id}`;
+    this.targetPath  = `/editions/${this.editionId}/articles/${this.article.articleId}`;
   }
 }

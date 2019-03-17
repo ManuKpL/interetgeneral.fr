@@ -13,10 +13,11 @@ declare interface IEditionIssue {
 }
 
 declare interface IIssueArticle {
-  id:     number,
-  title:  string,
-  type:   string,
-  author: IIssueAuthor,
+  id:        number,
+  articleId: string,
+  title:     string,
+  type:      string,
+  author:    IIssueAuthor,
 }
 
 declare interface IIssueAuthor {

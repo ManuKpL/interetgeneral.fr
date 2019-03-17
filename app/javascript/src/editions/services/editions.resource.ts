@@ -3,6 +3,7 @@ import { Http, Response }  from '@angular/http';
 import { Observable }      from 'rxjs/Observable';
 import { catchError, map } from 'rxjs/operators';
 import { ArticlesResource } from './articles.resource';
+import { of } from 'rxjs/observable/of';
 
 @Injectable()
 export class EditionsResource {
@@ -43,7 +44,7 @@ export class EditionsResource {
       .get(uriPath)
       .pipe(
         map((res: Response): ICoverDef[] | IEditionIssue => res.status === 200 && res.json()),
-        catchError((e: Error): any => { console.error(e); return Observable.throw(e); }),
+        catchError((e: Error): any => { console.error(e); return of(e); }),
       );
   }
 }
