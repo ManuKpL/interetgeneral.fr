@@ -17,7 +17,7 @@
 
     <section class="ig-issue-summary container">
       <h2>Sommaire</h2>
-      <ig-issue-article *ngFor="let article of issue.articles" [article]="article"></ig-issue-article>
+      <ig-issue-article *ngFor="let article of issue.articles" [article]="article" [editionId]="issue.editionId"></ig-issue-article>
     </section>
 
   </div>

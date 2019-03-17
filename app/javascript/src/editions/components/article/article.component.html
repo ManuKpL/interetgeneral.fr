@@ -1,3 +1,5 @@
-<span [ngClass]="articleType.className">{{ articleType.text }}</span>
-<h3>{{ article.title }}</h3>
-<p>{{ article.author.fullName }}, {{ article.author.description }}</p>
+<a class="wrapper" [href]="targetPath">
+  <span [ngClass]="articleType.className">{{ articleType.text }}</span>
+  <h3>{{ article.title }}</h3>
+  <p>{{ article.author.fullName }}, {{ article.author.description }}</p>
+</a>

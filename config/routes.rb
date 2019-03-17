@@ -4,7 +4,8 @@ Rails.application.routes.draw do
 
   scope '' do
     get '/editions',     to: 'pages#home'
-    get '/editions/:id', to: 'pages#home'
+    get '/editions/:edition_id', to: 'pages#home'
+    get '/editions/:edition_id/articles/:article_id', to: 'pages#home'
     get '/infographies', to: 'pages#home'
   end
 

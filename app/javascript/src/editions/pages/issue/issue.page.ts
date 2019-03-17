@@ -26,7 +26,7 @@ export class IssuePage implements OnInit {
   private static ID_FORMAT: RegExp = /^\d+(-[a-z]+)+/i;
 
   public ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id');
+    const id = this.route.snapshot.paramMap.get('editionId');
     if (IssuePage.ID_FORMAT.test(id)) {
       this._getEditionIssue(id);
     } else {
