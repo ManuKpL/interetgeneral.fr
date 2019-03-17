@@ -9,7 +9,7 @@ const {
 
 const appDir = resolve(__dirname, '..', '..', 'app');
 const ContextReplacement = new ContextReplacementPlugin(
-  /@angular(\\|\/)core(\\|\/)esm5/,
+  /@angular(\\|\/)core(\\|\/)f?esm5/,
   join(appDir, 'javascript'),
 );
 const env = new DefinePlugin({
