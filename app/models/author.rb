@@ -1,7 +1,7 @@
 class Author < ApplicationRecord
   has_many :articles
 
-  def to_json_issue_format
+  def to_json_simple_format
     {
       :id          => id,
       :fullName    => full_name,
