@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { switchMap, map } from 'rxjs/operators';
 
 @Component({
   selector   : 'ig-editions-article',
@@ -10,22 +10,23 @@ import { switchMap } from 'rxjs/operators';
 })
 export class ArticlePage implements OnInit {
 
-  public ids$: Observable<{ article: string, edition: string }>;
-
   public constructor(
     private router: Router,
     private route: ActivatedRoute,
   ) {}
 
+  private static readonly ID_FORMAT    = /^\d+(-[a-z]+)+/i;
+  private static readonly PARAMS_NAMES = ['editionId', 'articleId'];
+
   public ngOnInit(): void {
-    this.ids$ = this.route.paramMap
-      .pipe(
-        switchMap((params: ParamMap) => {
-          return of({
-            article: params.get('articleId'),
-            edition: params.get('editionId'),
-          });
-        })
-      );
+    const ids$ = this._readParamIds(this.route.paramMap);
+  }
+
+  // PRIVATE METHOD --------------------------------------------------------------------------------
+
+  private _readParamIds(params$: Observable<ParamMap>): Observable<string[]> {
+    return params$.pipe(
+      map(params => ArticlePage.PARAMS_NAMES.map(name => params.get(name))),
+    );
   }
 }
