@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
-import { Observable, throwError, from, empty } from 'rxjs';
-import { switchMap, catchError, switchMapTo } from 'rxjs/operators';
-import { EditionsResource } from '../../services';
 
-const validatesRegex = (regex: RegExp) => (s: string) => regex.test(s);
-const splitShift     = (split: string | RegExp) => (s: string) => s.split(split).shift();
+import { empty, from, Observable, throwError } from 'rxjs';
+import { catchError, switchMap, switchMapTo } from 'rxjs/operators';
+
+import { EditionsResource } from '../../services';
+import { compose, splitShift, validatesRegex } from '../../../utils';
 
 @Component({
   selector   : 'ig-editions-article',
@@ -29,29 +29,35 @@ export class ArticlePage implements OnInit {
   public ngOnInit(): void {
     this.article$ = this.route.paramMap
       .pipe(
-        switchMap(this._readParamIds()),
+        switchMap(
+          compose(
+            this._getArticle.bind(this),
+            this._parseParamIds.bind(this),
+            this._readParamIds.bind(this),
+          ),
+        ),
         catchError(this._handleError()),
       );
   }
 
   // PRIVATE METHOD --------------------------------------------------------------------------------
 
-  private _readParamIds(): (params: ParamMap) => Observable<string | string[]> {
-    return (params: ParamMap) => {
-      const ids = this.PARAMS_NAMES.map(name => params.get(name));
-      return this._parseParamIds(ids);
-    };
+  private _readParamIds(params: ParamMap): string[] {
+    return this.PARAMS_NAMES.map(name => params.get(name));
   }
 
-  private _parseParamIds(ids: string[]): Observable<string | string[]> {
+  private _parseParamIds(ids: string[]): string[] {
     if (ids.every(validatesRegex(this.ID_FORMAT))) {
-      return this._getArticle(ids.map(splitShift('-')) as [string, string]);
+      return ids.map(splitShift('-'));
     }
-    return throwError(this.INVALID_IDS_ERROR);
+    return null;
   }
 
   private _getArticle(ids: [string, string]): Observable<any> {
-    return this.resource.getEditionArticle(...ids);
+    if (ids) {
+      return this.resource.getEditionArticle(...ids);
+    }
+    throwError(this.INVALID_IDS_ERROR);
   }
 
   private _handleError(): (error: any) => Observable<never> {
