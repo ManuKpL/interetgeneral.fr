@@ -8,5 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (NODE_ENV === 'production') {
     enableProdMode();
   }
+  console.info('%cApp version', 'color:magenta', APP_VERSION);
   platformBrowserDynamic().bootstrapModule(AppModule);
 });
