@@ -1,18 +1,23 @@
 const { environment }   = require('@rails/webpacker');
-const html              = require('./loaders/html');
-const typescript        = require('./loaders/typescript');
-const style             = require('./loaders/style');
 const { join, resolve } = require('path');
 const {
   ContextReplacementPlugin, DefinePlugin,
 } = require('webpack');
+
+const html              = require('./loaders/html');
+const typescript        = require('./loaders/typescript');
+const style             = require('./loaders/style');
+
+const { version }       = require('../../package.json');
 
 const appDir = resolve(__dirname, '..', '..', 'app');
 const ContextReplacement = new ContextReplacementPlugin(
   /@angular(\\|\/)core(\\|\/)f?esm5/,
   join(appDir, 'javascript'),
 );
+
 const env = new DefinePlugin({
+  APP_VERSION: JSON.stringify(version),
   NODE_ENV: JSON.stringify(process.env.NODE_ENV),
 });
 
