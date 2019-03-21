@@ -1,6 +1,18 @@
-<main class="container">
-  <h1>Article</h1>
-  <main *ngIf="article$ | async as article">
-    {{ article | json }}
-  </main>
+<main class="container" *ngIf="article$ | async as article">
+
+  <h1 id="title">{{ article.title }}</h1>
+
+  <dl id="lead">
+    <dt>{{ article.type }}</dt>
+    <dd>{{ article.lead }}</dd>
+  </dl>
+
+  <div>
+    {{ article.content }}
+  </div>
+
+  <footer>
+    {{ article.author.fullName }}, {{ article.author.description }}
+  </footer>
+
 </main>

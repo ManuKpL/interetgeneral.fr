@@ -8,8 +8,8 @@ import { ArticlesResource } from './articles.resource';
 export class EditionsResource {
 
   constructor(
-    private articles: ArticlesResource,
-    private http:     Http,
+    private readonly ARTICLES_RESSOURCE: ArticlesResource,
+    private readonly HTTP:               Http,
   ) { }
 
   private EDITION_BASE_PATH = 'api/editions';
@@ -31,15 +31,15 @@ export class EditionsResource {
     return this.getEditionsFromPath(uriPath);
   }
 
-  public getEditionArticle(editionId: string, articleId: string): Observable<IArticle | {}> {
+  public getEditionArticle(editionId: string, articleId: string): Observable<IArticle> {
     const uriPath = `${this.EDITION_BASE_PATH}/${editionId}`;
-    return this.articles.getIssueArticle(uriPath, articleId);
+    return this.ARTICLES_RESSOURCE.getIssueArticle(uriPath, articleId);
   }
 
   /*---------------------------- PRIVATE METHODS -----------------------------*/
 
   private getEditionsFromPath(uriPath: string): Observable<ICoverDef[] | IEditionIssue | {}> {
-    return this.http
+    return this.HTTP
       .get(uriPath)
       .pipe(
         map((res: Response): ICoverDef[] | IEditionIssue => res.status === 200 && res.json()),
