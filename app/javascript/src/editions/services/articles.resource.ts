@@ -15,11 +15,11 @@ export class ArticlesResource {
     return this._getArticleFromPath(uriPath);
   }
 
-  private _getArticleFromPath(uriPath: string): Observable<IArticle | {}> {
+  private _getArticleFromPath(uriPath: string): Observable<IArticle> {
     return this.http.get(uriPath)
       .pipe(
         map((res: Response): IArticle => res.status === 200 && res.json()),
-        catchError((e: Error): any => { console.error(e); return throwError(e); }),
+        catchError((e: Error) => { console.error(e); return throwError(e); }),
       );
   }
 }
