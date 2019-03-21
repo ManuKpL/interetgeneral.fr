@@ -1,18 +1,20 @@
 <main class="container" *ngIf="article$ | async as article">
 
-  <h1 id="title">{{ article.title }}</h1>
+  <h1 id="article-title">{{ article.title }}</h1>
 
-  <dl id="lead">
+  <div id="article-image"></div>
+
+  <dl id="article-lead">
     <dt>{{ article.type }}</dt>
     <dd>{{ article.lead }}</dd>
   </dl>
 
-  <div>
+  <div id="article-content">
     {{ article.content }}
   </div>
 
-  <footer>
-    {{ article.author.fullName }}, {{ article.author.description }}
-  </footer>
+  <div id="article-author" *ngIf="article.author; let author">
+    {{ author.fullName }}, {{ author.description }}
+  </div>
 
 </main>
