@@ -1,1 +1,72 @@
-//
+@import 'app/assets/stylesheets/config/variables';
+
+.container {
+  padding: 5vh;
+  display: grid;
+  grid-template-areas:
+    'image image image'
+    '. title title'
+    'author lead lead'
+    '. content content';
+  grid-column-gap: 5vh;
+  grid-row-gap: 2.5vh;
+
+  @media screen and (max-width: $screen-lg) {
+    grid-template-areas:
+    'title title title'
+    'image image image'
+    'lead lead lead'
+    'author content content';
+  }
+
+  @media screen and (max-width: $screen-sm) {
+    grid-template-areas:
+      'image'
+      'title'
+      'lead'
+      'content'
+      'author';
+  }
+}
+
+#article-title {
+  grid-area: title;
+}
+
+#article-image {
+  grid-area: image;
+  height: 20vh;
+  background-color: #efefef
+}
+
+#article-lead {
+  grid-area: lead;
+  margin: 0;
+  display: grid;
+  grid-template-columns: min-content auto;
+  @media screen and (max-width: $screen-xs) {
+    grid-template-columns: auto;
+  }
+  > dt {
+    border-right: 5px solid;
+    margin: 2px 10px 2px 0;
+    font-size: 1.3em;
+    line-height: 1em;
+    background-color: #efefef;
+    align-self: baseline;
+    padding: 6px 10px;
+    border-color: #e0e0e0;
+  }
+  > dd {
+    margin: 0;
+  }
+}
+
+#article-content {
+  grid-area: content;
+  text-align: justify;
+}
+
+#article-author {
+  grid-area: author;
+}
