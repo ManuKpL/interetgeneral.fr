@@ -8,16 +8,20 @@
     '. title'
     'author lead'
     '. content';
-  grid-template-columns: 12vw auto;
+  grid-template-columns: 10vw auto;
   grid-column-gap: 2.5vw;
   grid-row-gap: 2.5vh;
 
   @media screen and (max-width: $screen-lg) {
     grid-template-areas:
-    'title title'
-    'image image'
-    'lead lead'
-    'author content';
+      'title title'
+      'image image'
+      'lead lead'
+      'author content';
+  }
+
+  @media screen and (max-width: $screen-md) {
+    grid-template-column: 12vw auto;
   }
 
   @media screen and (max-width: $screen-sm) {
@@ -61,12 +65,18 @@
   }
   > dd {
     margin: 0;
+    > ::ng-deep :first-child {
+      margin-top: 0;
+    }
   }
 }
 
 #article-content {
   grid-area: content;
   text-align: justify;
+  > ::ng-deep :first-child {
+    margin-top: 0;
+  }
 }
 
 #article-author {
