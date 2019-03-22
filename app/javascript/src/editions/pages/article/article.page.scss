@@ -4,19 +4,20 @@
   padding: 5vh;
   display: grid;
   grid-template-areas:
-    'image image image'
-    '. title title'
-    'author lead lead'
-    '. content content';
-  grid-column-gap: 5vh;
+    'image image'
+    '. title'
+    'author lead'
+    '. content';
+  grid-template-columns: 12vw auto;
+  grid-column-gap: 2.5vw;
   grid-row-gap: 2.5vh;
 
   @media screen and (max-width: $screen-lg) {
     grid-template-areas:
-    'title title title'
-    'image image image'
-    'lead lead lead'
-    'author content content';
+    'title title'
+    'image image'
+    'lead lead'
+    'author content';
   }
 
   @media screen and (max-width: $screen-sm) {
@@ -26,6 +27,7 @@
       'lead'
       'content'
       'author';
+    grid-template-columns: auto;
   }
 }
 
