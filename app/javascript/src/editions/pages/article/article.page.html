@@ -6,15 +6,13 @@
 
   <dl id="article-lead">
     <dt>{{ article.type }}</dt>
-    <dd>{{ article.lead }}</dd>
+    <dd [innerHtml]="article.lead"></dd>
   </dl>
 
-  <div id="article-content">
-    {{ article.content }}
-  </div>
+  <section id="article-content" [innerHtml]="article.content"></section>
 
-  <div id="article-author" *ngIf="article.author; let author">
+  <aside id="article-author" *ngIf="article.author; let author">
     {{ author.fullName }}, {{ author.description }}
-  </div>
+  </aside>
 
 </main>
