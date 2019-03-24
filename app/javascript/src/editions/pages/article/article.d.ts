@@ -13,5 +13,12 @@ declare interface IIllustration {
   name:       string;
   imgSrc:     string;
   previewSrc: string;
+  position:   IllustrationPosition;
   artistName: string;
+}
+
+declare enum IllustrationPosition {
+  CENTER = 'center',
+  TOP    = 'top',
+  BOTTOM = 'bottom',
 }
