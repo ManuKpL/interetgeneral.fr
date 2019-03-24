@@ -15,6 +15,7 @@ import { compose, splitShift, validatesRegex } from '../../../utils';
 export class ArticlePage implements OnInit {
 
   public article$: Observable<any>;
+  public imageDisplayFull = false;
 
   public constructor(
     private resource: EditionsResource,
@@ -38,6 +39,10 @@ export class ArticlePage implements OnInit {
         ),
         catchError(this._handleError()),
       );
+  }
+
+  public onImageLoad(): void {
+    this.imageDisplayFull = true;
   }
 
   // PRIVATE METHOD --------------------------------------------------------------------------------

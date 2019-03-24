@@ -80,7 +80,7 @@ ActiveRecord::Schema.define(version: 20190324191112) do
 
   create_table "illustrations", force: :cascade do |t|
     t.string "name"
-    t.string "position"
+    t.integer "position", default: 0
     t.string "image_url"
     t.string "preview_url"
     t.string "artist_name"
