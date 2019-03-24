@@ -4,7 +4,7 @@ class AnnouncementsController < ApplicationController
 
   def current
     if @announcement
-      render status: :ok, json: @announcement
+      render status: :ok, json: @announcement.to_home_json_format
     else
       render_no_content
     end

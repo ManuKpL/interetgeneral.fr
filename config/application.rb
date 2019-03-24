@@ -29,6 +29,6 @@ module IgFr
     config.generators.system_tests = nil
 
     # I18N
-    config.i18n.default_locale = :fr
+    config.i18n.default_locale = :en
   end
 end

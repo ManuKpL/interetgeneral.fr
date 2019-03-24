@@ -27,6 +27,7 @@ ActiveAdmin.register Edition do
       row :preview_url
       row :shop_path
       row :created_at
+      row :updated_at
       panel 'Infographics' do
         table_for edition.infographics do
           column :title
