@@ -9,6 +9,10 @@ class Author < ApplicationRecord
     }
   end
 
+  def to_article_json_format
+    to_json_simple_format
+  end
+
   private
 
   def full_name

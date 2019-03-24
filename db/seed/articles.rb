@@ -15,6 +15,7 @@ module ArticleSeed
       <p>Id Lorem ex et tempor incididunt ad officia irure minim aute adipisicing ea ad. Veniam proident fugiat quis cillum. Cillum laborum tempor adipisicing tempor fugiat enim in et cillum duis exercitation cupidatat. Do labore excepteur do reprehenderit exercitation ad ad mollit et. Aute do culpa irure excepteur fugiat magna veniam.</p>",
       edition_id: 2,
       article_type: 0,
+      illustration_id: 1,
     },
     {
       title: 'Le travail selon Marx',
@@ -31,6 +32,7 @@ module ArticleSeed
       <p>Id Lorem ex et tempor incididunt ad officia irure minim aute adipisicing ea ad. Veniam proident fugiat quis cillum. Cillum laborum tempor adipisicing tempor fugiat enim in et cillum duis exercitation cupidatat. Do labore excepteur do reprehenderit exercitation ad ad mollit et. Aute do culpa irure excepteur fugiat magna veniam.</p>",
       edition_id: 2,
       article_type: 0,
+      illustration_id: 1,
     },
     {
       title: 'Le salariat en miettes',
@@ -47,6 +49,7 @@ module ArticleSeed
       <p>Id Lorem ex et tempor incididunt ad officia irure minim aute adipisicing ea ad. Veniam proident fugiat quis cillum. Cillum laborum tempor adipisicing tempor fugiat enim in et cillum duis exercitation cupidatat. Do labore excepteur do reprehenderit exercitation ad ad mollit et. Aute do culpa irure excepteur fugiat magna veniam.</p>",
       edition_id: 2,
       article_type: 0,
+      illustration_id: 1,
     }
   ]
 

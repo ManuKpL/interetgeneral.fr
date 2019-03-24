@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181117100455) do
+ActiveRecord::Schema.define(version: 20190324191112) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,8 +50,10 @@ ActiveRecord::Schema.define(version: 20181117100455) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "article_type"
+    t.bigint "illustration_id"
     t.index ["author_id"], name: "index_articles_on_author_id"
     t.index ["edition_id"], name: "index_articles_on_edition_id"
+    t.index ["illustration_id"], name: "index_articles_on_illustration_id"
   end
 
   create_table "authors", force: :cascade do |t|
@@ -74,6 +76,16 @@ ActiveRecord::Schema.define(version: 20181117100455) do
     t.string "shop_path"
     t.string "preview_url"
     t.string "color"
+  end
+
+  create_table "illustrations", force: :cascade do |t|
+    t.string "name"
+    t.string "position"
+    t.string "image_url"
+    t.string "preview_url"
+    t.string "artist_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "infographics", force: :cascade do |t|
@@ -105,5 +117,6 @@ ActiveRecord::Schema.define(version: 20181117100455) do
 
   add_foreign_key "articles", "authors"
   add_foreign_key "articles", "editions"
+  add_foreign_key "articles", "illustrations"
   add_foreign_key "infographics", "editions"
 end
