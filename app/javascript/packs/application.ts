@@ -10,4 +10,7 @@ require('../../assets/images/infographies/IG-2-hommesFemmes.png');
 require('../../assets/images/infographies/IG-2-ouvriersRisques.png');
 require('../../assets/images/infographies/IG-2-travailPrecarite.png');
 
+require('../../assets/images/illustrations/meute-editocrates.png');
+require('../../assets/images/illustrations/preview/meute-editocrates.png');
+
 import '../src/index.ts';

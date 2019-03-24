@@ -3,6 +3,7 @@ class Article < ApplicationRecord
 
   belongs_to :author
   belongs_to :edition
+  belongs_to :illustration
 
   enum article_type: [:ARTICLE, :INFOGRAPHIC, :INTERVIEW]
 
@@ -12,7 +13,7 @@ class Article < ApplicationRecord
       :articleId => build_id(id, title),
       :type      => article_type,
       :title     => title,
-      :author    => author.to_json_simple_format,
+      :author    => get_json(author),
     }
   end
 
@@ -22,19 +23,30 @@ class Article < ApplicationRecord
       :type => article_type,
       :title => title,
       :lead => lead,
-      :author => author.to_json_simple_format
+      :author => get_json(author),
     }
   end
 
   def to_json_details_format
     {
-      :id        => id,
-      :articleId => build_id(id, title),
-      :type      => article_type,
-      :title     => title,
-      :lead      => lead,
-      :content   => content,
-      :author    => author.to_json_simple_format
+      :id           => id,
+      :articleId    => build_id(id, title),
+      :type         => article_type,
+      :title        => title,
+      :lead         => lead,
+      :content      => content,
+      :author       => get_json(author),
+      :illustration => get_json(illustration),
     }
+  end
+
+  private
+
+  def get_json data
+    if data
+      return data.to_article_json_format
+    end
+
+    data
   end
 end
