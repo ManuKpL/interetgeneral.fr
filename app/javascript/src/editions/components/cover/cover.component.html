@@ -1,22 +1,19 @@
 <section class="ig-cover-container">
   <a [href]="redirectLink" [target]="redirectTarget" class="full-cover">
-    <img class="ig-cover-img"
-         [ngClass]="{ 'ig-cover-img-important': cover.latest }"
-         [src]="cover.imgSrc"
-         [alt]="cover.title"
-         (load)="onImageLoad()"
-         >
-    <img class="ig-cover-img ig-cover-img-preview"
-         *ngIf="cover.previewSrc"
-         [ngClass]="{ 'ig-cover-img-important': cover.latest, 'ig-cover-img-hide': displayFull }"
-         [src]="cover.previewSrc"
-         [alt]="cover.title"
-         >
+
+    <ig-lazy-img
+      [illustration] = "{ imgSrc: cover.imgSrc, previewSrc: cover.previewSrc, name: cover.title }"
+      [classNames]   = "cover.latest ? 'ig-cover-img ig-cover-img-important' : 'ig-cover-img'"
+    ></ig-lazy-img>
+
     <dl class="ig-cover-text">
       <dt>{{ cover.title }}</dt>
       <dd>{{ cover.shortDesc }}</dd>
     </dl>
+
     <i class="ig-cover-badge">#{{ cover.number }}</i>
+
     <i class="ig-cover-important" *ngIf="cover.latest">Dernière parution</i>
+
   </a>
 </section>
