@@ -9,11 +9,13 @@ class Article < ApplicationRecord
 
   def to_json_issue_format
     {
-      :id        => id,
-      :articleId => build_id(id, title),
-      :type      => article_type,
-      :title     => title,
-      :author    => get_json(author),
+      :id           => id,
+      :articleId    => build_id(id, title),
+      :type         => article_type,
+      :title        => title,
+      :lead         => lead,
+      :author       => get_json(author),
+      :illustration => get_json(illustration),
     }
   end
 
