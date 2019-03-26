@@ -5,29 +5,39 @@
   padding: 1em ;
   display: grid;
 
-  grid-template-areas  : 'type title' 'type details' '. lead';
-  grid-template-columns: 4em auto                   ;
-  grid-template-rows   : repeat(2, minmax(2em, max-content));
+  grid-template-areas  : 'image title' 'image details' 'image lead';
+  grid-template-columns: min-content auto                   ;
+  grid-template-rows   : repeat(3, minmax(2em, min-content));
   grid-column-gap      : 1em                        ;
 
   &:hover, &:active { outline: .3em solid #fff; }
 }
 
+::ng-deep ig-lazy-img {
 
-span {
-  outline: 1px solid currentColor;
-  font-size  : 2em   ;
-  grid-area  : type  ;
-  display    : grid  ;
-  align-items: center;
-  font-family: 'Lato', 'sans-serif';
-  font-weight: 900;
-  height: 2em;
+  grid-area: image;
+  position: relative;
+
+  .article-image {
+    width : 100px;
+    object-fit: cover;
+  }
 }
 
+// span {
+//   outline    : 1px solid currentColor;
+//   font-size  : 2em                   ;
+//   grid-area  : type                  ;
+//   display    : grid                  ;
+//   align-items: center                ;
+//   font-family: 'Lato', 'sans-serif'  ;
+//   font-weight: 900                   ;
+//   height     : 2em                   ;
+// }
+
 h3, p {
-  margin    : 0     ;
-  text-align: left  ;
+  margin    : 0       ;
+  text-align: left    ;
   align-self: baseline;
 }
 

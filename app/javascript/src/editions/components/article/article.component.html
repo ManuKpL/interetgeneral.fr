@@ -1,5 +1,9 @@
 <a class="wrapper" [href]="targetPath">
-  <span [ngClass]="articleType.className">{{ articleType.text }}</span>
+  <ig-lazy-img
+    [illustration]="article.illustration"
+    [classNames]="'article-image'"
+  ></ig-lazy-img>
+  <!-- <span [ngClass]="articleType.className">{{ articleType.text }}</span> -->
   <h3>{{ article.title }}</h3>
   <p>{{ article.author.fullName }}, {{ article.author.description }}</p>
   <p [innerHtml]="article.lead"></p>
