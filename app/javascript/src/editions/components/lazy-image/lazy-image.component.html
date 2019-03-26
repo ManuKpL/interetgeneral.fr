@@ -1,0 +1,16 @@
+<img
+  [ngClass]="classNames.img"
+  [src]="illustration.imgSrc"
+  [alt]="illustration.name"
+  (load)="onImageLoad()"
+  [style.object-position]="illustration.position"
+>
+
+<img
+  *ngIf="illustration.previewSrc"
+  [ngClass]="classNames.preview"
+  [class.lazy-preview-hide]="imageDisplayFull"
+  [src]="illustration.previewSrc"
+  [alt]="illustration.name"
+  [style.object-position]="illustration.position"
+>
