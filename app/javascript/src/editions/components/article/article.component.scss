@@ -5,7 +5,7 @@
   padding: 1em ;
   display: grid;
 
-  grid-template-areas  : 'type title' 'type details';
+  grid-template-areas  : 'type title' 'type details' '. lead';
   grid-template-columns: 4em auto                   ;
   grid-template-rows   : repeat(2, minmax(2em, max-content));
   grid-column-gap      : 1em                        ;
@@ -37,5 +37,10 @@ h3 {
 }
 
 p {
-  grid-area: details;
+  &:first-child {
+    grid-area: details;
+  }
+  &:last-child {
+    grid-area: lead;
+  }
 }
