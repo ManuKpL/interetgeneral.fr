@@ -2,21 +2,12 @@
 
   <h1 id="article-title">{{ article.title }}</h1>
 
-  <div id="article-image" *ngIf="article.illustration as illustration">
-    <img class="article-img"
-         [src]="illustration.imgSrc"
-         [alt]="illustration.name"
-         (load)="onImageLoad()"
-         [style.object-position]="illustration.position"
-         >
-    <img class="article-img article-img-preview"
-         *ngIf="illustration.previewSrc"
-         [class.article-img-hide]="imageDisplayFull"
-         [src]="illustration.previewSrc"
-         [alt]="illustration.name"
-         [style.object-position]="illustration.position"
-         >
-  </div>
+  <ig-lazy-img
+    *ngIf          = "article.illustration as illustration"
+    id             = "article-image"
+    [illustration] = "illustration"
+    [classNames]   = "'article-img'"
+  ></ig-lazy-img>
 
   <dl id="article-lead">
     <dt>{{ article.type }}</dt>
