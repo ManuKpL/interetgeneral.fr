@@ -7,7 +7,7 @@
 
   grid-template-areas  : 'image title' 'image details' 'image lead';
   grid-template-columns: min-content auto                   ;
-  grid-template-rows   : repeat(3, minmax(2em, min-content));
+  grid-template-rows   : repeat(2, minmax(2em, min-content)) auto;
   grid-column-gap      : 1em                        ;
 
   &:hover, &:active { outline: .3em solid #fff; }
@@ -24,17 +24,6 @@
   }
 }
 
-// span {
-//   outline    : 1px solid currentColor;
-//   font-size  : 2em                   ;
-//   grid-area  : type                  ;
-//   display    : grid                  ;
-//   align-items: center                ;
-//   font-family: 'Lato', 'sans-serif'  ;
-//   font-weight: 900                   ;
-//   height     : 2em                   ;
-// }
-
 h3, p {
   margin    : 0       ;
   text-align: left    ;
@@ -44,13 +33,16 @@ h3, p {
 h3 {
   grid-area     : title    ;
   text-transform: uppercase;
+  font-size     : 1.6em;
 }
 
 p {
-  &:first-child {
+  &:first-of-type {
     grid-area: details;
+    padding-left: 10px;
   }
-  &:last-child {
+  &:last-of-type {
     grid-area: lead;
+    font-style: italic;
   }
 }
