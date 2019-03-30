@@ -49,8 +49,48 @@ ActiveAdmin.register Article do
       input :title, required: true
       input :author
       input :illustration
-      input :lead, required: true, as: :quill_editor
-      input :content, required: true, as: :quill_editor
+      input :lead, {
+        :required   => true,
+        :as         => :quill_editor,
+        :input_html => {
+          :data => {
+            :options => {
+              :modules => {
+                :toolbar => [
+                  [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+                  ['bold', 'italic', 'underline', 'strike'],
+                  [{ 'color': [] }, { 'background': [] }],
+                  [{ 'align': [] }],
+                  ['clean']
+                ],
+              },
+              :placeholder => 'Type something...',
+              :theme       => 'snow',
+            },
+          },
+        },
+      }
+      input :content, {
+        :required   => true,
+        :as         => :quill_editor,
+        :input_html => {
+          :data => {
+            :options => {
+              :modules => {
+                :toolbar => [
+                  [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+                  ['bold', 'italic', 'underline', 'strike'],
+                  [{ 'color': [] }, { 'background': [] }],
+                  [{ 'align': [] }],
+                  ['clean']
+                ],
+              },
+              :placeholder => 'Type something...',
+              :theme       => 'snow',
+            },
+          },
+        },
+      }
     end
     actions
   end
