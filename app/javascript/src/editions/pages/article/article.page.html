@@ -11,7 +11,7 @@
 
   <dl id="article-lead">
     <dt>{{ article.type }}</dt>
-    <dd [innerHtml]="article.lead"></dd>
+    <dd [innerHtml]="article.lead | safeHtml"></dd>
   </dl>
 
   <section id="article-content" [innerHtml]="article.content"></section>

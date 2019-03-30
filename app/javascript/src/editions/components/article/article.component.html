@@ -6,5 +6,5 @@
   <!-- <span [ngClass]="articleType.className">{{ articleType.text }}</span> -->
   <h3>{{ article.title }}</h3>
   <p>{{ article.author.fullName }}, {{ article.author.description }}</p>
-  <p [innerHtml]="article.lead"></p>
+  <p [innerHtml]="article.lead | safeHtml"></p>
 </a>
