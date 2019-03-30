@@ -1,49 +1,40 @@
 source 'https://rubygems.org'
 
-git_source(:github) do |repo_name|
-  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
-  "https://github.com/#{repo_name}.git"
-end
+# git_source(:github) do |repo_name|
+#   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+#   "https://github.com/#{repo_name}.git"
+# end
 
-# ruby version
 ruby '2.6.2'
 
-# devise for user login
 gem 'devise'
-# protect infos with figaro
 gem 'figaro'
-# foreman for concurrent server start
-gem 'foreman'
-# rails
+
 gem 'rails'
 gem 'rails-i18n'
 gem 'sass-rails'
-# Use postgresql as the database for Active Record
+
 gem 'pg'
-# Use Puma as the app server
+
+gem 'foreman'
 gem 'puma'
-# Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder'
 
-# active admin
-gem 'activeadmin', github: 'activeadmin/activeadmin'
-gem 'inherited_resources', github: 'activeadmin/inherited_resources'
+gem 'activeadmin'
+gem 'inherited_resources'
+gem 'activeadmin_quill_editor'
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
 group :development do
-  # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
