@@ -9,9 +9,6 @@ ActiveAdmin.register Edition do
     column :short_desc
     column :latest_issue
     column :date
-    column :image_url
-    column :preview_url
-    column :shop_path
     column :created_at
     actions
   end

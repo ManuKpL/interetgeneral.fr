@@ -24,7 +24,7 @@ ActiveAdmin.register Infographic do
     active_admin_comments
   end
 
-  form title: 'User edition' do |f|
+  form title: 'Infographic edition' do |f|
     inputs do
       input :title, label: 'Title'
       input :edition, label: 'Edition'
