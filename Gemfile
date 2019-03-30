@@ -6,26 +6,26 @@ git_source(:github) do |repo_name|
 end
 
 # ruby version
-ruby '2.5.3'
+ruby '2.6.2'
 
 # devise for user login
-gem 'devise', '~> 4.4.0'
+gem 'devise'
 # protect infos with figaro
-gem 'figaro', '~> 1.1.1'
+gem 'figaro'
 # foreman for concurrent server start
-gem 'foreman', '~> 0.64.0'
+gem 'foreman'
 # rails
-gem 'rails', '~> 5.1.4'
-gem 'rails-i18n', '~> 5.1'
-gem 'sass-rails', '~> 5.0'
+gem 'rails'
+gem 'rails-i18n'
+gem 'sass-rails'
 # Use postgresql as the database for Active Record
-gem 'pg', '~> 0.18'
+gem 'pg'
 # Use Puma as the app server
-gem 'puma', '~> 3.7'
+gem 'puma'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.5'
+gem 'jbuilder'
 
 # active admin
 gem 'activeadmin', github: 'activeadmin/activeadmin'
