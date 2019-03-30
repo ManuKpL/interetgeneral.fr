@@ -49,8 +49,8 @@ ActiveAdmin.register Article do
       input :title, required: true
       input :author
       input :illustration
-      input :lead, required: true
-      input :content, required: true
+      input :lead, required: true, as: :quill_editor
+      input :content, required: true, as: :quill_editor
     end
     actions
   end
