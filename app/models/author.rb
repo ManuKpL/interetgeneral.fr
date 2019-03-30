@@ -13,8 +13,6 @@ class Author < ApplicationRecord
     to_json_simple_format
   end
 
-  private
-
   def full_name
     "#{first_name} #{name}"
   end
