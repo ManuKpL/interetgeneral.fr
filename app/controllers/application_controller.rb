@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
 
   rescue_from ActiveRecord::RecordNotFound, :with => :resource_not_found
 
+  @@only_show = { :only => [:show] }
+
   def resource_not_found(exception)
     render status: :not_found,
       json:   {

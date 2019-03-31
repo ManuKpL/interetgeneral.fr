@@ -15,9 +15,7 @@ Rails.application.routes.draw do
     scope '/editions' do
       get '/',                                 to: 'editions#index', as: 'api_editions'
       get '/:edition_id',                      to: 'editions#get',   as: 'api_edition'
-      get '/:edition_id/articles',             to: 'articles#index', as: 'api_edition_articles'
       get '/:edition_id/articles/:article_id', to: 'articles#show',  as: 'api_edition_article'
-      # get '/:edition_id/author',  to: 'authors#index',  as: 'api_edition_authors'
     end
   end
 

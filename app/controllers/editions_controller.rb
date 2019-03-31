@@ -15,7 +15,7 @@ class EditionsController < ApplicationController
     if @edition
       render status: :ok, json: @edition.to_json_issue_format
     else
-      render status: :no_content, json: nil
+      render status: :not_found, json: nil
     end
   end
 
@@ -24,7 +24,8 @@ class EditionsController < ApplicationController
   def get_editions
     if editions_list_params.has_key?(:limit)
       @editions = Edition
-        .order(issue_number: :desc)
+        .where(:is_published => true)
+        .order(:issue_number => :desc)
         .limit(editions_list_params[:limit])
     else
       @editions = Edition
@@ -33,8 +34,13 @@ class EditionsController < ApplicationController
   end
 
   def get_edition
-    @edition = Edition
-      .find(edition_params[:edition_id])
+    edition = Edition.find(edition_params[:edition_id])
+
+    if edition.nil? || !edition.is_published
+      @edition = nil
+    else
+      @edition = edition
+    end
   end
 
   def editions_list_params

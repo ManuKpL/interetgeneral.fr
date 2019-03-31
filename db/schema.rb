@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_31_102451) do
+ActiveRecord::Schema.define(version: 2019_03_31_183813) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(version: 2019_03_31_102451) do
     t.string "shop_path"
     t.string "preview_url"
     t.string "color"
+    t.boolean "is_published", default: false
   end
 
   create_table "illustrations", force: :cascade do |t|
