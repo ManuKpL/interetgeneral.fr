@@ -3,6 +3,7 @@ ActiveAdmin.register Article do
   permit_params :article_type,
                 :title,
                 :author_id,
+                :edition_id,
                 :illustration_id,
                 :lead,
                 :content,
