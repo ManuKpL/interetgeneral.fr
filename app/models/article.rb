@@ -42,6 +42,14 @@ class Article < ApplicationRecord
     }
   end
 
+  def to_home_json_format
+    {
+      :id     => id,
+      :imgSrc => illustration.image_url,
+      :title  => title,
+    }
+  end
+
   private
 
   def get_json data
