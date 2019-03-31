@@ -16,6 +16,7 @@ module ArticleSeed
       edition_id: 2,
       article_type: 0,
       illustration_id: 1,
+      is_published: true,
     },
     {
       title: 'Le travail selon Marx',
@@ -33,6 +34,7 @@ module ArticleSeed
       edition_id: 2,
       article_type: 0,
       illustration_id: 1,
+      is_published: true,
     },
     {
       title: 'Le salariat en miettes',
@@ -50,6 +52,7 @@ module ArticleSeed
       edition_id: 2,
       article_type: 0,
       illustration_id: 1,
+      is_published: true,
     }
   ]
 

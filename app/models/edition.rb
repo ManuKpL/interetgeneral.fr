@@ -33,7 +33,7 @@ class Edition < ApplicationRecord
       :previewSrc => preview_url,
       :shopPath   => shop_path,
       :color      => color,
-      :articles   => articles.map(&:to_json_issue_format),
+      :articles   => articles.filter(&:is_published).map(&:to_json_issue_format),
     }
   end
 end
