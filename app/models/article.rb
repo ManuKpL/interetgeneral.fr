@@ -47,6 +47,7 @@ class Article < ApplicationRecord
       :id     => id,
       :imgSrc => illustration.image_url,
       :title  => title,
+      :type   => 'article',
     }
   end
 

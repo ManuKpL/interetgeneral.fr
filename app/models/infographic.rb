@@ -6,6 +6,7 @@ class Infographic < ApplicationRecord
       :id     => id,
       :imgSrc => image_url,
       :title  => title,
+      :type   => 'infographic',
     }
   end
 end
