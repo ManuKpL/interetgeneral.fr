@@ -1,23 +1,25 @@
-<main class="container" *ngIf="article$ | async as article">
+<div class="container">
+  <main *ngIf="article$ | async as article">
 
-  <h1 id="article-title">{{ article.title }}</h1>
+    <h1 id="article-title">{{ article.title }}</h1>
 
-  <ig-lazy-img
-    *ngIf          = "article.illustration as illustration"
-    id             = "article-image"
-    [illustration] = "illustration"
-    [classNames]   = "'article-img'"
-  ></ig-lazy-img>
+    <ig-lazy-img
+      *ngIf          = "article.illustration as illustration"
+      id             = "article-image"
+      [illustration] = "illustration"
+      [classNames]   = "'article-img'"
+    ></ig-lazy-img>
 
-  <dl id="article-lead">
-    <dt>{{ article.type | translate:'articleType' }}</dt>
-    <dd [innerHtml]="article.lead | safeHtml"></dd>
-  </dl>
+    <dl id="article-lead">
+      <dt>{{ article.type | translate:'articleType' }}</dt>
+      <dd [innerHtml]="article.lead | safeHtml"></dd>
+    </dl>
 
-  <section id="article-content" [innerHtml]="article.content"></section>
+    <section id="article-content" [innerHtml]="article.content"></section>
 
-  <aside id="article-author" *ngIf="article.author; let author">
-    {{ author.fullName }}, <span [innerHtml]="author.description | safeHtml"></span>
-  </aside>
+    <aside id="article-author" *ngIf="article.author; let author">
+      {{ author.fullName }}, <span [innerHtml]="author.description | safeHtml"></span>
+    </aside>
 
-</main>
+  </main>
+</div>

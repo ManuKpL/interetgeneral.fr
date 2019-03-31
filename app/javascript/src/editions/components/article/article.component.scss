@@ -16,10 +16,11 @@
 ::ng-deep ig-lazy-img {
 
   grid-area: image;
-  position: relative;
+  position : relative;
 
   .article-image {
-    width : 100px;
+    width     : 100px !important;
+    height    : unset !important;
     object-fit: cover;
   }
 }

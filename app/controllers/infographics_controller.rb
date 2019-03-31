@@ -25,7 +25,11 @@ class InfographicsController < ApplicationController
   end
 
   def get_articles_infographics
-    @articles = Article.where(:article_type => Article.article_types[:INFOGRAPHIC])
+    @articles = Article
+      .where({
+        :article_type => Article.article_types[:INFOGRAPHIC],
+        :is_published => true,
+      })
       .order(:created_at => :desc)
   end
 
