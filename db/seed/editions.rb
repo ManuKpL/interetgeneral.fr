@@ -9,6 +9,7 @@ module EditionsSeed
       latest_issue: false,
       shop_path: 'https://croquant.atheles.org/linteretgeneral/linteretgeneral',
       color: '#FA002E',
+      is_published: true,
     },
     {
       image_url: '/packs/media/covers/2-travail-be91992d.png',
@@ -19,6 +20,7 @@ module EditionsSeed
       latest_issue: false,
       shop_path: 'http://www.editions-croquant.org/component/mijoshop/product/407-l-interet-general-n-2',
       color: '#3C1DA2',
+      is_published: true,
     },
     {
       image_url: '/packs/media/covers/3-campagnes-7d928ea0.png',
@@ -29,6 +31,7 @@ module EditionsSeed
       latest_issue: true,
       shop_path: 'http://www.editions-croquant.org/component/mijoshop/product/462-revue-l-interet-general-n-3',
       color: '#EBA93F',
+      is_published: true,
     },
   ]
 
