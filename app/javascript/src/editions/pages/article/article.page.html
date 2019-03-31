@@ -10,7 +10,7 @@
   ></ig-lazy-img>
 
   <dl id="article-lead">
-    <dt>{{ article.type }}</dt>
+    <dt>{{ article.type | translate:'articleType' }}</dt>
     <dd [innerHtml]="article.lead | safeHtml"></dd>
   </dl>
 
