@@ -38,12 +38,11 @@ h3 {
 
 p {
   &:first-of-type {
-    grid-area: details;
-    padding-left: 10px;
-    display: flex;
+    grid-area   : details;
+    padding-left: 10px   ;
   }
   &:last-of-type {
-    grid-area: lead;
+    grid-area : lead  ;
     font-style: italic;
   }
 }
