@@ -17,7 +17,7 @@
   <section id="article-content" [innerHtml]="article.content"></section>
 
   <aside id="article-author" *ngIf="article.author; let author">
-    {{ author.fullName }}, {{ author.description }}
+    {{ author.fullName }}, <span [innerHtml]="author.description | safeHtml"></span>
   </aside>
 
 </main>

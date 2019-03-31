@@ -40,6 +40,7 @@ p {
   &:first-of-type {
     grid-area: details;
     padding-left: 10px;
+    display: flex;
   }
   &:last-of-type {
     grid-area: lead;
