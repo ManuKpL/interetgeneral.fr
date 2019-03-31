@@ -3,8 +3,7 @@
     [illustration]="article.illustration"
     [classNames]="'article-image'"
   ></ig-lazy-img>
-  <!-- <span [ngClass]="articleType.className">{{ articleType.text }}</span> -->
   <h3>{{ article.title }}</h3>
-  <p>{{ article.author.fullName }}, {{ article.author.description }}</p>
+  <p>{{ article.author.fullName }}, <span [innerHtml]="article.author.description | safeHtml"></span>
   <p [innerHtml]="article.lead | safeHtml"></p>
 </a>

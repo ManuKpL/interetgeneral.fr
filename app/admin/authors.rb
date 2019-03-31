@@ -7,7 +7,7 @@ ActiveAdmin.register Author do
     column :id
     column :name
     column :first_name
-    column :description
+    column :description do |a| raw(a.description) end
     actions
   end
 
@@ -16,16 +16,16 @@ ActiveAdmin.register Author do
       row :id
       row :name
       row :first_name
-      row :description
+      row :description do |a| raw(a.description) end
     end
     active_admin_comments
   end
 
   form title: 'Author edition' do |f|
     inputs do
-      input :name
-      input :first_name
-      input :description
+      input :name,        { :required => true }
+      input :first_name,  { :required => true }
+      input :description, { :required => true }
     end
     actions
   end
