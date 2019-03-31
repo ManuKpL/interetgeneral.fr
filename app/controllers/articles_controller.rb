@@ -27,7 +27,8 @@ class ArticlesController < ApplicationController
     @articles = Edition
       .find(articles_params[:edition_id])
       .articles
-      .order(created_at: :desc)
+      .where(:is_published => true)
+      .order(:created_at => :desc)
   end
 
   def get_article

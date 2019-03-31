@@ -5,11 +5,13 @@ ActiveAdmin.register Article do
                 :author_id,
                 :illustration_id,
                 :lead,
-                :content
+                :content,
+                :is_published
 
   index do
     selectable_column
     column :id
+    column :is_published
     column :edition
     column :article_type
     column :title
@@ -22,6 +24,7 @@ ActiveAdmin.register Article do
   show do
     attributes_table do
       row :id
+      row :is_published
       row :edition
       row :article_type
       row :title
@@ -37,6 +40,7 @@ ActiveAdmin.register Article do
 
   form title: 'Article edition' do |f|
     inputs do
+      input :is_published
       input :edition
       input :article_type, {
         :as             => :select,
