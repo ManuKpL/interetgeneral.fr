@@ -36,11 +36,19 @@ class EditionsController < ApplicationController
   def get_edition
     edition = Edition.find(edition_params[:edition_id])
 
-    if edition.nil? || !edition.is_published || edition.articles.empty?
-      @edition = nil
-    else
+    if is_valid_edition(edition)
       @edition = edition
+    else
+      @edition = nil
     end
+  end
+
+  def is_valid_edition edition
+    return false if edition.nil?
+    return false if !edition.is_published
+    return false if edition.articles.select(&:is_published).empty?
+
+    return true
   end
 
   def editions_list_params
