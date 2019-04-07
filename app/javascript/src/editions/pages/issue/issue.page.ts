@@ -15,6 +15,8 @@ export class IssuePage implements OnInit {
   public issue: IEditionIssue;
   public mainColor: string;
 
+  public illustrationDef: any;
+
   constructor(
     private location: Location,
     private resource: EditionsResource,
@@ -41,6 +43,12 @@ export class IssuePage implements OnInit {
       next: (issue: IEditionIssue) => {
         this.issue = issue;
         this.mainColor = issue.color || IssuePage.IG_RED;
+
+        this.illustrationDef = {
+          imgSrc: issue.imgSrc,
+          previewSrc: issue.previewSrc,
+          name: issue.title
+        };
 
         if (issue.editionId !== id) {
           this.location.go(`/editions/${issue.editionId}`);

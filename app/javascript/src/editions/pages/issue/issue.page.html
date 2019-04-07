@@ -1,24 +1,32 @@
-<main class="ig-issue">
-  <div *ngIf="issue" [ngStyle]="{ color: mainColor }">
+<div class="container">
 
-    <div class="ig-issue-cover" [ngStyle]="{ 'background-image': 'url(' + issue.imgSrc + ')' }">
-      <header class="ig-issue-header">
-        <div class="ig-issue-header-main container">
-          <h1 class="ig-issue-header-title">{{ issue.number }}. {{ issue.title }}</h1>
-          <p class="ig-issue-header-description">{{ issue.shortDesc }}</p>
-          <a
-            class="ig-button-current-color ig-button-current-color-highlight ig-issue-header-shop"
-            [href]="issue.shopPath"
-            target="_blank"
-            ><span>Commander</span></a>
-        </div>
-      </header>
-    </div>
+  <main class="ig-issue padded" [ngStyle]="{ color: mainColor }">
 
-    <section class="ig-issue-summary container">
-      <h2>Sommaire</h2>
+    <h1 id="issue-title">
+      {{ issue.number }}. {{ issue.title }}
+    </h1>
+
+    <ig-lazy-img
+      id="issue-cover"
+      [illustration]="illustrationDef"
+      classNames="issue-cover"
+    ></ig-lazy-img>
+
+    <section id="issue-details">
+      <p id="issue-description">{{ issue.shortDesc }}</p>
+
+      <a
+        id="issue-action"
+        class="ig-button-current-color ig-button-current-color-highlight"
+        [href]="issue.shopPath"
+        target="_blank"
+        ><span>Commander</span></a>
+    </section>
+
+    <section id="issue-content">
       <ig-issue-article *ngFor="let article of issue.articles" [article]="article" [editionId]="issue.editionId"></ig-issue-article>
     </section>
 
-  </div>
-</main>
+  </main>
+
+</div>
