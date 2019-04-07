@@ -7,10 +7,10 @@
       *ngIf          = "article.illustration as illustration"
       id             = "article-image"
       [illustration] = "illustration"
-      [classNames]   = "'article-img'"
+      [classNames]   = "getImageArticleClasses(article)"
     ></ig-lazy-img>
 
-    <dl id="article-lead">
+    <dl id="article-lead" [ngClass]="getArticleClassName(article)">
       <dt>{{ article.type | translate:'articleType' }}</dt>
       <dd [innerHtml]="article.lead | safeHtml"></dd>
     </dl>
@@ -19,6 +19,9 @@
 
     <aside id="article-author" *ngIf="article.author; let author">
       {{ author.fullName }}, <span [innerHtml]="author.description | safeHtml"></span>
+      <p>
+        <a class="ig-button" [routerLink]="EDITIONS_PATH + article.editionId"><span>Retour</span></a>
+      </p>
     </aside>
 
   </main>

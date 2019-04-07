@@ -6,15 +6,15 @@
 
 * {
   box-sizing: border-box;
-  &::after { box-sizing: border-box; }
+  &::after  { box-sizing: border-box; }
   &::before { box-sizing: border-box; }
 }
 
 body {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.42857;
-  margin: 0;
+  font-size  : 14px                                          ;
+  line-height: 1.42857                                       ;
+  margin     : 0                                             ;
   &.disable-scroll { overflow: hidden }
 }
 
@@ -26,34 +26,34 @@ body {
 a { text-decoration: none; color: inherit; cursor: pointer; }
 
 h2 {
-  color: $ig-red;
-  font-family: Lato, sans-serif;
-  font-weight: 100;
-  text-transform: uppercase;
-  font-size: 42px;
-  position: relative;
-  display: inline-block;
-  border-top: 2px solid $ig-red;
-  border-bottom: 2px solid $ig-red;
+  color         : $ig-red          ;
+  font-family   : Lato, sans-serif ;
+  font-weight   : 100              ;
+  text-transform: uppercase        ;
+  font-size     : 42px             ;
+  position      : relative         ;
+  display       : inline-block     ;
+  border-top    : 2px solid $ig-red;
+  border-bottom : 2px solid $ig-red;
   &::before {
-    content: '';
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    background-color: $ig-red;
-    transform: rotate(45deg);
-    top: 25px;
-    left: -40px;
+    content         : ''           ;
+    position        : absolute     ;
+    width           : 10px         ;
+    height          : 10px         ;
+    background-color: $ig-red      ;
+    transform       : rotate(45deg);
+    top             : 25px         ;
+    left            : -40px        ;
   }
   &::after {
-    content: '';
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    background-color: $ig-red;
-    transform: rotate(45deg);
-    top: 25px;
-    right: -40px;
+    content         : ''           ;
+    position        : absolute     ;
+    width           : 10px         ;
+    height          : 10px         ;
+    background-color: $ig-red      ;
+    transform       : rotate(45deg);
+    top             : 25px         ;
+    right           : -40px        ;
   }
 }
 @media screen and (max-width: $screen-xs) { h2::after, h2::before { display: none; } }
@@ -63,8 +63,8 @@ h2 {
  ******************************************************************************/
 
 .hidden    { display: none !important; }
-.faded     { opacity: 0 !important; }
-.closed    { height: 0px !important; }
+.faded     { opacity: 0 !important   ; }
+.closed    { height : 0px !important ; }
 
 /******************************************************************************
  * DISPLAY                                                                    *
@@ -82,9 +82,10 @@ h2 {
 }
 .full-cover {
   position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 1px;
-  left: 0;
+  top     : 0       ;
+  right   : 0       ;
+  bottom  : 1px     ;
+  left    : 0       ;
+  display : flex    ;
 }
 .text-center { text-align: center; }

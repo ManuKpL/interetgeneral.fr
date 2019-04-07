@@ -1,3 +1,7 @@
+:host {
+  position: relative;
+}
+
 .lazy-preview {
   opacity   : 1                      ;
   transition: opacity .5s ease-in-out;
@@ -12,4 +16,9 @@
   object-fit: cover;
 
   &-hide { opacity: 0 !important; }
+}
+
+.lazy-main {
+  width     : 100% ;
+  object-fit: cover;
 }

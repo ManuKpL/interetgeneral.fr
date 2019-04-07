@@ -6,6 +6,7 @@ declare interface IArticle {
   content:      string;
   author:       IIssueAuthor;
   illustration: IIllustration;
+  editionId:    string;
 }
 
 declare interface IIllustration {

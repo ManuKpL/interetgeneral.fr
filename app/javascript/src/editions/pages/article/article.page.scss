@@ -27,7 +27,7 @@ main {
   }
 
   @media screen and (max-width: $screen-md) {
-    grid-template-column: 12vw auto;
+    grid-template-columns: 12vw auto;
   }
 
   @media screen and (max-width: $screen-sm) {
@@ -54,13 +54,17 @@ main {
   box-shadow      : 1px 1px 3px 1px rgba(200,200,200,0.5);
 
   ::ng-deep .article-img {
-    opacity: 1;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    opacity   : 1               ;
+    position  : absolute        ;
+    top       : 0               ;
+    left      : 0               ;
+    width     : 100%            ;
+    height    : 100%            ;
+    object-fit: cover !important;
+
+    &.type-infographic {
+      object-fit: contain !important;
+    }
   }
 }
 
@@ -92,6 +96,11 @@ main {
     > ::ng-deep :first-child {
       margin-top: 0;
     }
+  }
+
+  &.type-article {
+    > dt { display: none; }
+    grid-template-columns: auto;
   }
 }
 

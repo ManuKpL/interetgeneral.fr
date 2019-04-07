@@ -6,6 +6,7 @@ import { catchError, switchMap, switchMapTo } from 'rxjs/operators';
 
 import { EditionsResource } from '../../services';
 import { compose, splitShift, validatesRegex } from '../../../utils';
+import { ArticleType } from '../../enums';
 
 @Component({
   selector   : 'ig-editions-article',
@@ -16,6 +17,7 @@ export class ArticlePage implements OnInit {
 
   public article$: Observable<any>;
   public imageDisplayFull = false;
+  public readonly EDITIONS_PATH = '/editions/';
 
   public constructor(
     private resource: EditionsResource,
@@ -43,6 +45,15 @@ export class ArticlePage implements OnInit {
 
   public onImageLoad(): void {
     this.imageDisplayFull = true;
+  }
+
+  public getImageArticleClasses(article: IArticle) {
+    return `${this.getArticleClassName(article)} article-img`;
+  }
+
+  public getArticleClassName(article: IArticle) {
+    const articleType: ArticleType = ArticleType[article.type];
+    return articleType.className;
   }
 
   // PRIVATE METHOD --------------------------------------------------------------------------------

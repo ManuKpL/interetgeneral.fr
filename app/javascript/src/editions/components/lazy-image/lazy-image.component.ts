@@ -18,7 +18,7 @@ export class NameComponent implements OnInit {
 
   public ngOnInit(): void {
     this.classNames = {
-      img    : this._classNames,
+      img    : [this._classNames, 'lazy-main'].join(' '),
       preview: [this._classNames, 'lazy-preview'].join(' '),
     };
   }
