@@ -46,6 +46,7 @@ export class IssuePage implements OnInit {
           this.location.go(`/editions/${issue.editionId}`);
         }
       },
+      error: () => this.router.navigate(['/']),
     };
 
     this.resource
