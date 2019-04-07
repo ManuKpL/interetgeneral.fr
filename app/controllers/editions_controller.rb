@@ -36,7 +36,7 @@ class EditionsController < ApplicationController
   def get_edition
     edition = Edition.find(edition_params[:edition_id])
 
-    if edition.nil? || !edition.is_published
+    if edition.nil? || !edition.is_published || edition.articles.empty?
       @edition = nil
     else
       @edition = edition
