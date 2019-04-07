@@ -1,13 +1,23 @@
 @import 'app/assets/stylesheets/config/variables';
 
 main.ig-issue {
-  display: grid;
-  grid-template-areas: 'cover title'
-                       'cover details'
-                       'content content';
-  grid-template-columns: 30vw auto;
-  grid-template-rows: auto max-content auto;
-  grid-column-gap: 5vw;
+  display              : grid                 ;
+  grid-column-gap      : 5vw                  ;
+  grid-template-areas  : 'cover title'
+                         'cover details'
+                         'content content'    ;
+  grid-template-columns: 30vw auto            ;
+  grid-template-rows   : auto max-content auto;
+
+  background-color     : rgba(210,200,200,.1)                 ;
+  box-shadow           : 1px 1px 3px 1px rgba(200,200,200,0.2);
+  padding              : 5vh                                  ;
+  margin               : 5vh 0                                ;
+
+  @media screen and (max-width: $screen-lg) {
+    margin-top: 2.5vh;
+    padding   : 2.5vh;
+  }
 
   @media screen and (max-width: $screen-xs) {
     grid-template-areas:
@@ -19,52 +29,55 @@ main.ig-issue {
   }
 
   #issue-title {
-    grid-area: title;
-    align-self: self-end;
-    font-family:  Lato, sans-serif;
-    font-size: 4em;
-    font-weight: 400;
-    margin: 0;
-    text-transform: uppercase;
+    grid-area     : title           ;
+    align-self    : self-end        ;
+    font-family   : Lato, sans-serif;
+    font-size     : 4em             ;
+    font-weight   : 400             ;
+    margin        : 0               ;
+    text-transform: uppercase       ;
+
     @media screen and (max-width: $screen-xs) {
-      text-align: center;
-      margin-bottom: 2.5vh;
-      font-size: 3em;
+      text-align   : center;
+      margin-bottom: 2.5vh ;
+      font-size    : 3em   ;
     }
   }
 
   #issue-cover {
     grid-area: cover;
+
     ::ng-deep .issue-cover {
-      width: 100%;
+      width        : 100%;
       margin-bottom: -5px;
     }
   }
 
   #issue-details {
-    grid-area: details;
-    display: grid;
+    grid-area          : details                ;
+    display            : grid                   ;
     grid-template-areas: 'description' 'actions';
-    grid-template-rows: auto max-content;
+    grid-template-rows : auto max-content       ;
 
     @media screen and (max-width: $screen-xs) {
-      margin-top: 2.5vh;
+      margin-top         : 2.5vh                  ;
       grid-template-areas: 'actions' 'description';
-      grid-template-rows: repeat(2, max-content);
+      grid-template-rows : repeat(2, max-content) ;
     }
     #issue-description {
       grid-area: description;
     }
     #issue-action {
-      grid-area: actions;
+      grid-area : actions ;
       align-self: baseline;
-      text-align: center;
+      text-align: center  ;
     }
   }
 
   #issue-content {
-    grid-area: content;
-    padding: 5vh;
+    grid-area: content      ;
+    padding  : 5vh 0 5vh 5vh;
+
     @media screen and (max-width: $screen-sm) {
       padding: 2.5vh 0;
     }

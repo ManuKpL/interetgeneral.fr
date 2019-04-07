@@ -1,6 +1,10 @@
 <div class="container">
 
-  <main class="ig-issue padded" [ngStyle]="{ color: mainColor }">
+  <main
+    *ngIf="issue"
+    [ngStyle]="{ color: mainColor }"
+    class="ig-issue padded"
+  >
 
     <h1 id="issue-title">
       {{ issue.number }}. {{ issue.title }}

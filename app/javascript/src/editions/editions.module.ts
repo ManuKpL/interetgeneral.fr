@@ -2,6 +2,8 @@ import { NgModule }     from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpModule }   from '@angular/http';
 
+import RouterModule     from '../router/router.module';
+
 import * as components from './components';
 import * as pages      from './pages';
 import * as services   from './services';
@@ -15,7 +17,7 @@ const servicesList   = Object.values(services);
 @NgModule({
   declarations: [...pagesList, ...componentsList, ...pipesList],
   exports     : [...pagesList],
-  imports     : [CommonModule, HttpModule],
+  imports     : [CommonModule, HttpModule, RouterModule],
   providers   : [...servicesList]
 })
 export default class EditionsModule { }

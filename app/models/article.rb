@@ -44,6 +44,7 @@ class Article < ApplicationRecord
       :content      => content,
       :author       => get_json(author),
       :illustration => get_json(illustration),
+      :editionId    => build_id(edition.issue_number, edition.title),
     }
   end
 
