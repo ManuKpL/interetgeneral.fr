@@ -7,7 +7,8 @@ source 'https://rubygems.org'
 
 ruby '2.6.2'
 
-gem 'devise'
+gem 'devise', '>= 4.6.0'
+gem 'rack', '>= 2.0.6'
 gem 'figaro'
 
 gem 'rails'
