@@ -1,6 +1,7 @@
 export class ArticleType {
 
   public static readonly ARTICLE     = new ArticleType('ARTICLE',     'AR', 'type-article');
+  public static readonly EDITO       = new ArticleType('EDITO',       'ED', 'type-edito');
   public static readonly INFOGRAPHIC = new ArticleType('INFOGRAPHIC', 'IG', 'type-infographic');
   public static readonly INTERVIEW   = new ArticleType('INTERVIEW',   'IV', 'type-interview');
 

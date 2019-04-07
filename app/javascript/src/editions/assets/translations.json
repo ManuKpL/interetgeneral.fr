@@ -1,6 +1,7 @@
 {
   "articleType": {
     "ARTICLE":     "ARTICLE",
+    "EDITO":       "EDITO",
     "INFOGRAPHIC": "INFOGRAPHIE",
     "INTERVIEW":   "INTERVIEW"
   }
