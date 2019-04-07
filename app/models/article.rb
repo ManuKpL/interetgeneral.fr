@@ -5,7 +5,7 @@ class Article < ApplicationRecord
   belongs_to :edition
   belongs_to :illustration
 
-  enum article_type: [:ARTICLE, :INFOGRAPHIC, :INTERVIEW]
+  enum article_type: [:EDITO, :ARTICLE, :INFOGRAPHIC, :INTERVIEW]
 
   def to_json_issue_format
     {
