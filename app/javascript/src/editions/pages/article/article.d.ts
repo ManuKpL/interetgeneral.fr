@@ -6,7 +6,16 @@ declare interface IArticle {
   content:      string;
   author:       IIssueAuthor;
   illustration: IIllustration;
-  editionId:    string;
+  accessStatus: string;
+  edition:      IArticleEdition;
+}
+
+declare interface IArticleEdition {
+  id:        string;
+  editionId: string;
+  number:    string;
+  title:     string;
+  shopPath:  string;
 }
 
 declare interface IIllustration {

@@ -107,15 +107,37 @@ main {
 #article-content {
   grid-area : content;
   text-align: justify;
-  > ::ng-deep :first-child {
-    margin-top: 0;
-  }
+
   &:first-letter {
     font-size: 3em;
     float: left;
     line-height: .9em;
     padding-right: 5px;
     font-weight: bolder;
+  }
+
+  &.article-content-partial {
+
+    > div:first-child {
+      position: relative;
+      &::after {
+        content : '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 50%;
+        background: linear-gradient(rgba(255, 255,255, .3), rgba(255, 255,255, .8));
+      }
+    }
+
+    > div#article-partial-cta {
+      text-align: center;
+    }
+  }
+
+  > ::ng-deep :first-child {
+    margin-top: 0;
   }
 }
 

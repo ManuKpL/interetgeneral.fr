@@ -6,7 +6,7 @@ import { catchError, switchMap, switchMapTo } from 'rxjs/operators';
 
 import { EditionsResource } from '../../services';
 import { compose, splitShift, validatesRegex } from '../../../utils';
-import { ArticleType } from '../../enums';
+import { ArticleType, AccessStatus } from '../../enums';
 
 @Component({
   selector   : 'ig-editions-article',
@@ -15,9 +15,9 @@ import { ArticleType } from '../../enums';
 })
 export class ArticlePage implements OnInit {
 
-  public article$: Observable<any>;
+
+  public article$: Observable<IArticle>;
   public imageDisplayFull = false;
-  public readonly EDITIONS_PATH = '/editions/';
 
   public constructor(
     private resource: EditionsResource,
@@ -25,6 +25,7 @@ export class ArticlePage implements OnInit {
     private router:   Router,
   ) {}
 
+  private readonly EDITIONS_PATH     = '/editions/';
   private readonly ID_FORMAT         = /^\d+(-[a-z]+)+/i;
   private readonly PARAMS_NAMES      = ['editionId', 'articleId'];
   private readonly INVALID_IDS_ERROR = 'INVALID_IDS';
@@ -40,7 +41,7 @@ export class ArticlePage implements OnInit {
           ),
         ),
         catchError(this._handleError()),
-      );
+      ) as Observable<IArticle>;
   }
 
   public onImageLoad(): void {
@@ -48,12 +49,33 @@ export class ArticlePage implements OnInit {
   }
 
   public getImageArticleClasses(article: IArticle) {
-    return `${this.getArticleClassName(article)} article-img`;
+    return `${this.getArticleTypeClassName(article)} article-img`;
   }
 
-  public getArticleClassName(article: IArticle) {
+  public getArticleTypeClassName(article: IArticle) {
     const articleType: ArticleType = ArticleType[article.type];
     return articleType.className;
+  }
+
+  public getAccessStatusClassName(article: IArticle) {
+    const accessStatus = this._getArticleAccessStatis(article);
+    return accessStatus.className;
+  }
+
+  public getBackButtonLink({ edition }: IArticle) {
+    return this.EDITIONS_PATH + edition.editionId;
+  }
+
+  public getEditionShopLink({ edition }: IArticle) {
+    return edition.shopPath;
+  }
+
+  public getEditionTitle({ edition }: IArticle) {
+    return `#${edition.number} <i>${edition.title}</i>`;
+  }
+
+  public shouldDisplayPartialCta(article: IArticle): boolean {
+    return this._getArticleAccessStatis(article) === AccessStatus.PARTIAL;
   }
 
   // PRIVATE METHOD --------------------------------------------------------------------------------
@@ -69,7 +91,7 @@ export class ArticlePage implements OnInit {
     return null;
   }
 
-  private _getArticle(ids: [string, string]): Observable<any> {
+  private _getArticle(ids: [string, string]): Observable<IArticle> {
     if (ids) {
       return this.resource.getEditionArticle(...ids);
     }
@@ -85,5 +107,9 @@ export class ArticlePage implements OnInit {
       return from(this.router.navigate(['/']))
         .pipe(switchMapTo(empty()));
     };
+  }
+
+  private _getArticleAccessStatis(article: IArticle) {
+    return AccessStatus.valueOf(article.accessStatus);
   }
 }

@@ -10,17 +10,33 @@
       [classNames]   = "getImageArticleClasses(article)"
     ></ig-lazy-img>
 
-    <dl id="article-lead" [ngClass]="getArticleClassName(article)">
+    <dl id="article-lead" [ngClass]="getArticleTypeClassName(article)">
       <dt>{{ article.type | translate:'articleType' }}</dt>
       <dd [innerHtml]="article.lead | safeHtml"></dd>
     </dl>
 
-    <section id="article-content" [innerHtml]="article.content"></section>
+    <section
+      id          = "article-content"
+      [ngClass]   = "getAccessStatusClassName(article)"
+    >
+      <div [innerHtml]="article.content"></div>
+      <div id="article-partial-cta" *ngIf="shouldDisplayPartialCta(article)">
+        Achetez l'Intérêt Général <span [innerHtml]="getEditionTitle(article)"></span> pour lire la suite de cet article
+        <p>
+          <a
+            id     = "issue-action"
+            class  = "ig-button ig-button-highlight"
+            [href] = "getEditionShopLink(article)"
+            target = "_blank"
+            ><span>Commander</span></a>
+        </p>
+      </div>
+    </section>
 
     <aside id="article-author" *ngIf="article.author; let author">
       {{ author.fullName }}, <span [innerHtml]="author.description | safeHtml"></span>
       <p>
-        <a class="ig-button" [routerLink]="EDITIONS_PATH + article.editionId"><span>Retour</span></a>
+        <a class="ig-button" [routerLink]="getBackButtonLink(article)"><span>Retour</span></a>
       </p>
     </aside>
 
