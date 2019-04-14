@@ -139,11 +139,14 @@ main {
     }
   }
 
-  > ::ng-deep :first-child {
+  > div > ::ng-deep :first-child {
     margin-top: 0;
   }
 }
 
 #article-details {
   grid-area: details;
+  &-actions {
+    margin-top: 20px;
+  }
 }
