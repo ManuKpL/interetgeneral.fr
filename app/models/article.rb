@@ -1,3 +1,5 @@
+MAX_CHAR_NUMBER_PARTIAL_ACCESS = 800
+
 class Article < ApplicationRecord
   include IdHelper
 
@@ -10,6 +12,11 @@ class Article < ApplicationRecord
     :INFOGRAPHIC => 1,
     :INTERVIEW   => 2,
     :EDITO       => 3,
+  }
+
+  enum access_status: {
+    :COMPLETE => 0,
+    :PARTIAL  => 1,
   }
 
   def to_json_issue_format
@@ -26,10 +33,10 @@ class Article < ApplicationRecord
 
   def to_json_simple_format
     {
-      :id => id,
-      :type => article_type,
-      :title => title,
-      :lead => lead,
+      :id     => id,
+      :type   => article_type,
+      :title  => title,
+      :lead   => lead,
       :author => get_json(author),
     }
   end
@@ -41,10 +48,11 @@ class Article < ApplicationRecord
       :type         => article_type,
       :title        => title,
       :lead         => lead,
-      :content      => content,
+      :content      => get_content_according_to_access(content, access_status),
       :author       => get_json(author),
       :illustration => get_json(illustration),
-      :editionId    => build_id(edition.issue_number, edition.title),
+      :accessStatus => access_status,
+      :edition      => get_json(edition),
     }
   end
 
@@ -66,4 +74,13 @@ class Article < ApplicationRecord
 
     data
   end
+
+  def get_content_according_to_access(article_content, access_status_value)
+    if 'COMPLETE' == access_status_value
+      return article_content
+    end
+
+    article_content.slice(0, MAX_CHAR_NUMBER_PARTIAL_ACCESS).strip + '...'
+  end
+
 end

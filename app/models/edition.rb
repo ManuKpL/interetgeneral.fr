@@ -39,6 +39,16 @@ class Edition < ApplicationRecord
     }
   end
 
+  def to_article_json_format
+    {
+      :id         => id,
+      :editionId  => build_id(issue_number, title),
+      :number     => issue_number,
+      :title      => title,
+      :shopPath   => shop_path,
+    }
+  end
+
   private
 
   def keep_only_one_current_record instance

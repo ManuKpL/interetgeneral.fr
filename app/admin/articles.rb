@@ -7,17 +7,17 @@ ActiveAdmin.register Article do
                 :illustration_id,
                 :lead,
                 :content,
-                :is_published
+                :is_published,
+                :access_status
 
   index do
     selectable_column
     column :id
     column :is_published
     column :edition
-    column :article_type
     column :title
-    column :author do |a| a.author.full_name end
-    column :illustration
+    column :article_type
+    column :access_status
     column :created_at
     actions
   end
@@ -27,8 +27,9 @@ ActiveAdmin.register Article do
       row :id
       row :is_published
       row :edition
-      row :article_type
       row :title
+      row :article_type
+      row :access_status
       row :author do |a| a.author.full_name end
       row :illustration
       row :lead do |a| raw(a.lead) end
@@ -43,6 +44,7 @@ ActiveAdmin.register Article do
     inputs do
       input :is_published
       input :edition
+      input :title, required: true
       input :article_type, {
         :as             => :select,
         :collection     => Article.article_types.keys,
@@ -51,7 +53,14 @@ ActiveAdmin.register Article do
         :include_hidden => false,
         :required       => true,
       }
-      input :title, required: true
+      input :access_status, {
+        :as             => :select,
+        :collection     => Article.access_statuses.keys,
+        :default        => 0,
+        :include_blank  => false,
+        :include_hidden => false,
+        :required       => true,
+      }
       input :author
       input :illustration
       input :lead, {
