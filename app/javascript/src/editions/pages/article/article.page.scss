@@ -11,17 +11,17 @@ main {
   grid-column-gap      : 2.5vw                                ;
   grid-row-gap         : 2.5vh                                ;
   grid-template-areas:
-    'image image'
     '. title'
-    'author lead'
-    '. content';
+    '. lead'
+    'image image'
+    'details content';
 
   @media screen and (max-width: $screen-lg) {
     grid-template-areas:
       'title title'
-      'image image'
       'lead lead'
-      'author content';
+      'image image'
+      'details content';
     margin-top: 2.5vh;
     padding   : 2.5vh;
   }
@@ -32,17 +32,18 @@ main {
 
   @media screen and (max-width: $screen-sm) {
     grid-template-areas:
-      'image'
       'title'
       'lead'
+      'image'
       'content'
-      'author';
+      'details';
     grid-template-columns: auto;
   }
 }
 
 #article-title {
   grid-area: title;
+  font-size: 4em;
 }
 
 #article-image {
@@ -74,6 +75,8 @@ main {
   margin               : 0               ;
   display              : grid            ;
   grid-template-columns: min-content auto;
+  font-weight: bold;
+  font-size:  1.3em;
 
   @media screen and (max-width: $screen-xs) {
     grid-template-columns: auto;
@@ -141,6 +144,6 @@ main {
   }
 }
 
-#article-author {
-  grid-area: author;
+#article-details {
+  grid-area: details;
 }
