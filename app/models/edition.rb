@@ -19,7 +19,7 @@ class Edition < ApplicationRecord
       :previewSrc    => preview_url,
       :shopPath      => shop_path,
       :latest        => latest_issue,
-      :articlesCount => articles.count
+      :articlesCount => articles.filter(&:is_published).count
     }
   end
 
