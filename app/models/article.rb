@@ -5,7 +5,7 @@ class Article < ApplicationRecord
 
   belongs_to :author
   belongs_to :edition
-  belongs_to :illustration
+  belongs_to :illustration, { :optional => true }
 
   enum article_type: {
     :ARTICLE     => 0,
