@@ -6,6 +6,7 @@ class Author < ApplicationRecord
       :id          => id,
       :fullName    => full_name,
       :description => description,
+      :initials    => "#{first_name[0]} #{name[0]}",
     }
   end
 

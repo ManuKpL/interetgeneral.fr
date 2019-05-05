@@ -62,9 +62,10 @@ ActiveAdmin.register Article do
         :required       => true,
       }
       input :author
-      input :illustration
+      input :illustration, {
+        :required => false,
+      }
       input :lead, {
-        :required   => true,
         :as         => :quill_editor,
         :input_html => {
           :data => {

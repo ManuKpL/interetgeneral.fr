@@ -26,4 +26,5 @@ declare interface IIssueAuthor {
   id:          number,
   fullName:    string,
   description: string,
+  initials:    string,
 }

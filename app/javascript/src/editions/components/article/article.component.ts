@@ -18,4 +18,8 @@ export class IssueArticleComponent implements OnInit {
     this.articleType = ArticleType[this.article.type];
     this.targetPath  = `/editions/${this.editionId}/articles/${this.article.articleId}`;
   }
+
+  public get hasAnIllustation(): boolean {
+    return !!this.article.illustration;
+  }
 }
