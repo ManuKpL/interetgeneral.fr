@@ -1,9 +1,18 @@
 <a class="wrapper" [href]="targetPath">
-  <ig-lazy-img
+
+  <ig-lazy-img *ngIf="hasAnIllustation; else noIllustration"
     [illustration]="article.illustration"
     [classNames]="'article-image'"
   ></ig-lazy-img>
+
+  <ng-template #noIllustration>
+    <aside id="no-illustration">
+      {{ article.author.initials }}
+    </aside>
+  </ng-template>
+
   <h3>{{ article.title }}</h3>
   <p>{{ article.author.fullName }}, <span [innerHtml]="article.author.description | safeHtml"></span>
   <p [innerHtml]="article.lead | safeHtml"></p>
+
 </a>

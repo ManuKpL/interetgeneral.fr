@@ -37,6 +37,19 @@ ig-lazy-img {
   }
 }
 
+#no-illustration {
+  grid-area       : image               ;
+  width           : 100px               ;
+  height          : 100px               ;
+  background-color: rgb(220, 220, 220);
+  display         : flex                ;
+  justify-content : center              ;
+  align-items     : center              ;
+  font-size       : 2.5rem              ;
+  font-family     : 'Roboto Slab', serif;
+  letter-spacing  : -0.2rem             ;
+}
+
 :host ::ng-deep p { margin: 0; }
 
 h3, p {
