@@ -58,7 +58,7 @@ export class ArticlePage implements OnInit {
   }
 
   public getAccessStatusClassName(article: IArticle) {
-    const accessStatus = this._getArticleAccessStatis(article);
+    const accessStatus = this._getArticleAccessStatus(article);
     return accessStatus.className;
   }
 
@@ -75,7 +75,7 @@ export class ArticlePage implements OnInit {
   }
 
   public shouldDisplayPartialCta(article: IArticle): boolean {
-    return this._getArticleAccessStatis(article) === AccessStatus.PARTIAL;
+    return this._getArticleAccessStatus(article) === AccessStatus.PARTIAL;
   }
 
   // PRIVATE METHOD --------------------------------------------------------------------------------
@@ -109,7 +109,7 @@ export class ArticlePage implements OnInit {
     };
   }
 
-  private _getArticleAccessStatis(article: IArticle) {
+  private _getArticleAccessStatus(article: IArticle) {
     return AccessStatus.valueOf(article.accessStatus);
   }
 }
