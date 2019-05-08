@@ -7,6 +7,7 @@ declare type TwitterMetaTagsValues = {
 };
 
 declare type OpenGraphMetaTagsValues = {
+  type:        string,
   title:       string,
   description: string,
   url:         string,

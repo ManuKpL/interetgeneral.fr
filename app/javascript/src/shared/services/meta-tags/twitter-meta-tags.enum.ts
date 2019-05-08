@@ -4,6 +4,7 @@ enum TwitterMetaTags {
   DESCRIPTION = 'twitter:description',
   URL         = 'twitter:url',
   IMAGE       = 'twitter:image',
+  SITE        = 'twitter:site',
 }
 
 namespace TwitterMetaTags {
@@ -14,6 +15,7 @@ namespace TwitterMetaTags {
       TwitterMetaTags.DESCRIPTION,
       TwitterMetaTags.URL,
       TwitterMetaTags.IMAGE,
+      TwitterMetaTags.SITE,
     ];
   }
 }
