@@ -87,4 +87,7 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # Pre Render JS for SEO and meta tags use
+  config.middleware.use(Rack::Prerender)
 end

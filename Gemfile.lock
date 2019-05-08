@@ -141,6 +141,9 @@ GEM
       mini_portile2 (~> 2.4.0)
     orm_adapter (0.5.0)
     pg (1.1.4)
+    prerender_rails (1.6.1)
+      activesupport
+      rack
     puma (3.12.1)
     rack (2.0.7)
     rack-proxy (0.6.5)
@@ -244,6 +247,7 @@ DEPENDENCIES
   jbuilder
   listen (>= 3.0.5, < 3.2)
   pg
+  prerender_rails
   puma
   rack (>= 2.0.6)
   rails

@@ -21,6 +21,7 @@ gem 'foreman'
 gem 'puma'
 gem 'webpacker'
 gem 'jbuilder'
+gem 'prerender_rails'
 
 gem 'activeadmin'
 gem 'inherited_resources'
