@@ -123,6 +123,7 @@ export class ArticlePage implements OnDestroy, OnInit {
 
   private _addOpenGraphMetaTags(article: IArticle): void {
     this.META_TAGS_SERVICE.setOpenGraphTags({
+      type:        'article',
       title:       article.title,
       description: article.lead,
       url:         this.ROUTER.url,

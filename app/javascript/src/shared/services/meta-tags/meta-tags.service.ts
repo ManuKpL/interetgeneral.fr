@@ -63,11 +63,19 @@ export default class MetaTagsService {
         name   : TwitterMetaTags.IMAGE,
         content: values.image,
       },
+      {
+        name   : TwitterMetaTags.SITE,
+        content: '@InteretGnral',
+      }
     ];
   }
 
   private _mapOpenGraphMetaDefinitions = (values: OpenGraphMetaTagsValues): MetaDefinition[] => {
     return [
+      {
+        property: OpenGraphMetaTags.TYPE,
+        content : values.type,
+      },
       {
         property: OpenGraphMetaTags.TITLE,
         content : values.title,
