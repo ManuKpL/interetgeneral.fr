@@ -132,7 +132,7 @@ export class ArticlePage implements OnDestroy, OnInit {
 
   private _addTwitterMetaTags(article: IArticle): void {
     this.META_TAGS_SERVICE.setTwitterTags({
-      card:        'INTERET_GENERAL_ARTICLE',
+      card:        'summary_large_image',
       title:       article.title,
       description: article.lead,
       url:         this.ROUTER.url,
