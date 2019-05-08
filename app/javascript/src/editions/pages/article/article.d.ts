@@ -16,6 +16,7 @@ declare interface IArticleEdition {
   number:    string;
   title:     string;
   shopPath:  string;
+  imgSrc:    string,
 }
 
 declare interface IIllustration {
