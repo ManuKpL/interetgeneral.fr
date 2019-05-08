@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 
 import { empty, from, Observable, throwError } from 'rxjs';
@@ -8,21 +8,23 @@ import { EditionsResource } from '../../services';
 import { compose, splitShift, validatesRegex } from '../../../utils';
 import { ArticleType, AccessStatus } from '../../enums';
 
+import MetaTagsService from '../../../shared/services/meta-tags/meta-tags.service';
+
 @Component({
   selector   : 'ig-editions-article',
   styleUrls  : ['./article.page.scss'],
   templateUrl: './article.page.html',
 })
-export class ArticlePage implements OnInit {
-
+export class ArticlePage implements OnDestroy, OnInit {
 
   public article$: Observable<IArticle>;
   public imageDisplayFull = false;
 
   public constructor(
-    private resource: EditionsResource,
-    private route:    ActivatedRoute,
-    private router:   Router,
+    private readonly ACTIVATED_ROUTE:   ActivatedRoute,
+    private readonly EDITION_RESOURCE:  EditionsResource,
+    private readonly META_TAGS_SERVICE: MetaTagsService,
+    private readonly ROUTER:            Router,
   ) {}
 
   private readonly EDITIONS_PATH     = '/editions/';
@@ -31,7 +33,7 @@ export class ArticlePage implements OnInit {
   private readonly INVALID_IDS_ERROR = 'INVALID_IDS';
 
   public ngOnInit(): void {
-    this.article$ = this.route.paramMap
+    this.article$ = this.ACTIVATED_ROUTE.paramMap
       .pipe(
         switchMap(
           compose(
@@ -42,6 +44,12 @@ export class ArticlePage implements OnInit {
         ),
         catchError(this._handleError()),
       ) as Observable<IArticle>;
+
+    this._addSocialMediaMetaTags();
+  }
+
+  public ngOnDestroy(): void {
+    this._clearSocialMediaMetaTags();
   }
 
   public onImageLoad(): void {
@@ -93,7 +101,7 @@ export class ArticlePage implements OnInit {
 
   private _getArticle(ids: [string, string]): Observable<IArticle> {
     if (ids) {
-      return this.resource.getEditionArticle(...ids);
+      return this.EDITION_RESOURCE.getEditionArticle(...ids);
     }
     throwError(this.INVALID_IDS_ERROR);
   }
@@ -104,12 +112,45 @@ export class ArticlePage implements OnInit {
         console.error('Invalid ids in path params');
       }
 
-      return from(this.router.navigate(['/']))
+      return from(this.ROUTER.navigate(['/']))
         .pipe(switchMapTo(empty()));
     };
   }
 
   private _getArticleAccessStatus(article: IArticle) {
     return AccessStatus.valueOf(article.accessStatus);
+  }
+
+  private _addOpenGraphMetaTags(article: IArticle): void {
+    this.META_TAGS_SERVICE.setOpenGraphTags({
+      title:       article.title,
+      description: article.lead,
+      url:         this.ROUTER.url,
+      image:       article.illustration ? article.illustration.imgSrc : '',
+    });
+  }
+
+  private _addTwitterMetaTags(article: IArticle): void {
+    this.META_TAGS_SERVICE.setTwitterTags({
+      card:        'INTERET_GENERAL_ARTICLE',
+      title:       article.title,
+      description: article.lead,
+      url:         this.ROUTER.url,
+      image:       article.illustration ? article.illustration.imgSrc : '',
+    });
+  }
+
+  private _addSocialMediaMetaTags(): void {
+    this.article$.subscribe({
+      next: article => {
+        this._addTwitterMetaTags(article);
+        this._addOpenGraphMetaTags(article);
+      },
+    });
+  }
+
+  private _clearSocialMediaMetaTags(): void {
+    this.META_TAGS_SERVICE.clearTwitterTags();
+    this.META_TAGS_SERVICE.clearOpenGraphTags();
   }
 }
