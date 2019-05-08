@@ -46,6 +46,7 @@ class Edition < ApplicationRecord
       :number     => issue_number,
       :title      => title,
       :shopPath   => shop_path,
+      :imgSrc     => image_url,
     }
   end
 
