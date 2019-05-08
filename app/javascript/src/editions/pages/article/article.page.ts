@@ -131,12 +131,14 @@ export class ArticlePage implements OnDestroy, OnInit {
   }
 
   private _addTwitterMetaTags(article: IArticle): void {
+    const hasIllustration = !!article.illustration;
+
     this.META_TAGS_SERVICE.setTwitterTags({
-      card:        'summary_large_image',
+      card:        hasIllustration ? 'summary_large_image' : 'summary',
       title:       article.title,
       description: article.lead,
       url:         this.ROUTER.url,
-      image:       article.illustration ? article.illustration.imgSrc : '',
+      image:       hasIllustration ? article.illustration.imgSrc : '',
     });
   }
 
