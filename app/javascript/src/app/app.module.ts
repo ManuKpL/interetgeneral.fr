@@ -6,6 +6,7 @@ import HomeModule         from '../home/home.module';
 import InfographiesModule from '../infographies/infographies.module';
 import NavbarModule       from '../navbar/navbar.module';
 import RoutingModule      from '../router/router.module';
+import SharedModule       from '../shared/shared.module';
 
 import AppComponent       from './app.component';
 
@@ -19,6 +20,7 @@ import AppComponent       from './app.component';
     InfographiesModule,
     NavbarModule,
     RoutingModule,
+    SharedModule,
   ],
 })
 export default class AppModule {}
