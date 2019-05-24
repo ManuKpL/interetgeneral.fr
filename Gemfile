@@ -23,6 +23,8 @@ gem 'webpacker'
 gem 'jbuilder'
 gem 'prerender_rails'
 
+gem 'graphql'
+
 gem 'activeadmin'
 gem 'inherited_resources'
 gem 'activeadmin_quill_editor'
@@ -37,6 +39,8 @@ group :development do
 
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+
+  gem 'graphiql-rails'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
