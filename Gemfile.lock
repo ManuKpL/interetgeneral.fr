@@ -144,7 +144,7 @@ GEM
     prerender_rails (1.6.1)
       activesupport
       rack
-    puma (3.12.1)
+    puma (3.12.4)
     rack (2.0.7)
     rack-proxy (0.6.5)
       rack
